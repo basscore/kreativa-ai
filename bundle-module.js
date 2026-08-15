@@ -1781,7 +1781,13 @@ Jawab pertanyaan user dengan helpful dan informatif!`;
                 attempts++;
                 resultContent.innerHTML = '';
 
-                miniaturePrompts.forEach((_, i) => {
+                // Jumlah hasil dari pemilih di panel. Adegan diacak dulu supaya
+                // pilihan 2 atau 4 tidak selalu dapat adegan yang sama.
+                const scenes = [...miniaturePrompts]
+                    .sort(() => Math.random() - 0.5)
+                    .slice(0, window.kaiCount('miniature-count-selection-grid', 4));
+
+                scenes.forEach((_, i) => {
                     const card = document.createElement('div');
                     card.id = `miniature-card-${i + 1}`;
                     card.className = 'text-center';
@@ -1791,7 +1797,7 @@ Jawab pertanyaan user dengan helpful dan informatif!`;
 
                 resultContent.classList.remove('hidden');
 
-                const generationPromises = miniaturePrompts.map((scene, i) => generateSingleMiniature(i + 1, scene));
+                const generationPromises = scenes.map((scene, i) => generateSingleMiniature(i + 1, scene));
                 await Promise.allSettled(generationPromises);
 
                 // Remove empty cards
@@ -1932,7 +1938,8 @@ Jawab pertanyaan user dengan helpful dan informatif!`;
             while (attempts < MAX_ATTEMPTS && successCount === 0) {
                 attempts++;
                 try {
-                    const bRollIdeas = await analyzeAndGetPrompts();
+                    const jumlahHalu = window.kaiCount('halu-count-selection-grid', 4);
+                    const bRollIdeas = (await analyzeAndGetPrompts(jumlahHalu)).slice(0, jumlahHalu);
                     generateBtn.innerHTML = `<div class="loader"></div><span class="ml-2">Membuat Foto...</span>`;
                     createDynamicCards(bRollIdeas);
                     const generationPromises = bRollIdeas.map((idea, index) => generateSingleBroll(index + 1, idea.title, idea.prompt));
@@ -1952,10 +1959,10 @@ Jawab pertanyaan user dengan helpful dan informatif!`;
             if (successCount === 0) alert('Akun Google ini sudah mencapai batas, silahkan gunakan akun Google lain');
         });
 
-        async function analyzeAndGetPrompts() {
+        async function analyzeAndGetPrompts(jumlah = 4) {
              const apiKey = "";
              const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-             const systemPrompt = `You are an AI photo blending assistant. Analyze a fan's photo and an idol's photo. Generate 6 distinct, creative photo concepts where they appear together as a couple. For each, provide a short title (in Indonesian) and a detailed prompt (in English) for an AI image generator. Respond ONLY with a valid JSON array of 6 objects with 'title' and 'prompt' keys.`;
+             const systemPrompt = `You are an AI photo blending assistant. Analyze a fan's photo and an idol's photo. Generate ${jumlah} distinct, creative photo concepts where they appear together as a couple. For each, provide a short title (in Indonesian) and a detailed prompt (in English) for an AI image generator. Respond ONLY with a valid JSON array of ${jumlah} objects with 'title' and 'prompt' keys.`;
              let userQuery = `Moment: "${momentDescInput.value.trim()}"\nStyle: "${photoStyleInput.value.trim()}"\nAspect Ratio: "${selectedHaluRatio}"`;
              const parts = [{ text: userQuery }, { inlineData: { mimeType: imageMimeType, data: uploadedImageBase64 } }, { inlineData: { mimeType: idolImageMimeType, data: uploadedIdolImageBase64 } }];
              const payload = { contents: [{ parts }], systemInstruction: { parts: [{ text: systemPrompt }] }, generationConfig: { responseMimeType: "application/json", responseSchema: { type: "ARRAY", items: { type: "OBJECT", properties: { "title": { "type": "STRING" }, "prompt": { "type": "STRING" } } } } } };
@@ -8966,7 +8973,13 @@ Generate a ${angle.prompt} of the exact same subject.`;
                 resultsGrid.innerHTML = '';
                 errorMessage.classList.add('hidden');
 
-                const angles = anglePresets[selectedPreset];
+                // Jumlah hasil dari pemilih di panel. Kalau preset punya lebih
+                // sedikit angle dari yang diminta, angle-nya diulang.
+                const anglePool = anglePresets[selectedPreset];
+                const angles = Array.from(
+                    { length: window.kaiCount('pa-count-selection-grid', anglePool.length) },
+                    (_, i) => anglePool[i % anglePool.length]
+                );
                 const totalAngles = angles.length;
 
                 let attempts = 0;
@@ -9346,7 +9359,12 @@ Generate a photo of the subject from Image 1 with the visual style of Image 2 ap
                 resultsGrid.innerHTML = '';
                 errorMessage.classList.add('hidden');
 
-                const variations = strengthVariations[selectedStrength];
+                // Jumlah hasil dari pemilih di panel; variasi diulang kalau kurang.
+                const variationPool = strengthVariations[selectedStrength];
+                const variations = Array.from(
+                    { length: window.kaiCount('sm-count-selection-grid', variationPool.length) },
+                    (_, i) => variationPool[i % variationPool.length]
+                );
                 const totalVariations = variations.length;
 
                 let attempts = 0;
@@ -16854,11 +16872,6 @@ PENTING:
                 if (num) { num.classList.add('text-purple-700'); num.classList.remove('text-gray-700'); }
                 selectedScale = parseInt(btn.dataset.scale, 10);
             });
-        }
-
-        
-        
-        );
         }
 
         async function consumeQuota() {
@@ -34633,7 +34646,7 @@ Generate foto maternity yang indah, bermakna, dan profesional.`;
 
             const aspectRatio = drInteriorRatioOptions.querySelector('.selected').dataset.value;
             const aspectClass = getAspectRatioClassNew(aspectRatio);
-            const TOTAL_INTERIOR_COUNT = 15;
+            const TOTAL_INTERIOR_COUNT = window.kaiCount('dr-interior-count-selection-grid', 15);
             let attempts = 0;
             const MAX_ATTEMPTS = 3;
             let successCount = 0;
@@ -34830,7 +34843,7 @@ Generate foto maternity yang indah, bermakna, dan profesional.`;
 
             const aspectRatio = drEksteriorRatioOptions.querySelector('.selected').dataset.value;
             const aspectClass = getAspectRatioClassNew(aspectRatio);
-            const TOTAL_EKSTERIOR_COUNT = 15;
+            const TOTAL_EKSTERIOR_COUNT = window.kaiCount('dr-eksterior-count-selection-grid', 15);
             let attempts = 0;
             const MAX_ATTEMPTS = 3;
             let successCount = 0;
