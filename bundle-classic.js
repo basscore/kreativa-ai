@@ -7174,7 +7174,11 @@
         let __adInProgress = false;
 
         function __adsConfigured() {
-            return AD_URL.indexOf("YOUR-") === -1;
+            // ponytail: sistem iklan dimatikan permanen. Semua gerbang iklan
+            // (__attachAdGate + grid delegated) sudah early-return kalau ini false,
+            // jadi __showAdAndWait() tidak pernah dipanggil. Balikin ke
+            // `AD_URL.indexOf("YOUR-") === -1` kalau mau aktifkan lagi.
+            return false;
         }
         function __lynkConfigured() {
             return LYNK_BEBAS_IKLAN_URL.indexOf("YOUR-") === -1;
