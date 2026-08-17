@@ -8867,6 +8867,96 @@
             border: 3px solid rgba(255, 255, 255, 0.05) !important;
         }
     </style>
+    <!-- ==========================================================
+         TEMA PANEL — berlaku untuk SEMUA #content-*, tanpa daftar.
+
+         Skrip "pendaftar berkas" di dekat akhir file sudah memasang
+         data-map="1..9" dan menyuntik header .kop ke tiap panel. Dua
+         kait itu yang dipakai di sini, jadi panel baru ikut otomatis
+         begitu tombolnya masuk laci sidebar — tidak ada selector yang
+         perlu ditambah di mana pun.
+         ========================================================== -->
+    <style id="tema-panel">
+        /* --- Aksen kategori --------------------------------------
+           --map dipakai ~150 kali di seluruh stylesheet (garis kop,
+           border hover, ring fokus). Definisinya ikut terhapus
+           bersama CSS kertas, sehingga semua deklarasi itu invalid.
+           Nilainya mengikuti urutan laci sidebar. */
+        :root {
+            --map: #FF456A;
+        }
+
+        [data-map="1"] { --map: #FF456A }
+        [data-map="2"] { --map: #38BDF8 }
+        [data-map="3"] { --map: #F472B6 }
+        [data-map="4"] { --map: #FB923C }
+        [data-map="5"] { --map: #34D399 }
+        [data-map="6"] { --map: #A78BFA }
+        [data-map="7"] { --map: #2DD4BF }
+        [data-map="8"] { --map: #FB7185 }
+        [data-map="9"] { --map: #FB7185 }
+
+        /* --- Kop berkas ------------------------------------------
+           Disuntik ke 101 panel, tapi sebelumnya cuma 5 yang punya
+           gayanya. */
+        [id^="content-"]>.kop {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding: 1.15rem 1.5rem .9rem;
+            margin-bottom: 1.75rem;
+            background: rgba(22, 27, 40, .72);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-top: 3px solid var(--map);
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 1.1rem;
+            box-shadow: 0 14px 30px -12px rgba(0, 0, 0, .55);
+        }
+
+        [id^="content-"]>.kop .kop-kategori {
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--map);
+            filter: brightness(1.35);
+        }
+
+        [id^="content-"]>.kop .kop-nama {
+            flex: 1;
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #FFFFFF;
+            -webkit-text-fill-color: #FFFFFF;
+        }
+
+        [id^="content-"]>.kop .kop-no {
+            font-size: .75rem;
+            font-variant-numeric: tabular-nums;
+            color: #64748B;
+        }
+
+        /* Judul lama yang cuma mengulang nama alat — diserap kop. */
+        [id^="content-"] [data-kop-serap] {
+            display: none;
+        }
+
+        @media (max-width: 640px) {
+            [id^="content-"]>.kop {
+                padding: .9rem 1.1rem .75rem;
+                margin-bottom: 1.25rem;
+            }
+
+            [id^="content-"]>.kop .kop-nama {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
