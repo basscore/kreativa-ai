@@ -133,7 +133,18 @@ siapa pun mulai Fase 3.
 Tiap task ditutup: push `bundle-module.js` → update SHA di HTML (2 tempat) →
 `cek-bundle.sh` → tes manual di browser.
 
-## Fase 3 — Hapus kode legacy yang sudah sepenuhnya redundan (1 agent, setelah Fase 2 mendarat semua)
+## Fase 3 — SELESAI (branch `fase-3-hapus-legacy`, 2026-08-17)
+
+Hasil nyata: 49.495 → 36.664 baris, 3,8 MB → 2,3 MB. Semua 101 panel diuji
+otomatis (Playwright, klik tiap `.main-tab-btn`): tampil semua, nol
+`pageerror`. Dua yatim tambahan temuan `audit.md` (`pose-fashion`,
+`beranda-search`) diselamatkan dulu sebelum penghapusan — `pose-fashion`
+cukup diselaraskan id markup-nya ke skema bundle, pencarian + klik kartu
+beranda diport ke `bundle-module.js`. Sisa yang sengaja dibiarkan: markup
+mati (modal `poses-*` di `content-pov-tangan`, id lama `umrah-*`/`tryon-*`)
+— sudah mati sejak dedup, pembersihannya di luar scope plan ini.
+
+<details><summary>Rencana asli</summary>
 
 - **Task 3.1**: Hapus baris 35909–47876 (seluruh blok "LOGIKA APLIKASI versi
   terbaca") — di titik ini semua yang berharga di dalamnya sudah dipindah
@@ -147,6 +158,8 @@ Tiap task ditutup: push `bundle-module.js` → update SHA di HTML (2 tempat) →
 - **Task 3.4**: Regresi penuh — klik semua 106 tab satu-satu, pastikan yang
   seharusnya berfungsi masih berfungsi (silang-cek ke hasil klasifikasi
   Task 0.2).
+
+</details>
 
 **Hasil yang diharapkan:** file turun dari ~3,8 MB/49.490 baris ke kira-kira
 ~2,3 MB/37.000 baris (buang ~1,5 MB kode mati/duplikat), tetap satu file utuh
