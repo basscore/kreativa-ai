@@ -48931,29 +48931,34 @@ finish review, the verdict, and DESIGN.md
 
     <!-- Injected JS Features -->
     <script
-        src="https://cdn.jsdelivr.net/gh/basscore/kreativa-ai@adc446295edaee19a8ffaf26423d1f599c89bda2/bundle-classic.js"></script>
+        src="https://cdn.jsdelivr.net/gh/basscore/kreativa-ai@2c2f6fbf656e6c1e4441cf8d68ef85ae593667a4/bundle-classic.js"></script>
     <!-- ==========================================================
          DEDUP bagian 2 — pelepas listener.
-         Melepas listener yang dipasang skrip inline di dalam 44 panel
+         Melepas listener yang dipasang skrip inline di dalam 47 panel
          berikut, sehingga bundle-module.js jadi satu-satunya
          implementasi dan klik Generate hanya memanggil API sekali.
          Gerbang iklan (bundle-classic) dipasang di fase lain jadi
-         tidak ikut terlepas. Panel yang HANYA ada di inline
-         (face-swap, profesi-anak, konten-affiliator) dan yang
-         dipegang bundle-classic (feedbranding) sengaja tidak masuk
-         daftar. Set window.__KAI_DEBUG = true untuk lihat hitungannya.
+         tidak ikut terlepas. face-swap, profesi-anak dan
+         konten-affiliator sudah ikut di-port ke bundle-module.js
+         (Fase 2), jadi sekarang masuk daftar juga — versi inline-nya
+         tinggal menunggu dihapus di Fase 3. Yang dipegang
+         bundle-classic (feedbranding) tetap tidak masuk daftar.
+         Set window.__KAI_DEBUG = true untuk lihat hitungannya.
          ========================================================== -->
     <script type="module">
         const KAI_DUP_PANELS = [
             'content-affiliate', 'content-ai-beauty', 'content-bg-remover', 'content-bikin-carousel',
             'content-cover-photo-generator', 'content-desain-rumah', 'content-deskripsi-produk',
-            'content-expression-changer', 'content-family', 'content-financial-forecast',
+            'content-expression-changer', 'content-face-swap', 'content-family',
+            'content-financial-forecast',
             'content-food-selfie', 'content-halu', 'content-hr-assistant', 'content-ide-konten-tiktok',
-            'content-karikatur', 'content-konten-marketing', 'content-logo-generator',
+            'content-karikatur', 'content-konten-affiliator', 'content-konten-marketing',
+            'content-logo-generator',
             'content-mascot-generator', 'content-miniature', 'content-mockup-studio', 'content-new-born',
             'content-object-remover', 'content-passport-photo', 'content-photo-angle',
             'content-photo-booth', 'content-photo-extender', 'content-photo-restoration',
             'content-poster-generator', 'content-pov-tangan', 'content-product-ads',
+            'content-profesi-anak',
             'content-product-review', 'content-professional-headshot', 'content-rencana-bisnis',
             'content-riset-pasar', 'content-script-story-iklan', 'content-sketsa-gambar',
             'content-story-board', 'content-style-matcher', 'content-thumbnail-generator',
@@ -48996,7 +49001,7 @@ finish review, the verdict, and DESIGN.md
          immutable di jsDelivr: tidak pernah stale, tidak butuh ?v=.
          GANTI SHA INI setiap kali bundle di-push (git rev-parse master). -->
     <script
-        src="https://cdn.jsdelivr.net/gh/basscore/kreativa-ai@adc446295edaee19a8ffaf26423d1f599c89bda2/bundle-module.js"
+        src="https://cdn.jsdelivr.net/gh/basscore/kreativa-ai@2c2f6fbf656e6c1e4441cf8d68ef85ae593667a4/bundle-module.js"
         type="module"></script>
     <!-- ==========================================================
          BERKAS — pendaftar berkas
