@@ -8177,704 +8177,25 @@
             text-transform: uppercase !important;
         }
     </style>
-    <style id="custom-creative-affiliate">
-        /* ==========================================
-           STUDIO KREATIF — HALAMAN FITUR AFFILIATE THEME OVERRIDE
-           Konten Affiliator, Foto Produk Affiliate, Affiliate Harga
-           & Affiliate Agama — serasi dengan login & beranda
-           (kanvas gelap, kaca, aksen gradien).
-           ========================================== */
-
-        /* --- Kanvas halaman & pendar gradien --- */
-        #content-affiliate,
-        #content-affiliate-harga,
-        #content-affiliate-islami,
-        #content-konten-affiliator {
-            position: relative !important;
-            min-height: 100vh !important;
-            padding: 2rem 1.75rem 5rem !important;
-            color: #FFFFFF !important;
-            overflow-x: hidden !important;
-            box-sizing: border-box !important;
-        }
-
-        #content-affiliate::before,
-        #content-affiliate-harga::before,
-        #content-affiliate-islami::before,
-        #content-konten-affiliator::before {
-            content: '' !important;
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            height: 1000px !important;
-            background:
-                radial-gradient(circle at 12% 8%, rgba(255, 69, 106, 0.14) 0, transparent 42%),
-                radial-gradient(circle at 88% 12%, rgba(138, 43, 226, 0.14) 0, transparent 42%),
-                radial-gradient(circle at 50% 60%, rgba(59, 130, 246, 0.08) 0, transparent 50%) !important;
-            pointer-events: none !important;
-            z-index: 0 !important;
-        }
-
-        #content-affiliate > *,
-        #content-affiliate-harga > *,
-        #content-affiliate-islami > *,
-        #content-konten-affiliator > * {
-            position: relative !important;
-            z-index: 1 !important;
-        }
-
-        @media (max-width: 640px) {
-            #content-affiliate,
-            #content-affiliate-harga,
-            #content-affiliate-islami,
-            #content-konten-affiliator {
-                padding: 1.25rem 1rem 4rem !important;
-            }
-        }
-
-        /* --- Kop berkas: kaca gelap dengan garis map --- */
-        #content-affiliate .kop,
-        #content-affiliate-harga .kop,
-        #content-affiliate-islami .kop,
-        #content-konten-affiliator .kop,
-        #content-mockup-studio .kop {
-            display: flex !important;
-            align-items: baseline !important;
-            gap: 1rem !important;
-            flex-wrap: wrap !important;
-            padding: 1.15rem 1.5rem .9rem !important;
-            margin-bottom: 1.75rem !important;
-            background: rgba(22, 27, 40, 0.72) !important;
-            backdrop-filter: blur(16px) !important;
-            -webkit-backdrop-filter: blur(16px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            border-top: 3px solid var(--map) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
-            border-radius: 1.1rem !important;
-            box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.55) !important;
-        }
-
-        #content-affiliate .kop-kategori,
-        #content-affiliate-harga .kop-kategori,
-        #content-affiliate-islami .kop-kategori,
-        #content-konten-affiliator .kop-kategori,
-        #content-mockup-studio .kop-kategori {
-            color: var(--map) !important;
-            filter: brightness(1.75) !important;
-        }
-
-        #content-affiliate .kop-nama,
-        #content-affiliate-harga .kop-nama,
-        #content-affiliate-islami .kop-nama,
-        #content-konten-affiliator .kop-nama,
-        #content-mockup-studio .kop-nama {
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-        }
-
-        #content-affiliate .kop-no,
-        #content-affiliate-harga .kop-no,
-        #content-affiliate-islami .kop-no,
-        #content-konten-affiliator .kop-no,
-        #content-mockup-studio .kop-no {
-            color: #64748B !important;
-        }
-
-        /* --- Tipografi: judul putih, teks redup --- */
-        #content-affiliate :is(h1, h2, h3, h4, h5, h6),
-        #content-affiliate-harga :is(h1, h2, h3, h4, h5, h6),
-        #content-affiliate-islami :is(h1, h2, h3, h4, h5, h6),
-        #content-konten-affiliator :is(h1, h2, h3, h4, h5, h6),
-        #content-mockup-studio :is(h1, h2, h3, h4, h5, h6) {
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-        }
-
-        #content-affiliate :is(h1, h2, h3, h4, h5, h6) span,
-        #content-affiliate :is(h1, h2, h3, h4, h5, h6) i,
-        #content-affiliate-harga :is(h1, h2, h3, h4, h5, h6) span,
-        #content-affiliate-harga :is(h1, h2, h3, h4, h5, h6) i,
-        #content-affiliate-islami :is(h1, h2, h3, h4, h5, h6) span,
-        #content-affiliate-islami :is(h1, h2, h3, h4, h5, h6) i,
-        #content-konten-affiliator :is(h1, h2, h3, h4, h5, h6) span,
-        #content-konten-affiliator :is(h1, h2, h3, h4, h5, h6) i {
-            color: inherit !important;
-            -webkit-text-fill-color: inherit !important;
-        }
-
-        /* Judul gradien (mirip hero beranda) */
-        #content-konten-affiliator [class*="bg-clip-text"][class*="bg-gradient-to-"] {
-            background-image: linear-gradient(135deg, #FFFFFF 20%, #FF456A 60%, #A855F7 100%) !important;
-            -webkit-background-clip: text !important;
-            background-clip: text !important;
-            -webkit-text-fill-color: transparent !important;
-            color: transparent !important;
-        }
-
-        #content-affiliate :is(.text-gray-400, .text-gray-500, .text-gray-600, .text-slate-400, .text-slate-500, .text-slate-600),
-        #content-affiliate-harga :is(.text-gray-400, .text-gray-500, .text-gray-600, .text-slate-400, .text-slate-500, .text-slate-600),
-        #content-affiliate-islami :is(.text-gray-400, .text-gray-500, .text-gray-600, .text-slate-400, .text-slate-500, .text-slate-600),
-        #content-konten-affiliator :is(.text-gray-400, .text-gray-500, .text-gray-600, .text-slate-400, .text-slate-500, .text-slate-600),
-        #content-mockup-studio :is(.text-gray-400, .text-gray-500, .text-gray-600, .text-slate-400, .text-slate-500, .text-slate-600) {
-            color: #94A3B8 !important;
-            -webkit-text-fill-color: #94A3B8 !important;
-        }
-
-        #content-mockup-studio :is(.text-gray-200, .text-gray-300) {
-            color: #CBD5E1 !important;
-            -webkit-text-fill-color: #CBD5E1 !important;
-        }
-
-        #content-affiliate :is(.text-gray-700, .text-gray-800, .text-gray-900, .text-slate-700, .text-slate-800, .text-slate-900),
-        #content-affiliate-harga :is(.text-gray-700, .text-gray-800, .text-gray-900, .text-slate-700, .text-slate-800, .text-slate-900),
-        #content-affiliate-islami :is(.text-gray-700, .text-gray-800, .text-gray-900, .text-slate-700, .text-slate-800, .text-slate-900),
-        #content-konten-affiliator :is(.text-gray-700, .text-gray-800, .text-gray-900, .text-slate-700, .text-slate-800, .text-slate-900) {
-            color: #E2E8F0 !important;
-            -webkit-text-fill-color: #E2E8F0 !important;
-        }
-
-        #content-affiliate :is(.text-green-600, .text-green-700, .text-emerald-600, .text-emerald-700),
-        #content-affiliate-harga :is(.text-green-600, .text-green-700, .text-emerald-600, .text-emerald-700),
-        #content-affiliate-islami :is(.text-green-600, .text-green-700, .text-emerald-600, .text-emerald-700),
-        #content-konten-affiliator :is(.text-green-600, .text-green-700, .text-emerald-600, .text-emerald-700) {
-            color: #6EE7B7 !important;
-            -webkit-text-fill-color: #6EE7B7 !important;
-        }
-
-        #content-affiliate :is(.text-red-400, .text-red-500, .text-red-600, .text-red-700),
-        #content-affiliate-harga :is(.text-red-400, .text-red-500, .text-red-600, .text-red-700),
-        #content-affiliate-islami :is(.text-red-400, .text-red-500, .text-red-600, .text-red-700),
-        #content-konten-affiliator :is(.text-red-400, .text-red-500, .text-red-600, .text-red-700) {
-            color: #F87171 !important;
-            -webkit-text-fill-color: #F87171 !important;
-        }
-
-        /* --- Permukaan kartu: kaca gelap --- */
-        #content-affiliate .card,
-        #content-affiliate-harga .card,
-        #content-affiliate-islami .card,
-        #content-konten-affiliator .card,
-        #content-konten-affiliator [class*="bg-white"][class*="rounded"] {
-            background: rgba(22, 27, 40, 0.72) !important;
-            backdrop-filter: blur(16px) !important;
-            -webkit-backdrop-filter: blur(16px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.16) !important;
-            border-radius: 1.2rem !important;
-            box-shadow: 0 18px 40px -14px rgba(0, 0, 0, 0.6) !important;
-            color: #F1F5F9 !important;
-        }
-
-        #content-affiliate .card:hover,
-        #content-affiliate-harga .card:hover,
-        #content-affiliate-islami .card:hover,
-        #content-konten-affiliator .card:hover,
-        #content-konten-affiliator [class*="bg-white"][class*="rounded"]:hover {
-            border-color: rgba(168, 85, 247, 0.45) !important;
-            box-shadow: 0 18px 40px -14px rgba(0, 0, 0, 0.6), 0 0 24px rgba(138, 43, 226, 0.15) !important;
-        }
-
-        /* Kotak redup di dalam kartu (box skrip, tip, placeholder) */
-        #content-affiliate [class*="bg-gray-50"],
-        #content-affiliate-harga [class*="bg-gray-50"],
-        #content-affiliate-islami [class*="bg-gray-50"],
-        #content-konten-affiliator [class*="bg-gray-50"],
-        #content-affiliate [class*="bg-gray-100"],
-        #content-affiliate-harga [class*="bg-gray-100"],
-        #content-affiliate-islami [class*="bg-gray-100"],
-        #content-konten-affiliator [class*="bg-gray-100"],
-        #content-affiliate [class*="bg-green-50"],
-        #content-affiliate-harga [class*="bg-green-50"],
-        #content-affiliate-islami [class*="bg-green-50"],
-        #content-konten-affiliator [class*="bg-green-50"] {
-            background: rgba(11, 14, 23, 0.55) !important;
-            border-color: rgba(255, 255, 255, 0.1) !important;
-            color: #E2E8F0 !important;
-        }
-
-        /* Lencana langkah bernomor: gradien kembali hidup */
-        #content-affiliate [class*="bg-gradient-to-"]:not([class*="bg-clip-text"]),
-        #content-affiliate-harga [class*="bg-gradient-to-"]:not([class*="bg-clip-text"]),
-        #content-affiliate-islami [class*="bg-gradient-to-"]:not([class*="bg-clip-text"]),
-        #content-konten-affiliator [class*="bg-gradient-to-"]:not([class*="bg-clip-text"]) {
-            background-image: linear-gradient(135deg, #FF3366 0%, #B829E6 100%) !important;
-            background-color: transparent !important;
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-            border: none !important;
-            box-shadow: 0 8px 18px -6px rgba(255, 51, 102, 0.5) !important;
-        }
-
-        /* --- Formulir: bidang kaca gelap --- */
-        #content-affiliate :is(input, textarea, select):not([type="file"]),
-        #content-affiliate-harga :is(input, textarea, select):not([type="file"]),
-        #content-affiliate-islami :is(input, textarea, select):not([type="file"]),
-        #content-konten-affiliator :is(input, textarea, select):not([type="file"]),
-        #content-mockup-studio :is(input, textarea, select):not([type="file"]) {
-            background: rgba(11, 14, 23, 0.6) !important;
-            border-color: rgba(255, 255, 255, 0.12) !important;
-            color: #F1F5F9 !important;
-            border-radius: 0.8rem !important;
-            box-shadow: none !important;
-        }
-
-        #content-affiliate :is(input, textarea, select):focus,
-        #content-affiliate-harga :is(input, textarea, select):focus,
-        #content-affiliate-islami :is(input, textarea, select):focus,
-        #content-konten-affiliator :is(input, textarea, select):focus {
-            border-color: rgba(255, 69, 106, 0.55) !important;
-            box-shadow: 0 0 0 3px rgba(255, 69, 106, 0.15) !important;
-            transform: none !important;
-        }
-
-        #content-mockup-studio :is(input, textarea, select):focus {
-            border-color: rgba(236, 72, 153, 0.55) !important;
-            box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15) !important;
-            transform: none !important;
-        }
-
-        #content-mockup-studio button:disabled,
-        #content-mockup-studio button:disabled * {
-            background-color: rgba(255, 255, 255, 0.06) !important;
-            background-image: none !important;
-            border-color: rgba(255, 255, 255, 0.1) !important;
-            color: #64748B !important;
-            -webkit-text-fill-color: #64748B !important;
-        }
-
-        #content-affiliate textarea::placeholder,
-        #content-affiliate-harga textarea::placeholder,
-        #content-affiliate-islami textarea::placeholder,
-        #content-konten-affiliator textarea::placeholder {
-            color: #64748B !important;
-        }
-
-        #content-affiliate select option,
-        #content-affiliate-harga select option,
-        #content-affiliate-islami select option,
-        #content-konten-affiliator select option {
-            background: #0E121E !important;
-            color: #F1F5F9 !important;
-        }
-
-        /* --- Tombol utama: gradien khas login --- */
-        #content-affiliate .btn-primary,
-        #content-affiliate-harga .btn-primary,
-        #content-affiliate-islami .btn-primary,
-        #content-affiliate [id$="-generate-btn"],
-        #content-affiliate-harga [id$="-generate-btn"],
-        #content-affiliate-islami [id$="-generate-btn"],
-        #content-affiliate [id$="-download-all-btn"],
-        #content-affiliate-harga [id$="-download-all-btn"],
-        #content-affiliate-islami [id$="-download-all-btn"],
-        #content-konten-affiliator #ka-generate-btn,
-        #content-konten-affiliator #ka-confirm-generate-btn,
-        #content-konten-affiliator #ka-download-btn,
-        #content-konten-affiliator #ka-library-upload-btn,
-        #content-konten-affiliator #ka-tts-btn {
-            background-image: linear-gradient(135deg, #FF3366 0%, #B829E6 50%, #6366F1 100%) !important;
-            background-size: 200% 200% !important;
-            background-position: 0% 50% !important;
-            background-color: transparent !important;
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-            border: 1px solid rgba(255, 255, 255, 0.25) !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.5) !important;
-            border-radius: 1rem !important;
-            box-shadow: 0 10px 25px -4px rgba(255, 51, 102, 0.42), 0 8px 20px -4px rgba(184, 41, 230, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
-            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, background-position 0.5s ease, filter 0.25s ease !important;
-        }
-
-        #content-affiliate .btn-primary:hover,
-        #content-affiliate-harga .btn-primary:hover,
-        #content-affiliate-islami .btn-primary:hover,
-        #content-affiliate [id$="-generate-btn"]:hover,
-        #content-affiliate-harga [id$="-generate-btn"]:hover,
-        #content-affiliate-islami [id$="-generate-btn"]:hover,
-        #content-affiliate [id$="-download-all-btn"]:hover,
-        #content-affiliate-harga [id$="-download-all-btn"]:hover,
-        #content-affiliate-islami [id$="-download-all-btn"]:hover,
-        #content-konten-affiliator #ka-generate-btn:hover,
-        #content-konten-affiliator #ka-confirm-generate-btn:hover,
-        #content-konten-affiliator #ka-download-btn:hover,
-        #content-konten-affiliator #ka-library-upload-btn:hover,
-        #content-konten-affiliator #ka-tts-btn:hover {
-            transform: translateY(-2px) scale(1.01) !important;
-            background-position: 100% 50% !important;
-            box-shadow: 0 16px 35px -4px rgba(255, 51, 102, 0.55), 0 12px 28px -4px rgba(184, 41, 230, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.45) !important;
-            filter: brightness(1.06) !important;
-        }
-
-        #content-affiliate .btn-primary:disabled,
-        #content-affiliate-harga .btn-primary:disabled,
-        #content-affiliate-islami .btn-primary:disabled,
-        #content-affiliate [id$="-generate-btn"]:disabled,
-        #content-affiliate-harga [id$="-generate-btn"]:disabled,
-        #content-affiliate-islami [id$="-generate-btn"]:disabled,
-        #content-konten-affiliator #ka-generate-btn:disabled {
-            opacity: 0.5 !important;
-            transform: none !important;
-            cursor: not-allowed !important;
-            filter: grayscale(0.3) !important;
-            box-shadow: none !important;
-        }
-
-        /* --- Tombol sekunder: kaca --- */
-        #content-affiliate .btn-secondary,
-        #content-affiliate-harga .btn-secondary,
-        #content-affiliate-islami .btn-secondary,
-        #content-konten-affiliator #ka-open-library-btn,
-        #content-konten-affiliator #ka-cancel-ratio-btn,
-        #content-konten-affiliator .choose-from-lib-btn {
-            background: rgba(255, 255, 255, 0.06) !important;
-            backdrop-filter: blur(12px) !important;
-            -webkit-backdrop-filter: blur(12px) !important;
-            color: #E2E8F0 !important;
-            -webkit-text-fill-color: #E2E8F0 !important;
-            border: 1px solid rgba(255, 255, 255, 0.14) !important;
-            border-radius: 0.8rem !important;
-            box-shadow: none !important;
-        }
-
-        #content-affiliate .btn-secondary:hover,
-        #content-affiliate-harga .btn-secondary:hover,
-        #content-affiliate-islami .btn-secondary:hover,
-        #content-konten-affiliator #ka-open-library-btn:hover,
-        #content-konten-affiliator #ka-cancel-ratio-btn:hover,
-        #content-konten-affiliator .choose-from-lib-btn:hover {
-            background: rgba(255, 255, 255, 0.1) !important;
-            border-color: rgba(255, 69, 106, 0.45) !important;
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 12px 26px -10px rgba(0, 0, 0, 0.6) !important;
-        }
-
-        #content-affiliate .btn-secondary:disabled,
-        #content-affiliate-harga .btn-secondary:disabled,
-        #content-affiliate-islami .btn-secondary:disabled {
-            opacity: 0.45 !important;
-            cursor: not-allowed !important;
-            transform: none !important;
-        }
-
-        /* --- Area unggah --- */
-        #content-affiliate .file-input-label,
-        #content-affiliate-harga .file-input-label,
-        #content-affiliate-islami .file-input-label,
-        #content-konten-affiliator .file-upload-area {
-            background: rgba(255, 255, 255, 0.04) !important;
-            border: 1px dashed rgba(255, 255, 255, 0.18) !important;
-            border-radius: 0.9rem !important;
-            color: #94A3B8 !important;
-            box-shadow: none !important;
-            overflow: hidden !important;
-        }
-
-        #content-affiliate .file-input-label:hover,
-        #content-affiliate-harga .file-input-label:hover,
-        #content-affiliate-islami .file-input-label:hover,
-        #content-konten-affiliator .file-upload-area:hover {
-            border-color: rgba(255, 69, 106, 0.55) !important;
-            background: rgba(255, 69, 106, 0.06) !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 12px 26px -10px rgba(255, 69, 106, 0.35) !important;
-        }
-
-        #content-affiliate .file-input-label svg,
-        #content-affiliate-harga .file-input-label svg,
-        #content-affiliate-islami .file-input-label svg {
-            color: #64748B !important;
-        }
-
-        #content-affiliate .file-input-label:hover svg,
-        #content-affiliate-harga .file-input-label:hover svg,
-        #content-affiliate-islami .file-input-label:hover svg {
-            color: #FF6B8B !important;
-            transform: scale(1.1) translateY(-4px) !important;
-        }
-
-        /* --- Hub pill (Tema Umum / Agama / Harga) --- */
-        #content-affiliate-harga .hub-strip,
-        #content-affiliate-islami .hub-strip {
-            display: flex !important;
-            flex-wrap: wrap !important;
-            gap: 0.5rem !important;
-            margin-bottom: 1.5rem !important;
-            background: rgba(255, 255, 255, 0.04) !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            border-radius: 1rem !important;
-            padding: 0.5rem !important;
-        }
-
-        #content-affiliate-harga .hub-pill,
-        #content-affiliate-islami .hub-pill {
-            background: transparent !important;
-            color: #94A3B8 !important;
-            border: none !important;
-            border-radius: 0.7rem !important;
-            padding: 0.5rem 1.1rem !important;
-            font-weight: 600 !important;
-            font-size: 0.85rem !important;
-            cursor: pointer !important;
-            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-        }
-
-        #content-affiliate-harga .hub-pill:hover,
-        #content-affiliate-islami .hub-pill:hover {
-            color: #FFFFFF !important;
-            background: rgba(255, 255, 255, 0.06) !important;
-        }
-
-        #content-affiliate-harga .hub-pill.active,
-        #content-affiliate-islami .hub-pill.active {
-            background-image: linear-gradient(135deg, #FF3366, #B829E6) !important;
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-            box-shadow: 0 6px 16px -6px rgba(255, 51, 102, 0.5) !important;
-        }
-
-        /* --- Tombol pilihan: kaca + pilihan gradien --- */
-        #content-affiliate .ratio-btn-broll,
-        #content-affiliate-harga .ratio-btn-broll,
-        #content-affiliate-islami .option-btn-islami,
-        #content-affiliate-islami .category-filter-btn,
-        #content-affiliate-harga .count-btn-grid > button,
-        #content-affiliate-islami .count-btn-grid > button,
-        #content-konten-affiliator .category-card,
-        #content-konten-affiliator .style-card,
-        #content-konten-affiliator .ratio-select-btn {
-            background: rgba(255, 255, 255, 0.05) !important;
-            color: #E2E8F0 !important;
-            -webkit-text-fill-color: #E2E8F0 !important;
-            border: 1px solid rgba(255, 255, 255, 0.12) !important;
-            border-radius: 0.9rem !important;
-            box-shadow: none !important;
-            transform: none !important;
-            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-        }
-
-        #content-affiliate .ratio-btn-broll:hover,
-        #content-affiliate-harga .ratio-btn-broll:hover,
-        #content-affiliate-islami .option-btn-islami:hover,
-        #content-affiliate-islami .category-filter-btn:hover,
-        #content-affiliate-harga .count-btn-grid > button:hover,
-        #content-affiliate-islami .count-btn-grid > button:hover,
-        #content-konten-affiliator .category-card:hover,
-        #content-konten-affiliator .style-card:hover,
-        #content-konten-affiliator .ratio-select-btn:hover {
-            border-color: rgba(255, 69, 106, 0.5) !important;
-            background: rgba(255, 69, 106, 0.08) !important;
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-            transform: translateY(-2px) !important;
-        }
-
-        #content-affiliate .ratio-btn-broll.selected,
-        #content-affiliate-harga .ratio-btn-broll.selected,
-        #content-affiliate-islami .option-btn-islami.selected,
-        #content-affiliate-islami .category-filter-btn.selected,
-        #content-affiliate-harga .count-btn-grid > button.selected,
-        #content-affiliate-islami .count-btn-grid > button.selected,
-        #content-konten-affiliator .style-card.selected,
-        #content-konten-affiliator .category-card.selected-video,
-        #content-konten-affiliator .category-card.selected-image {
-            background-image: linear-gradient(135deg, rgba(255, 51, 102, 0.92), rgba(184, 41, 230, 0.92)) !important;
-            background-color: transparent !important;
-            border-color: transparent !important;
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-            box-shadow: 0 10px 24px -8px rgba(255, 51, 102, 0.55) !important;
-        }
-
-        #content-affiliate .ratio-btn-broll.selected:hover,
-        #content-affiliate-harga .ratio-btn-broll.selected:hover,
-        #content-affiliate-islami .option-btn-islami.selected:hover,
-        #content-affiliate-islami .category-filter-btn.selected:hover,
-        #content-affiliate-harga .count-btn-grid > button.selected:hover,
-        #content-affiliate-islami .count-btn-grid > button.selected:hover,
-        #content-konten-affiliator .style-card.selected:hover,
-        #content-konten-affiliator .category-card.selected-video:hover,
-        #content-konten-affiliator .category-card.selected-image:hover {
-            transform: translateY(-2px) !important;
-            background-position: 100% 50% !important;
-        }
-
-        /* Kartu kategori konten affiliator: ikon & detail */
-        #content-konten-affiliator .category-card svg {
-            color: #FF6B8B !important;
-        }
-
-        #content-konten-affiliator .category-card.selected-video svg,
-        #content-konten-affiliator .category-card.selected-image svg {
-            color: #FFFFFF !important;
-        }
-
-        /* --- Pustaka aset & modal rasio --- */
-        #content-konten-affiliator [id$="-modal-overlay"] {
-            background: rgba(3, 5, 12, 0.8) !important;
-            backdrop-filter: blur(8px) !important;
-            -webkit-backdrop-filter: blur(8px) !important;
-        }
-
-        #content-konten-affiliator .modal-content {
-            background: rgba(22, 27, 40, 0.95) !important;
-            backdrop-filter: blur(24px) !important;
-            -webkit-backdrop-filter: blur(24px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.12) !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
-            border-radius: 1.25rem !important;
-            box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.8) !important;
-            color: #F1F5F9 !important;
-        }
-
-        #content-konten-affiliator .modal-content [class*="border-t"],
-        #content-konten-affiliator .modal-content [class*="border-b"] {
-            border-color: rgba(255, 255, 255, 0.08) !important;
-        }
-
-        #content-konten-affiliator .library-tab {
-            color: #94A3B8 !important;
-            background: transparent !important;
-            border-bottom: 2px solid transparent !important;
-        }
-
-        #content-konten-affiliator .library-tab:hover {
-            color: #FFFFFF !important;
-        }
-
-        #content-konten-affiliator .library-tab.selected {
-            color: #FFFFFF !important;
-            border-bottom-color: #FF456A !important;
-        }
-
-        #content-konten-affiliator #ka-close-library-btn {
-            color: #94A3B8 !important;
-            background: transparent !important;
-            border: none !important;
-            font-size: 1.6rem !important;
-        }
-
-        #content-konten-affiliator #ka-close-library-btn:hover {
-            color: #FFFFFF !important;
-        }
-
-        /* --- Loading & toast --- */
-        #content-konten-affiliator #ka-loading-overlay {
-            background: rgba(7, 10, 18, 0.88) !important;
-            backdrop-filter: blur(8px) !important;
-            -webkit-backdrop-filter: blur(8px) !important;
-        }
-
-        #content-konten-affiliator #ka-loading-overlay .loader {
-            border: 4px solid rgba(255, 255, 255, 0.12) !important;
-            border-top-color: #FF456A !important;
-            border-radius: 50% !important;
-            width: 96px !important;
-            height: 96px !important;
-            box-shadow: 0 0 24px rgba(255, 69, 106, 0.35) !important;
-        }
-
-        #content-konten-affiliator #ka-loading-message {
-            color: #FFFFFF !important;
-        }
-
-        #content-affiliate .loader,
-        #content-affiliate-harga .loader,
-        #content-affiliate-islami .loader {
-            border: 2px solid rgba(255, 255, 255, 0.12) !important;
-            border-top-color: #FF456A !important;
-            border-radius: 50% !important;
-            box-shadow: none !important;
-        }
-
-        #content-konten-affiliator .toast {
-            background: rgba(22, 27, 40, 0.92) !important;
-            backdrop-filter: blur(12px) !important;
-            -webkit-backdrop-filter: blur(12px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.12) !important;
-            border-left: 3px solid #22C55E !important;
-            border-radius: 0.9rem !important;
-            color: #FFFFFF !important;
-            -webkit-text-fill-color: #FFFFFF !important;
-            box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.6) !important;
-        }
-
-        #content-konten-affiliator .toast.bg-red-600 {
-            border-left-color: #EF4444 !important;
-            background: rgba(28, 12, 20, 0.92) !important;
-        }
-
-        /* --- Kartu hasil (b-roll / result) --- */
-        #content-affiliate .b-roll-card,
-        #content-affiliate-harga .b-roll-card,
-        #content-affiliate-islami .result-card {
-            background: rgba(22, 27, 40, 0.72) !important;
-            backdrop-filter: blur(16px) !important;
-            -webkit-backdrop-filter: blur(16px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.16) !important;
-            border-radius: 1.1rem !important;
-            box-shadow: 0 16px 34px -12px rgba(0, 0, 0, 0.6) !important;
-            color: #F1F5F9 !important;
-        }
-
-        #content-affiliate [class*="aspect-"],
-        #content-affiliate-harga [class*="aspect-"],
-        #content-affiliate-islami [class*="aspect-"] {
-            background: rgba(11, 14, 23, 0.6) !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            border-radius: 0.8rem !important;
-        }
-
-        /* --- Bingkai gambar hasil & pratinjau --- */
-        #content-affiliate img[class*="rounded"],
-        #content-affiliate-harga img[class*="rounded"],
-        #content-affiliate-islami img[class*="rounded"],
-        #content-konten-affiliator img[class*="rounded"],
-        #content-konten-affiliator .file-preview,
-        #content-konten-affiliator #ka-image-grid img,
-        #content-konten-affiliator #ka-library-grid img {
-            border: 1px solid rgba(255, 255, 255, 0.12) !important;
-            background: rgba(11, 14, 23, 0.6) !important;
-            border-radius: 0.8rem !important;
-        }
-
-        /* Tombol hapus pratinjau: tetap merah, kaca */
-        #content-affiliate [class*="remove"][class*="bg-red-500"],
-        #content-affiliate-harga [class*="remove"][class*="bg-red-500"],
-        #content-affiliate-islami [class*="remove"][class*="bg-red-500"] {
-            background: rgba(239, 68, 68, 0.85) !important;
-            backdrop-filter: blur(8px) !important;
-            -webkit-backdrop-filter: blur(8px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.15) !important;
-        }
-
-        /* --- Scrollbar dalam panel --- */
-        #content-affiliate ::-webkit-scrollbar-track,
-        #content-affiliate-harga ::-webkit-scrollbar-track,
-        #content-affiliate-islami ::-webkit-scrollbar-track,
-        #content-konten-affiliator ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05) !important;
-        }
-
-        #content-affiliate ::-webkit-scrollbar-thumb,
-        #content-affiliate-harga ::-webkit-scrollbar-thumb,
-        #content-affiliate-islami ::-webkit-scrollbar-thumb,
-        #content-konten-affiliator ::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.18) !important;
-            border: 3px solid rgba(255, 255, 255, 0.05) !important;
-        }
-    </style>
     <!-- ==========================================================
-         TEMA PANEL — berlaku untuk SEMUA #content-*, tanpa daftar.
+         TEMA PANEL — berlaku untuk SEMUA panel alat, tanpa daftar.
 
          Skrip "pendaftar berkas" di dekat akhir file sudah memasang
-         data-map="1..9" dan menyuntik header .kop ke tiap panel. Dua
-         kait itu yang dipakai di sini, jadi panel baru ikut otomatis
-         begitu tombolnya masuk laci sidebar — tidak ada selector yang
-         perlu ditambah di mana pun.
+         data-map="1..9" dan menyuntik header .kop ke tiap panel yang
+         tombolnya terdaftar di laci sidebar. Dua kait itu yang dipakai
+         di sini, jadi panel baru ikut otomatis — tidak ada selector
+         yang perlu ditambah di mana pun.
+
+         Kenapa [id^="content-"][data-map] dan bukan [id^="content-"]:
+         data-map hanya dipasang ke panel ALAT. #content-beranda tidak
+         terdaftar di laci mana pun, jadi ia otomatis tersaring keluar
+         dan tetap memakai gayanya sendiri.
+
+         Lapisan ini sengaja TIDAK memakai !important dan TIDAK memakai
+         pencocokan substring [class*="..."]. Spesifisitasnya (0,3,0)
+         sudah menang atas utility Tailwind (0,1,0), sementara aturan
+         khusus panel yang ber-ID (1,1,0) tetap bisa menimpanya — itu
+         urutan yang benar: yang khusus mengalahkan yang umum.
          ========================================================== -->
     <style id="tema-panel">
         /* --- Aksen kategori --------------------------------------
@@ -8899,7 +8220,7 @@
         /* --- Kop berkas ------------------------------------------
            Disuntik ke 101 panel, tapi sebelumnya cuma 5 yang punya
            gayanya. */
-        [id^="content-"]>.kop {
+        [id^="content-"][data-map]>.kop {
             display: flex;
             align-items: baseline;
             gap: 1rem;
@@ -8916,7 +8237,7 @@
             box-shadow: 0 14px 30px -12px rgba(0, 0, 0, .55);
         }
 
-        [id^="content-"]>.kop .kop-kategori {
+        [id^="content-"][data-map]>.kop .kop-kategori {
             font-size: .72rem;
             font-weight: 700;
             letter-spacing: .12em;
@@ -8925,7 +8246,7 @@
             filter: brightness(1.35);
         }
 
-        [id^="content-"]>.kop .kop-nama {
+        [id^="content-"][data-map]>.kop .kop-nama {
             flex: 1;
             margin: 0;
             font-size: 1.5rem;
@@ -8935,26 +8256,276 @@
             -webkit-text-fill-color: #FFFFFF;
         }
 
-        [id^="content-"]>.kop .kop-no {
+        [id^="content-"][data-map]>.kop .kop-no {
             font-size: .75rem;
             font-variant-numeric: tabular-nums;
             color: #64748B;
         }
 
         /* Judul lama yang cuma mengulang nama alat — diserap kop. */
-        [id^="content-"] [data-kop-serap] {
+        [id^="content-"][data-map] [data-kop-serap] {
             display: none;
         }
 
         @media (max-width: 640px) {
-            [id^="content-"]>.kop {
+            [id^="content-"][data-map]>.kop {
                 padding: .9rem 1.1rem .75rem;
                 margin-bottom: 1.25rem;
             }
 
-            [id^="content-"]>.kop .kop-nama {
+            [id^="content-"][data-map]>.kop .kop-nama {
                 font-size: 1.2rem;
             }
+        }
+
+        /* --- Kanvas panel & pendar aksen ------------------------- */
+        [id^="content-"][data-map] {
+            position: relative;
+            min-height: 100vh;
+            padding: 2rem 1.75rem 5rem;
+            color: #FFFFFF;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+
+        [id^="content-"][data-map]::before {
+            content: '';
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 1000px;
+            background:
+                radial-gradient(circle at 12% 8%, rgba(255, 69, 106, .14) 0, transparent 42%),
+                radial-gradient(circle at 88% 12%, rgba(138, 43, 226, .14) 0, transparent 42%),
+                radial-gradient(circle at 50% 60%, rgba(59, 130, 246, .08) 0, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        [id^="content-"][data-map]>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 640px) {
+            [id^="content-"][data-map] {
+                padding: 1.25rem 1rem 4rem;
+            }
+        }
+
+        /* --- Tipografi ------------------------------------------- */
+        [id^="content-"][data-map] :is(h1, h2, h3, h4, h5, h6) {
+            color: #FFFFFF;
+        }
+
+        /* --- Permukaan kartu -------------------------------------
+           `bg-white` polos (bukan `bg-white/5` — itu kelas lain dan
+           tetap kaca) berarti "kartu" di markup konvensi terang. */
+        [id^="content-"][data-map] .card,
+        [id^="content-"][data-map] .bg-white {
+            background-color: rgba(22, 27, 40, .72);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-color: rgba(255, 255, 255, .1);
+            color: #F1F5F9;
+        }
+
+        [id^="content-"][data-map] .card {
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-top: 1px solid rgba(255, 255, 255, .16);
+            border-radius: 1.2rem;
+            box-shadow: 0 18px 40px -14px rgba(0, 0, 0, .6);
+        }
+
+        [id^="content-"][data-map] .card:hover {
+            border-color: rgba(168, 85, 247, .45);
+            box-shadow: 0 18px 40px -14px rgba(0, 0, 0, .6), 0 0 24px rgba(138, 43, 226, .15);
+        }
+
+        /* --- Formulir -------------------------------------------- */
+        [id^="content-"][data-map] :is(input, textarea, select):not([type="file"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]) {
+            background-color: rgba(11, 14, 23, .6);
+            border-color: rgba(255, 255, 255, .12);
+            color: #F1F5F9;
+            border-radius: .8rem;
+        }
+
+        [id^="content-"][data-map] :is(input, textarea, select):focus {
+            border-color: var(--map);
+            box-shadow: 0 0 0 3px rgba(255, 69, 106, .15);
+        }
+
+        [id^="content-"][data-map] :is(input, textarea)::placeholder {
+            color: #64748B;
+        }
+
+        [id^="content-"][data-map] select option {
+            background: #0E121E;
+            color: #F1F5F9;
+        }
+
+        /* --- Tombol utama ----------------------------------------
+           Dikenali dari nama: ID berakhiran -generate-btn /
+           -generate-button / -download-all-btn, atau kelas
+           .btn-primary. Beri nama begitu dan tombolnya dapat gradien
+           brand gratis. */
+        [id^="content-"][data-map] .btn-primary,
+        [id^="content-"][data-map] [id$="-generate-btn"],
+        [id^="content-"][data-map] [id$="-generate-button"],
+        [id^="content-"][data-map] [id$="-download-all-btn"] {
+            background-image: linear-gradient(135deg, #FF3366 0%, #B829E6 50%, #6366F1 100%);
+            background-size: 200% 200%;
+            background-position: 0% 50%;
+            background-color: transparent;
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, .25);
+            border-top: 1px solid rgba(255, 255, 255, .5);
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px -4px rgba(255, 51, 102, .42), 0 8px 20px -4px rgba(184, 41, 230, .38), inset 0 1px 0 rgba(255, 255, 255, .3);
+            transition: transform .25s cubic-bezier(.34, 1.56, .64, 1), box-shadow .25s ease, background-position .5s ease, filter .25s ease;
+        }
+
+        [id^="content-"][data-map] .btn-primary:hover:not(:disabled),
+        [id^="content-"][data-map] [id$="-generate-btn"]:hover:not(:disabled),
+        [id^="content-"][data-map] [id$="-generate-button"]:hover:not(:disabled),
+        [id^="content-"][data-map] [id$="-download-all-btn"]:hover:not(:disabled) {
+            transform: translateY(-2px) scale(1.01);
+            background-position: 100% 50%;
+            box-shadow: 0 16px 35px -4px rgba(255, 51, 102, .55), 0 12px 28px -4px rgba(184, 41, 230, .5), inset 0 1px 0 rgba(255, 255, 255, .45);
+            filter: brightness(1.06);
+        }
+
+        [id^="content-"][data-map] button:disabled {
+            opacity: .5;
+            transform: none;
+            cursor: not-allowed;
+            filter: grayscale(.3);
+            box-shadow: none;
+        }
+
+        /* --- Tombol sekunder -------------------------------------- */
+        [id^="content-"][data-map] .btn-secondary {
+            background-color: rgba(255, 255, 255, .06);
+            color: #E2E8F0;
+            border: 1px solid rgba(255, 255, 255, .14);
+            border-radius: .8rem;
+        }
+
+        [id^="content-"][data-map] .btn-secondary:hover:not(:disabled) {
+            background-color: rgba(255, 255, 255, .1);
+            border-color: var(--map);
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        /* --- Area unggah ------------------------------------------ */
+        [id^="content-"][data-map] :is(.file-input-label, .file-upload-area) {
+            background-color: rgba(255, 255, 255, .04);
+            border: 1px dashed rgba(255, 255, 255, .18);
+            border-radius: .9rem;
+            color: #94A3B8;
+        }
+
+        [id^="content-"][data-map] :is(.file-input-label, .file-upload-area):hover {
+            border-color: var(--map);
+            background-color: rgba(255, 69, 106, .06);
+            transform: translateY(-2px);
+        }
+
+        /* --- Tombol pilihan --------------------------------------- */
+        [id^="content-"][data-map] :is(.category-card, .style-card, .ratio-select-btn) {
+            background-color: rgba(255, 255, 255, .05);
+            color: #E2E8F0;
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: .9rem;
+            transition: all .25s cubic-bezier(.34, 1.56, .64, 1);
+        }
+
+        [id^="content-"][data-map] :is(.category-card, .style-card, .ratio-select-btn):hover {
+            border-color: var(--map);
+            background-color: rgba(255, 69, 106, .08);
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        [id^="content-"][data-map] :is(.category-card, .style-card, .ratio-select-btn):is(.selected, .selected-video, .selected-image) {
+            background-image: linear-gradient(135deg, rgba(255, 51, 102, .92), rgba(184, 41, 230, .92));
+            background-color: transparent;
+            border-color: transparent;
+            color: #FFFFFF;
+            box-shadow: 0 10px 24px -8px rgba(255, 51, 102, .55);
+        }
+
+        /* --- Modal, pustaka, loader, toast ------------------------ */
+        [id^="content-"][data-map] [id$="-modal-overlay"],
+        [id^="content-"][data-map] [id$="-loading-overlay"] {
+            background-color: rgba(3, 5, 12, .8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        [id^="content-"][data-map] .modal-content {
+            background-color: rgba(22, 27, 40, .95);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-top: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 1.25rem;
+            box-shadow: 0 30px 70px -20px rgba(0, 0, 0, .8);
+            color: #F1F5F9;
+        }
+
+        [id^="content-"][data-map] .library-tab {
+            color: #94A3B8;
+            background-color: transparent;
+            border-bottom: 2px solid transparent;
+        }
+
+        [id^="content-"][data-map] .library-tab:hover {
+            color: #FFFFFF;
+        }
+
+        [id^="content-"][data-map] .library-tab.selected {
+            color: #FFFFFF;
+            border-bottom-color: var(--map);
+        }
+
+        /* Spinner: cincin redup, kepala berwarna map. */
+        [id^="content-"][data-map] .loader {
+            border-color: rgba(255, 255, 255, .12);
+            border-top-color: var(--map);
+        }
+
+        [id^="content-"][data-map] .toast {
+            background-color: rgba(22, 27, 40, .92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-left: 3px solid #22C55E;
+            border-radius: .9rem;
+            color: #FFFFFF;
+            box-shadow: 0 12px 30px -8px rgba(0, 0, 0, .6);
+        }
+
+        /* --- Bingkai hasil & pratinjau ---------------------------- */
+        [id^="content-"][data-map] :is(.result-card, .b-roll-card) {
+            background-color: rgba(22, 27, 40, .72);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-top: 1px solid rgba(255, 255, 255, .16);
+            border-radius: 1.1rem;
+            box-shadow: 0 16px 34px -12px rgba(0, 0, 0, .6);
+            color: #F1F5F9;
+        }
+
+        /* --- Scrollbar dalam panel -------------------------------- */
+        [id^="content-"][data-map] ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, .05);
+        }
+
+        [id^="content-"][data-map] ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, .18);
+            border: 3px solid rgba(255, 255, 255, .05);
         }
     </style>
 </head>
