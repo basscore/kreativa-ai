@@ -48017,6 +48017,9 @@ The result must look completely natural and photorealistic, as if the person fro
         let selectedRatio = '3:4';
         let generatedResults = [];
 
+        // Skrip inline lama juga mengisi select ini (sampai Fase 3), jadi
+        // dikosongkan dulu — kalau tidak, daftar umurnya muncul dua kali.
+        ageSelect.innerHTML = '';
         for (let age = 1; age <= 10; age++) {
             const opt = document.createElement('option');
             opt.value = age;
