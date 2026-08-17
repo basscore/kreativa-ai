@@ -49,8 +49,8 @@ putih:
 | 100 | `#121826` | permukaan kartu |
 | 200 | `#1A2130` | permukaan sekunder |
 | 300 | `#29303F` | garis / border |
-| 400 | `#8695A8` | teks tersier |
-| 500 | `#A3B0C0` | teks sekunder / keterangan |
+| 400 | `#93A1B2` | teks tersier |
+| 500 | `#AEBACA` | teks sekunder / keterangan |
 | 600 | `#CBD5E1` | teks isi |
 | 700 | `#E2E8F0` | teks isi tegas |
 | 800 | `#F1F5F9` | judul |
@@ -83,10 +83,17 @@ peran sekaligus — latar tombol (`bg-*-600 text-white`, ~560×) dan teks aksen
 
 Karena itu `<style id="tema-panel">` memisahkan peran yang palet tidak bisa:
 
-- teks keluarga gelap (`blue`, `indigo`, `violet`, `purple`, `red`, `pink`,
-  `rose`) dinaikkan satu langkah;
-- latar keluarga terang (`cyan`, `sky`, `teal`, `green`, `emerald`, `lime`,
-  `yellow`, `amber`, `orange`) diturunkan satu langkah.
+- **peran teks** — keluarga gelap (`blue`, `indigo`, `violet`, `purple`, `red`,
+  `pink`, `rose`) dinaikkan satu langkah agar terbaca di kanvas gelap;
+- **peran latar** — nilainya diturunkan sampai `text-white` di atasnya lolos AA
+  (≥ 4,5). Keluarga terang (`cyan`, `sky`, `teal`, `green`, `emerald`, `lime`,
+  `yellow`, `amber`, `orange`) perlu turun ke stok 700; keluarga gelap cukup
+  stok 600.
+
+Peran latar juga mendaftar varian `hover:` dan `peer-checked:` secara eksplisit.
+Menggodanya memakai `[class*="bg-indigo-600"]` supaya semua varian kena
+sekaligus **salah**: elemen yang cuma punya `hover:bg-indigo-600` akan menyala
+permanen. Selector harus menyebut state-nya.
 
 Dua daftar itu **setingkat palet, bukan per panel** — tidak bertambah saat ada
 panel baru.
