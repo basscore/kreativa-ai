@@ -48,60 +48,76 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         /* ==========================================================
-           BERKAS — peta warna Tailwind.
+           PALET — SATU-SATUNYA TITIK KENDALI WARNA APLIKASI INI.
 
-           Ini yang membalik ~2.900 kelas utility di markup SEKALIGUS
-           kelas yang disuntik oleh blok JS terobfuskasi, tanpa file
-           itu perlu disentuh. Ubah di sini, bukan satu per satu.
+           Kanvas aplikasi gelap (#0B0E17), tapi markup 101 panel —
+           dan markup yang disuntik bundle-module.js saat runtime —
+           ditulis dengan konvensi TERANG: `text-gray-800` untuk judul,
+           `bg-gray-50` untuk kartu, `border-gray-300` untuk garis.
+           Ada ~2.900 kelas semacam itu; menulis ulang semuanya bukan
+           pilihan (sebagian tinggal di bundle yang disajikan jsDelivr).
 
-           ATURAN INTI DUNIA INI: warna kategori hidup di TEPI MAP dan
-           di KOP saja; bidang isi plat tetap akromatik. Karena itu
-           SETIAP keluarga warna Tailwind diarahkan ke satu tangga
-           kertas abu — 2.900 kelas berwarna yang tersebar (dan 123
-           judul warna-warni yang bikin tiap panel terasa beda) padam
-           dalam satu langkah. Warna map dipasang dengan sengaja oleh
-           lapisan CSS lewat [data-tab], bukan oleh utility acak.
+           Jadi paletnya yang dibalik, bukan markupnya:
 
-           Satu-satunya keluarga yang MEMPERTAHANKAN hue adalah `red`:
-           galat harus tetap terbaca sebagai galat.
+           1. Tangga NETRAL dibalik — 50 = permukaan tergelap, 900 =
+              putih. `bg-gray-50` otomatis jadi kartu gelap,
+              `text-gray-800` otomatis jadi judul terang. Markup
+              konvensi terang merender gelap tanpa satu pun override.
+
+           2. Tangga HUE tetap searah (terang→gelap tidak dibalik,
+              supaya `bg-blue-600` tetap biru pekat), tapi digeser dua
+              langkah lebih terang: `text-red-600` di atas #0B0E17
+              butuh nada 500, bukan 600, agar lolos kontras AA.
+
+           3. Nada 50/100/200 tiap hue bukan lagi tint pucat melainkan
+              permukaan gelap bernuansa — itu peran aslinya di markup
+              (`bg-green-50` = kotak sukses, `border-red-200` = garis
+              galat), dan peran itu tetap hidup di kanvas gelap.
+
+           MENAMBAH PANEL BARU: tulis markup Tailwind konvensi terang
+           seperti panel lain. Tidak ada daftar selector yang perlu
+           disentuh. Lihat DESIGN.md.
            ========================================================== */
 
-        /* tangga kertas: 50 = lembar paling terang, 900 = tinta */
-        const kertas = {
-            50: '#FBFAF6', 100: '#F4F2EA', 200: '#E7E4D9', 300: '#D6D2C6',
-            400: '#A8A498', 500: '#6E6B62', 600: '#555B63', 700: '#3A3F45',
-            800: '#24282D', 900: '#16181C', 950: '#0E1013'
+        /* Tangga netral, DIBALIK: 50 tergelap -> 900 putih. */
+        const netral = {
+            50: '#0B0E17', 100: '#121826', 200: '#1A2130', 300: '#29303F',
+            400: '#64748B', 500: '#94A3B8', 600: '#CBD5E1', 700: '#E2E8F0',
+            800: '#F1F5F9', 900: '#FFFFFF', 950: '#FFFFFF'
         };
 
-        /* satu-satunya hue yang selamat: galat */
-        const bahaya = {
-            50: '#FDF2F2', 100: '#FBE3E3', 200: '#F5C2C2', 300: '#EC9A9A',
-            400: '#DE5F5F', 500: '#C8102E', 600: '#B00E28', 700: '#8A1538',
-            800: '#6B0F1C', 900: '#4E0B15', 950: '#2E0609'
+        /* Campur warna ke arah kanvas — dipakai untuk nada 50/100/200. */
+        const KANVAS = [0x0B, 0x0E, 0x17];
+        function keKanvas(hex, bagian) {
+            const c = [1, 3, 5].map(i => parseInt(hex.substr(i, 2), 16));
+            return '#' + c.map((v, i) =>
+                Math.round(KANVAS[i] + (v - KANVAS[i]) * bagian)
+                    .toString(16).padStart(2, '0')).join('').toUpperCase();
+        }
+
+        /* Satu keluarga hue, diturunkan dari tangga stok Tailwind. */
+        function hue(s) {
+            return {
+                50: keKanvas(s[500], .07), 100: keKanvas(s[500], .12), 200: keKanvas(s[500], .20),
+                300: s[300], 400: s[400], 500: s[400],
+                600: s[500], 700: s[500], 800: s[600],
+                900: s[700], 950: s[800]
+            };
+        }
+
+        const warna = {
+            white: '#FFFFFF',   /* dipakai `text-white` & kaca `bg-white/5` — jangan diubah */
+            black: '#0B0E17',
+            gray: netral, slate: netral, zinc: netral, neutral: netral, stone: netral
         };
+        ['blue', 'sky', 'cyan', 'teal', 'indigo', 'violet', 'purple', 'fuchsia',
+            'pink', 'rose', 'orange', 'amber', 'yellow', 'green', 'emerald', 'lime',
+            'red'].forEach(f => { warna[f] = hue(tailwind.colors[f]); });
 
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        white: '#FFFFFF',
-                        black: '#16181C',
-
-                        /* SEMUA keluarga -> tangga kertas. Ini disiplinnya. */
-                        gray: kertas, slate: kertas, zinc: kertas, neutral: kertas, stone: kertas,
-                        blue: kertas, sky: kertas, cyan: kertas, teal: kertas,
-                        indigo: kertas, violet: kertas, purple: kertas, fuchsia: kertas,
-                        pink: kertas, rose: kertas,
-                        orange: kertas, amber: kertas, yellow: kertas,
-                        green: kertas, emerald: kertas, lime: kertas,
-
-                        red: bahaya,
-
-                        /* token bernama, untuk kelas baru */
-                        plat: '#FFFFFF', kertas: '#FBFAF6', meja: '#EDEBE3',
-                        tinta: '#16181C', redup: '#555B63',
-                        rambut: '#D6D2C6', 'rambut-tegas': '#A8A498'
-                    },
+                    colors: warna,
                     fontFamily: {
                         sans: ['Archivo', 'ui-sans-serif', 'system-ui', 'sans-serif']
                     }
