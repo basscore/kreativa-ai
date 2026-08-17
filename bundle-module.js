@@ -12,20 +12,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load saved sidebar state from localStorage
     const sidebarCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
-    if (sidebarCollapsed) {
+    if (sidebarCollapsed && sidebar && toggleSidebarBtn) {
         sidebar.classList.add('collapsed');
-        mainContentWrapper.classList.add('expanded');
+        if (mainContentWrapper) mainContentWrapper.classList.add('expanded');
         toggleSidebarBtn.classList.add('collapsed');
     }
 
-    toggleSidebarBtn.addEventListener('click', () => {
-        const isCollapsed = sidebar.classList.toggle('collapsed');
-        mainContentWrapper.classList.toggle('expanded');
-        toggleSidebarBtn.classList.toggle('collapsed');
-
-        // Save state to localStorage
-        localStorage.setItem('sidebarCollapsed', isCollapsed);
-    });
+    if (toggleSidebarBtn && !toggleSidebarBtn.dataset.bundleSidebarBound) {
+        toggleSidebarBtn.dataset.bundleSidebarBound = 'true';
+        if (typeof window.toggleSidebar !== 'function') {
+            toggleSidebarBtn.addEventListener('click', (e) => {
+                if (window.toggleSidebar) {
+                    window.toggleSidebar(e);
+                } else if (sidebar) {
+                    const isCollapsed = sidebar.classList.toggle('collapsed');
+                    if (mainContentWrapper) mainContentWrapper.classList.toggle('expanded');
+                    toggleSidebarBtn.classList.toggle('collapsed');
+                    localStorage.setItem('sidebarCollapsed', isCollapsed);
+                }
+            });
+        }
+    }
 
     // --- MAIN TAB SWITCHING LOGIC ---
     const mainTabButtons = document.querySelectorAll('.main-tab-btn');
@@ -14980,6 +14987,7 @@ Requirements:
             const uploadPlaceholder = document.getElementById('mockup-upload-placeholder');
             const previewContainer = document.getElementById('mockup-preview-container');
             const previewImage = document.getElementById('mockup-preview-image');
+            const designRemoveBtn = document.getElementById('mockup-design-remove-btn');
 
             const templateInput = document.getElementById('mockup-template-input');
             const templateUploadArea = document.getElementById('mockup-template-upload-area');
@@ -14988,6 +14996,7 @@ Requirements:
             const templatePreviewImage = document.getElementById('mockup-template-preview-image');
             const templateRemoveBtn = document.getElementById('mockup-template-remove-btn');
 
+            const presetSelection = document.getElementById('mockup-preset-selection');
             const themeInput = document.getElementById('mockup-theme-input');
             const generateBtn = document.getElementById('mockup-generate-btn');
             const loadingSection = document.getElementById('mockup-loading-section');
@@ -15007,6 +15016,7 @@ Requirements:
             let generatedMockups = [];
             let generatedMockupParams = []; // Track parameters for each mockup
             let selectedMockupRatio = '16:9';
+            let selectedMockupCategory = 'all';
             let currentMockupThemes = []; // Store current themes for regeneration
             let stopMockup = false;
             const stopBtn = document.getElementById('mockup-stop-btn');
@@ -15025,35 +15035,102 @@ Requirements:
                 });
             }
 
-            // Default mockup themes
-            const defaultMockupThemes = [
-                'white ceramic coffee mug on wooden desk',
-                't-shirt mockup laid flat on white background',
-                'smartphone screen mockup in hand',
-                'poster frame mockup on white wall',
-                'book cover mockup on wooden table',
-                'tote bag mockup on solid background',
-                'business card mockup on desk',
-                'hoodie mockup flat lay on marble surface',
-                'laptop screen mockup on office desk',
-                'canvas print on living room wall',
-                'pillow mockup on sofa background',
-                'tumbler bottle mockup on outdoor setting',
-                'sticker mockup on macbook laptop',
-                'packaging box mockup on clean white surface',
-                'phone case mockup on wooden desk',
-                'notebook cover mockup on cafe table',
-                'canvas tote bag on beach background',
-                'framed art print on gallery wall',
-                'ceramic plate with design on kitchen setting',
-                'cap hat mockup on clean white background'
-            ];
+            // Mockup Themes by Category
+            const mockupCategories = {
+                all: [
+                    'white ceramic coffee mug on aesthetic wooden desk with natural sunlight and plant shadow',
+                    'crewneck cotton t-shirt mockup laid flat on clean white aesthetic studio background',
+                    'smartphone screen mockup held in hand in a cozy aesthetic cafe setting',
+                    'minimalist black poster frame hanging on modern concrete gallery wall with warm spotlight',
+                    'cardboard packaging box mockup on clean tabletop with soft studio shadows',
+                    'canvas tote bag mockup on aesthetic beige linen background with dried flowers',
+                    'stainless steel tumbler bottle mockup on wooden table next to a notebook',
+                    'oversize streetwear hoodie mockup on marble background with dramatic lighting',
+                    'business card stack mockup on luxury textured desk with embossed details',
+                    'hardcover book cover mockup on aesthetic wooden table next to a warm cup of tea',
+                    'laptop screen mockup open on modern minimalist creative workspace',
+                    'ceramic plate with decorative artwork on modern dining table setting'
+                ],
+                tshirt: [
+                    'premium heavy cotton t-shirt mockup laid flat on minimalist white background with gentle fabric folds',
+                    'oversize streetwear black hoodie mockup flat lay on sleek dark background with soft lighting',
+                    'white aesthetic crewneck t-shirt on wooden hanger against a clean textured beige wall',
+                    'vintage wash graphic t-shirt mockup laid on rustic wooden table with natural morning light',
+                    'oversize boxy fit t-shirt mockup with realistic cloth texture and natural fabric wrinkles',
+                    'aesthetic polo shirt mockup with crisp collar on clean studio background'
+                ],
+                mug: [
+                    'white ceramic coffee mug on modern wooden desk with steam rising and morning sunlight',
+                    'matte black coffee mug mockup on marble tabletop next to coffee beans and laptop',
+                    'stainless steel thermal tumbler mockup on outdoor picnic table with mountain backdrop',
+                    'glass coffee mug with iced latte mockup on sunlit cafe table with beautiful caustic reflections',
+                    'vintage enamel camp mug mockup on rustic wooden log with forest background',
+                    'pastel ceramic mug mockup on cozy knitted blanket with book and warm lights'
+                ],
+                gadget: [
+                    'modern bezel-less smartphone mockup displaying UI in hand with blurred cozy cafe background',
+                    'laptop display screen mockup on clean executive desk with wireless mouse and warm desk lamp',
+                    'tablet screen mockup propped up on wooden stand in an aesthetic art studio',
+                    'smartwatch screen display mockup on stylish wrist with natural lifestyle lighting',
+                    'dual monitor workspace display mockup on modern creative designer desk with RGB accent glow',
+                    'phone case mockup lying beside keys and sunglasses on aesthetic terrazzo tray'
+                ],
+                poster: [
+                    'minimalist black poster frame mockup hanging on clean Scandinavian white wall with shadow play',
+                    'oak wood picture frame mockup propped on wooden sideboard with indoor potted plants',
+                    'large vertical art gallery poster mockup in modern museum exhibition room with warm spotlights',
+                    'vintage gold framed canvas mockup on textured dark wall with elegant ambient mood',
+                    'acrylic clear floating poster frame mockup in bright sunny loft interior',
+                    'grid of minimalist poster frames on modern living room wall above aesthetic sofa'
+                ],
+                packaging: [
+                    'eco-friendly craft cardboard packaging box mockup with realistic paper grain on studio floor',
+                    'matte cosmetic cream tube and pump bottle mockup on aesthetic bathroom stone counter',
+                    'luxury perfume packaging box mockup on silk fabric with dramatic shadows',
+                    'coffee bag pouch mockup with valve standing on wooden shelf with roasted coffee beans',
+                    'shopping gift bag mockup with ribbon handles standing on clean pastel studio floor',
+                    'stand up zipper pouch packaging mockup for snacks on modern kitchen countertop'
+                ],
+                totebag: [
+                    'canvas cotton tote bag mockup flat lay on aesthetic beige linen surface with botanical leaves',
+                    'black heavy canvas tote bag hanging on wooden wall peg in bright minimalist entryway',
+                    'stylish canvas grocery tote bag mockup slung on wooden cafe chair in sunny outdoor patio',
+                    'ecobag shopping tote mockup lying on rustic bench with book and sunglasses',
+                    'raw organic cotton tote bag mockup with realistic fabric weave texture on pure white background'
+                ],
+                stationery: [
+                    'luxury business card stack mockup with gold foil finish on dark slate surface',
+                    'hardcover linen notebook mockup open with pencil and spectacles on wooden desk',
+                    'envelope and letterhead stationery branding mockup kit laid out on neutral textured paper',
+                    'spiral sketchbook mockup open on artist desk with watercolor brushes and natural light',
+                    'greeting card standing mockup next to dried flowers on warm aesthetic table'
+                ],
+                cafe: [
+                    'coffee shop takeaway cup mockup on wooden table with latte art and croissant nearby',
+                    'restaurant menu clipboard mockup on dark rustic wood table in cozy romantic bistro',
+                    'coffee beans packaging bag on barista marble bar counter with espresso machine in background',
+                    'coaster and iced drink glass mockup on sunlit outdoor bistro table',
+                    'chalkboard table sign and mug mockup on wooden cafe counter with warm bokeh lighting'
+                ]
+            };
+
+            function shuffleArray(arr) {
+                const copy = [...arr];
+                for (let i = copy.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [copy[i], copy[j]] = [copy[j], copy[i]];
+                }
+                return copy;
+            }
 
             // Event Listeners - Using Try-On pattern
             // Main design upload
             if (uploadArea && designInput) {
-                uploadArea.addEventListener('click', () => designInput.click());
-                uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.style.borderColor = '#764ba2'; });
+                uploadArea.addEventListener('click', (e) => {
+                    if (e.target.closest('#mockup-design-remove-btn')) return;
+                    designInput.click();
+                });
+                uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.style.borderColor = '#EC4899'; });
                 uploadArea.addEventListener('dragleave', () => uploadArea.style.borderColor = '');
                 uploadArea.addEventListener('drop', (e) => {
                     e.preventDefault();
@@ -15063,10 +15140,17 @@ Requirements:
                 designInput.addEventListener('change', (e) => { if (e.target.files[0]) processDesign(e.target.files[0]); });
             }
 
+            if (designRemoveBtn) {
+                designRemoveBtn.addEventListener('click', removeDesign);
+            }
+
             // Template upload
             if (templateUploadArea && templateInput) {
-                templateUploadArea.addEventListener('click', () => templateInput.click());
-                templateUploadArea.addEventListener('dragover', (e) => { e.preventDefault(); templateUploadArea.style.borderColor = '#764ba2'; });
+                templateUploadArea.addEventListener('click', (e) => {
+                    if (e.target.closest('#mockup-template-remove-btn')) return;
+                    templateInput.click();
+                });
+                templateUploadArea.addEventListener('dragover', (e) => { e.preventDefault(); templateUploadArea.style.borderColor = '#8B5CF6'; });
                 templateUploadArea.addEventListener('dragleave', () => templateUploadArea.style.borderColor = '');
                 templateUploadArea.addEventListener('drop', (e) => {
                     e.preventDefault();
@@ -15076,7 +15160,20 @@ Requirements:
                 templateInput.addEventListener('change', (e) => { if (e.target.files[0]) processTemplate(e.target.files[0]); });
             }
 
-            templateRemoveBtn.addEventListener('click', removeTemplate);
+            if (templateRemoveBtn) {
+                templateRemoveBtn.addEventListener('click', removeTemplate);
+            }
+
+            // Preset Category Selection
+            if (presetSelection) {
+                presetSelection.addEventListener('click', (e) => {
+                    const btn = e.target.closest('.mockup-preset-btn');
+                    if (!btn) return;
+                    presetSelection.querySelectorAll('.mockup-preset-btn').forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                    selectedMockupCategory = btn.dataset.category || 'all';
+                });
+            }
 
             generateBtn.addEventListener('click', startGeneration);
             retryBtn.addEventListener('click', resetForm);
@@ -15094,10 +15191,24 @@ Requirements:
                 });
             }
 
-            function processDesign(file) {
+            async function processDesign(file) {
+                if (!file) return;
                 if (file.size > 10 * 1024 * 1024) {
                     showError('Ukuran file terlalu besar. Maksimal 10MB.');
                     return;
+                }
+
+                let fileToProcess = file;
+                const fileName = (file.name || '').toLowerCase();
+                if (fileName.endsWith('.heic') || file.type === 'image/heic') {
+                    if (window.heic2any) {
+                        try {
+                            const blob = await window.heic2any({ blob: file, toType: 'image/jpeg', quality: 0.9 });
+                            fileToProcess = Array.isArray(blob) ? blob[0] : blob;
+                        } catch (err) {
+                            console.error('HEIC conversion error:', err);
+                        }
+                    }
                 }
 
                 const reader = new FileReader();
@@ -15110,13 +15221,27 @@ Requirements:
                     generateBtn.disabled = false;
                     hideError();
                 };
-                reader.readAsDataURL(file);
+                reader.readAsDataURL(fileToProcess);
             }
 
-            function processTemplate(file) {
+            async function processTemplate(file) {
+                if (!file) return;
                 if (file.size > 10 * 1024 * 1024) {
                     showError('Ukuran file template terlalu besar. Maksimal 10MB.');
                     return;
+                }
+
+                let fileToProcess = file;
+                const fileName = (file.name || '').toLowerCase();
+                if (fileName.endsWith('.heic') || file.type === 'image/heic') {
+                    if (window.heic2any) {
+                        try {
+                            const blob = await window.heic2any({ blob: file, toType: 'image/jpeg', quality: 0.9 });
+                            fileToProcess = Array.isArray(blob) ? blob[0] : blob;
+                        } catch (err) {
+                            console.error('HEIC conversion error:', err);
+                        }
+                    }
                 }
 
                 const reader = new FileReader();
@@ -15127,11 +15252,22 @@ Requirements:
                     templatePreviewContainer.classList.remove('hidden');
                     templateUploadArea.classList.add('has-image');
                 };
-                reader.readAsDataURL(file);
+                reader.readAsDataURL(fileToProcess);
+            }
+
+            function removeDesign(e) {
+                if (e) e.stopPropagation();
+                uploadedDesignData = null;
+                previewImage.src = '';
+                uploadPlaceholder.classList.remove('hidden');
+                previewContainer.classList.add('hidden');
+                uploadArea.classList.remove('has-image');
+                designInput.value = '';
+                generateBtn.disabled = true;
             }
 
             function removeTemplate(e) {
-                e.stopPropagation();
+                if (e) e.stopPropagation();
                 uploadedTemplateData = null;
                 templatePreviewImage.src = '';
                 templatePlaceholder.classList.remove('hidden');
@@ -15150,7 +15286,7 @@ Requirements:
                     const card = document.createElement('div');
                     card.id = `mockup-card-${i}`;
                     card.className = 'result-card';
-                    card.innerHTML = `<div class="flex flex-col items-center justify-center h-full min-h-[200px]"><div class="loader !border-l-purple-500"></div></div>`;
+                    card.innerHTML = `<div class="flex flex-col items-center justify-center h-full min-h-[200px]"><div class="loader !border-l-pink-500"></div></div>`;
                     resultsGrid.appendChild(card);
                 }
                 if (mockupEmptyState) mockupEmptyState.classList.add('hidden');
@@ -15175,18 +15311,25 @@ Requirements:
 
                 stopMockup = false;
                 hideError();
-                loadingSection.classList.add('hidden');
+                loadingSection.classList.remove('hidden');
+                if (mockupEmptyState) mockupEmptyState.classList.add('hidden');
+                resultsSection.classList.add('hidden');
                 generateBtn.disabled = true;
                 generateBtn.classList.add('hidden');
                 if (stopBtn) stopBtn.classList.remove('hidden');
                 currentMockupThemes = [];
 
                 const manualTheme = themeInput.value.trim();
-                let mockupThemes;
+                let mockupThemes = [];
                 if (manualTheme) {
-                    mockupThemes = Array(selectedCount).fill(manualTheme + ' mockup');
+                    mockupThemes = Array(selectedCount).fill(manualTheme);
                 } else {
-                    mockupThemes = defaultMockupThemes;
+                    const pool = mockupCategories[selectedMockupCategory] || mockupCategories.all;
+                    const shuffled = shuffleArray(pool);
+                    while (mockupThemes.length < selectedCount) {
+                        mockupThemes.push(...shuffled);
+                    }
+                    mockupThemes = mockupThemes.slice(0, selectedCount);
                 }
                 currentMockupThemes = [...mockupThemes];
 
@@ -15204,6 +15347,7 @@ Requirements:
                 generateBtn.disabled = false;
                 generateBtn.classList.remove('hidden');
                 if (stopBtn) stopBtn.classList.add('hidden');
+                loadingSection.classList.add('hidden');
 
                 renderSuccessfulMockups();
             }
@@ -15276,7 +15420,7 @@ Requirements:
                 const card = document.getElementById(`mockup-card-${index}`);
                 if (!card) return;
 
-                const theme = mockupThemes[index];
+                const theme = mockupThemes[index] || 'professional product mockup';
                 const base64Design = uploadedDesignData.split(',')[1];
 
                 let prompt = '';
@@ -15284,23 +15428,19 @@ Requirements:
 
                 if (uploadedTemplateData) {
                     const base64Template = uploadedTemplateData.split(',')[1];
-                    prompt = `Create a professional product mockup by combining these elements:
+                    prompt = `Create a photorealistic, professional product mockup by precisely applying the design onto the template.
 
-IMAGE 1 (Template/Mockup Base): Use this as the mockup template
-IMAGE 2 (Design/Artwork): The design to be applied to the mockup
+IMAGE 1 (Mockup Template Base): The reference object and background scene
+IMAGE 2 (Artwork / Graphic Design): The artwork/graphic/logo to be placed
 
-Task: Apply the design from IMAGE 2 onto the mockup template from IMAGE 1 realistically.
+Execution Instructions:
+1. Seamlessly and realistically map the graphic from IMAGE 2 onto the primary surface of the object in IMAGE 1 (e.g. t-shirt front, mug surface, poster frame, screen, tote bag, packaging box).
+2. Follow all surface curves, folds, textures (cotton weave, glossy ceramic, matte paper, glass reflection), natural lighting direction, highlights, and ambient shadows.
+3. Keep the artwork sharp, properly proportioned, undistorted, and natural.
+4. Maintain high commercial photography quality, 4K resolution, realistic depth of field.
+5. Mockup context: ${theme}
 
-Requirements:
-- The base mockup/template MUST be from IMAGE 1
-- Apply the design from IMAGE 2 onto the mockup surface
-- Match perspective, lighting, and shadows naturally
-- Make it look like a professional product mockup photo
-- Ensure design fits naturally on the mockup surface
-- Professional 4K quality, realistic rendering
-- Mockup type: ${theme}
-
-IMPORTANT: Use the template from IMAGE 1 as the base, and apply design from IMAGE 2 onto it.`;
+Crucial: The resulting image must look like an authentic product photograph with the artwork realistically printed or displayed on the object from IMAGE 1.`;
 
                     payloadParts = [
                         { text: prompt },
@@ -15308,19 +15448,18 @@ IMPORTANT: Use the template from IMAGE 1 as the base, and apply design from IMAG
                         { inlineData: { mimeType: "image/jpeg", data: base64Design } }
                     ];
                 } else {
-                    prompt = `Create a professional product mockup for this design/artwork.
+                    prompt = `Create a stunning, photorealistic commercial product mockup photo featuring this design/artwork.
 
-Mockup type: ${theme}
+IMAGE 1 (Artwork / Graphic Design): The design/logo/illustration to showcase.
 
-Requirements:
-- Apply this design/artwork onto a realistic mockup
-- Professional product photography style
-- Natural lighting and shadows
-- High quality rendering, 4K resolution
-- Make it look like a real product photograph
-- Clean, professional presentation
+Mockup Scene & Object: ${theme}
 
-The design should be clearly visible and properly placed on the mockup surface.`;
+Execution Instructions:
+1. Render a realistic product matching the theme (e.g. ceramic mug, cotton t-shirt, framed wall art, gadget screen, canvas bag, packaging box, tumbler).
+2. Perfectly integrate and display the design from IMAGE 1 onto the product surface with realistic material texture (fabric wrinkles, ceramic gloss, paper matte finish, glass reflection).
+3. Professional studio or lifestyle lighting, natural soft shadows, accurate perspective and depth of field.
+4. Clean, aesthetic, high-end commercial advertising photo quality (4K HDR).
+5. The design must be clear, sharp, correctly proportioned, and seamlessly embedded on the product.`;
 
                     payloadParts = [
                         { text: prompt },
@@ -15348,7 +15487,6 @@ The design should be clearly visible and properly placed on the mockup surface.`
                         templateData: uploadedTemplateData,
                         ratio: selectedMockupRatio
                     };
-                    // Show image inline immediately (buttons added by renderSuccessfulMockups at the end)
                     card.innerHTML = `<img src="${imageUrl}" alt="Mockup" style="width:100%;height:100%;object-fit:cover;">`;
                 } else {
                     card.innerHTML = '';
@@ -15422,24 +15560,24 @@ The design should be clearly visible and properly placed on the mockup surface.`
                 const modal = document.createElement('div');
                 modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
                 modal.innerHTML = `
-                    <div class="bg-white rounded-xl p-6 max-w-2xl w-full">
-                        <h3 class="text-xl font-bold mb-4 text-gray-800">
-                            <i class="fas fa-edit text-purple-500 mr-2"></i>Edit Mockup Theme
+                    <div class="bg-gray-900 border border-pink-500/30 rounded-2xl p-6 max-w-2xl w-full text-white shadow-2xl">
+                        <h3 class="text-xl font-bold mb-4 text-white flex items-center gap-2">
+                            <i class="fas fa-edit text-pink-500"></i> Edit Tema Mockup
                         </h3>
                         <div class="mb-4">
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Mockup Theme/Style:</label>
-                            <textarea id="edit-mockup-input" rows="4" class="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none resize-none" placeholder="Contoh: white ceramic coffee mug on wooden desk, t-shirt mockup on white background, poster frame on wall, etc...">${currentTheme}</textarea>
-                            <p class="text-xs text-gray-500 mt-2">
-                                <i class="fas fa-info-circle mr-1"></i>
-                                Deskripsi mockup yang diinginkan
+                            <label class="block text-sm font-semibold text-gray-300 mb-2">Tema / Suasana Mockup:</label>
+                            <textarea id="edit-mockup-input" rows="4" class="w-full p-3.5 bg-gray-800 border border-gray-700 rounded-xl focus:border-pink-500 focus:outline-none resize-none text-white text-sm" placeholder="Contoh: white ceramic coffee mug on wooden desk, t-shirt mockup on white background, poster frame on wall...">${currentTheme}</textarea>
+                            <p class="text-xs text-gray-400 mt-2 flex items-center gap-1">
+                                <i class="fas fa-info-circle text-pink-400"></i>
+                                Deskripsikan objek atau suasana mockup yang diinginkan
                             </p>
                         </div>
-                        <div class="flex gap-2">
-                            <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                        <div class="flex gap-3">
+                            <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2.5 px-4 rounded-xl transition-all text-sm">
                                 Batal
                             </button>
-                            <button id="confirm-edit-mockup-btn" class="flex-1 bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
-                                <i class="fas fa-check mr-2"></i>Generate Ulang
+                            <button id="confirm-edit-mockup-btn" class="flex-1 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-2.5 px-4 rounded-xl transition-all text-sm flex items-center justify-center gap-2 shadow-lg">
+                                <i class="fas fa-check"></i> Generate Ulang
                             </button>
                         </div>
                     </div>
@@ -15447,16 +15585,18 @@ The design should be clearly visible and properly placed on the mockup surface.`
                 document.body.appendChild(modal);
 
                 const confirmBtn = modal.querySelector('#confirm-edit-mockup-btn');
-                const themeInput = modal.querySelector('#edit-mockup-input');
+                const editThemeInput = modal.querySelector('#edit-mockup-input');
 
                 confirmBtn.addEventListener('click', async () => {
-                    const newTheme = themeInput.value.trim();
+                    const newTheme = editThemeInput.value.trim();
                     if (!newTheme) return;
 
                     modal.remove();
 
                     // Update the theme for this mockup
-                    generatedMockupParams[index].theme = newTheme;
+                    if (generatedMockupParams[index]) {
+                        generatedMockupParams[index].theme = newTheme;
+                    }
                     currentMockupThemes[index] = newTheme;
 
                     await handleRegenerateMockup(index);
@@ -15475,8 +15615,8 @@ The design should be clearly visible and properly placed on the mockup surface.`
                 // Show loading state
                 targetCard.innerHTML = `
                     <div class="flex flex-col items-center justify-center h-full min-h-[200px]">
-                        <div class="loader !border-l-purple-500"></div>
-                        <p class="mt-4 text-sm text-gray-600">Regenerating...</p>
+                        <div class="loader !border-l-pink-500"></div>
+                        <p class="mt-4 text-sm text-gray-300">Merender ulang...</p>
                     </div>
                 `;
 
@@ -15487,19 +15627,17 @@ The design should be clearly visible and properly placed on the mockup surface.`
 
                     if (params.templateData) {
                         const base64Template = params.templateData.split(',')[1];
-                        prompt = `Create a professional product mockup by combining these elements:
+                        prompt = `Create a photorealistic, professional product mockup by precisely applying the design onto the template.
 
-IMAGE 1 (Template/Mockup Base): Use this as the mockup template
-IMAGE 2 (Design/Artwork): The design to be applied to the mockup
+IMAGE 1 (Mockup Template Base): The reference object and background scene
+IMAGE 2 (Artwork / Graphic Design): The artwork/graphic/logo to be placed
 
-Task: Apply the design from IMAGE 2 onto the mockup template from IMAGE 1 realistically.
-The final output should look like a professional product photograph.
-
-Requirements:
-- Apply artwork properly on mockup surface
-- Realistic shadows and lighting
-- High-quality professional result
-- Natural integration of design into template`;
+Execution Instructions:
+1. Seamlessly and realistically map the graphic from IMAGE 2 onto the primary surface of the object in IMAGE 1.
+2. Follow all surface curves, folds, textures (cotton weave, glossy ceramic, matte paper, glass reflection), natural lighting direction, highlights, and ambient shadows.
+3. Keep the artwork sharp, properly proportioned, undistorted, and natural.
+4. Maintain high commercial photography quality, 4K resolution, realistic depth of field.
+5. Mockup context: ${params.theme}`;
 
                         payloadParts = [
                             { text: prompt },
@@ -15507,19 +15645,18 @@ Requirements:
                             { inlineData: { mimeType: "image/jpeg", data: base64Design } }
                         ];
                     } else {
-                        prompt = `Create a professional product mockup with the following design.
+                        prompt = `Create a stunning, photorealistic commercial product mockup photo featuring this design/artwork.
 
-Mockup type: ${params.theme}
+IMAGE 1 (Artwork / Graphic Design): The design/logo/illustration to showcase.
 
-Requirements:
-- Apply this design/artwork onto a realistic mockup
-- Professional product photography style
-- Natural lighting and shadows
-- High quality rendering, 4K resolution
-- Make it look like a real product photograph
-- Clean, professional presentation
+Mockup Scene & Object: ${params.theme}
 
-The design should be clearly visible and properly placed on the mockup surface.`;
+Execution Instructions:
+1. Render a realistic product matching the theme (e.g. ceramic mug, cotton t-shirt, framed wall art, gadget screen, canvas bag, packaging box, tumbler).
+2. Perfectly integrate and display the design from IMAGE 1 onto the product surface with realistic material texture.
+3. Professional studio or lifestyle lighting, natural soft shadows, accurate perspective and depth of field.
+4. Clean, aesthetic, high-end commercial advertising photo quality (4K HDR).
+5. The design must be clear, sharp, correctly proportioned, and seamlessly embedded on the product.`;
 
                         payloadParts = [
                             { text: prompt },
@@ -15574,11 +15711,11 @@ The design should be clearly visible and properly placed on the mockup surface.`
                 } catch (error) {
                     console.error('Regenerate error:', error);
                     targetCard.innerHTML = `
-                        <div class="flex flex-col items-center justify-center h-full min-h-[200px] text-red-600">
-                            <i class="fas fa-exclamation-triangle text-3xl mb-2"></i>
-                            <p class="text-sm">Gagal regenerate</p>
-                            <button onclick="location.reload()" class="mt-2 text-xs bg-red-500 text-white px-3 py-1 rounded-full hover:bg-red-600">
-                                Refresh
+                        <div class="flex flex-col items-center justify-center h-full min-h-[200px] text-red-400 p-4 text-center">
+                            <i class="fas fa-exclamation-triangle text-2xl mb-2"></i>
+                            <p class="text-xs">Gagal render ulang</p>
+                            <button class="btn-regenerate mt-2 text-xs bg-red-600 text-white px-3 py-1 rounded-full hover:bg-red-700" data-action="regenerate" data-index="${index}">
+                                Coba Lagi
                             </button>
                         </div>
                     `;
@@ -15594,7 +15731,7 @@ The design should be clearly visible and properly placed on the mockup surface.`
                     downloadAllBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Downloading...';
 
                     for (let i = 0; i < generatedMockups.length; i++) {
-                        if (window.downloadDataURINew) {
+                        if (generatedMockups[i] && window.downloadDataURINew) {
                             await window.downloadDataURINew(generatedMockups[i], `mockup-${i + 1}.jpg`);
                             // Small delay between downloads for better UX
                             await new Promise(resolve => setTimeout(resolve, 500));
@@ -15663,15 +15800,8 @@ The design should be clearly visible and properly placed on the mockup surface.`
             }
 
             function resetForm() {
-                uploadedDesignData = null;
-                uploadedTemplateData = null;
-                generatedMockups = [];
-                uploadPlaceholder.classList.remove('hidden');
-                previewContainer.classList.add('hidden');
-                uploadArea.classList.remove('has-image');
-                templatePlaceholder.classList.remove('hidden');
-                templatePreviewContainer.classList.add('hidden');
-                templateUploadArea.classList.remove('has-image');
+                removeDesign();
+                removeTemplate();
                 themeInput.value = '';
                 generateBtn.disabled = true;
                 resultsSection.classList.add('hidden');
@@ -15679,7 +15809,7 @@ The design should be clearly visible and properly placed on the mockup surface.`
                 if (mockupEmptyState) mockupEmptyState.classList.remove('hidden');
                 hideError();
                 progressBar.style.width = '0%';
-                progressText.textContent = '0/21';
+                progressText.textContent = `0/${selectedCount}`;
             }
         })();
 
@@ -43995,33 +44125,33 @@ Generate before/after yang SANGAT CONVINCING dan PROFESSIONAL - perfect untuk sh
         const apiKey = "";
 
         // DOM Elements
-        const imageUpload = document.getElementById('mockup-image-upload');
-        const uploadBox = document.querySelector('.upload-box-mockup');
-        const imagePreview = document.getElementById('mockup-image-preview');
-        const previewContainer = document.getElementById('mockup-preview-container');
-        const removePreviewBtn = document.getElementById('mockup-remove-preview');
+        const imageUpload = document.getElementById('prodmockup-image-upload');
+        const uploadBox = document.querySelector('.upload-box-prodmockup');
+        const imagePreview = document.getElementById('prodmockup-image-preview');
+        const previewContainer = document.getElementById('prodmockup-preview-container');
+        const removePreviewBtn = document.getElementById('prodmockup-remove-preview');
 
-        const sceneButtons = document.querySelectorAll('#mockup-scene-selection [data-scene]');
-        const perspectiveButtons = document.querySelectorAll('#mockup-perspective-selection [data-perspective]');
-        const moodButtons = document.querySelectorAll('#mockup-mood-selection [data-mood]');
-        const aspectButtons = document.querySelectorAll('#mockup-aspect-selection [data-aspect]');
-        const countButtons = document.querySelectorAll('.count-btn-mockup');
-        const countText = document.getElementById('mockup-count-text');
+        const sceneButtons = document.querySelectorAll('#prodmockup-scene-selection [data-scene]');
+        const perspectiveButtons = document.querySelectorAll('#prodmockup-perspective-selection [data-perspective]');
+        const moodButtons = document.querySelectorAll('#prodmockup-mood-selection [data-mood]');
+        const aspectButtons = document.querySelectorAll('#prodmockup-aspect-selection [data-aspect]');
+        const countButtons = document.querySelectorAll('.count-btn-prodmockup');
+        const countText = document.getElementById('prodmockup-count-text');
 
-        const generateBtn = document.getElementById('mockup-generate-btn');
-        const errorMessage = document.getElementById('mockup-error-message');
-        const errorText = document.getElementById('mockup-error-text');
+        const generateBtn = document.getElementById('prodmockup-generate-btn');
+        const errorMessage = document.getElementById('prodmockup-error-message');
+        const errorText = document.getElementById('prodmockup-error-text');
 
-        const loadingIndicator = document.getElementById('mockup-loading-indicator');
-        const loadingText = document.getElementById('mockup-loading-text');
-        const progressBar = document.getElementById('mockup-progress-bar');
-        const progressText = document.getElementById('mockup-progress-text');
+        const loadingIndicator = document.getElementById('prodmockup-loading-indicator');
+        const loadingText = document.getElementById('prodmockup-loading-text');
+        const progressBar = document.getElementById('prodmockup-progress-bar');
+        const progressText = document.getElementById('prodmockup-progress-text');
 
-        const resultsSection = document.getElementById('mockup-results-section');
-        const emptyState = document.getElementById('mockup-empty-state');
-        const resultsGrid = document.getElementById('mockup-results-grid');
-        const resultsCount = document.getElementById('mockup-results-count');
-        const downloadAllBtn = document.getElementById('mockup-download-all-btn');
+        const resultsSection = document.getElementById('prodmockup-results-section');
+        const emptyState = document.getElementById('prodmockup-empty-state');
+        const resultsGrid = document.getElementById('prodmockup-results-grid');
+        const resultsCount = document.getElementById('prodmockup-results-count');
+        const downloadAllBtn = document.getElementById('prodmockup-download-all-btn');
 
         // State
         let originalImageData = null;
@@ -44149,9 +44279,9 @@ Generate before/after yang SANGAT CONVINCING dan PROFESSIONAL - perfect untuk sh
                 // Create placeholder cards
                 for (let i = 1; i <= selectedCount; i++) {
                     const card = document.createElement('div');
-                    card.id = `mockup-card-${i}`;
-                    card.className = 'relative rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center aspect-square';
-                    card.innerHTML = '<div class="animate-spin rounded-full h-10 w-10 border-b-2 border-indigo-600"></div>';
+                    card.id = `prodmockup-card-${i}`;
+                    card.className = 'relative rounded-xl overflow-hidden bg-gray-800/50 flex items-center justify-center aspect-square border border-white/10';
+                    card.innerHTML = '<div class="animate-spin rounded-full h-10 w-10 border-b-2 border-emerald-500"></div>';
                     resultsGrid?.appendChild(card);
                 }
 
@@ -44164,7 +44294,7 @@ Generate before/after yang SANGAT CONVINCING dan PROFESSIONAL - perfect untuk sh
 
                     if (loadingIndicator) loadingIndicator.classList.add('hidden');
                     if (resultsSection) resultsSection.classList.remove('hidden');
-                    if (resultsCount) resultsCount.textContent = generatedMockups.length;
+                    if (resultsCount) resultsCount.textContent = generatedMockups.filter(Boolean).length;
 
                 } catch (error) {
                     console.error('Mockup generation error:', error);
@@ -44179,7 +44309,7 @@ Generate before/after yang SANGAT CONVINCING dan PROFESSIONAL - perfect untuk sh
         }
 
         async function generateSingleMockup(index) {
-            const card = document.getElementById(`mockup-card-${index}`);
+            const card = document.getElementById(`prodmockup-card-${index}`);
 
             try {
                 if (loadingText) loadingText.textContent = `Generating mockup ${index}/${selectedCount}...`;
@@ -44288,20 +44418,22 @@ Generate mockup yang INSTAGRAM-WORTHY dan SALES-BOOSTING - perfect untuk e-comme
                 generatedMockups[index - 1] = { url: imageUrl, filename: filename };
 
                 // Update card with image
-                card.className = 'relative group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300';
-                card.innerHTML = `
-                    <img src="${imageUrl}" class="w-full h-full object-cover" alt="Mockup ${index}">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${index - 1}" class="mockup-action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
-                            <i class="fas fa-eye"></i>
-                            <span class="hidden sm:inline">Preview</span>
-                        </button>
-                        <button data-action="download" data-index="${index - 1}" class="mockup-action-btn bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
-                            <i class="fas fa-download"></i>
-                            <span class="hidden sm:inline">Download</span>
-                        </button>
-                    </div>se
-                `;
+                if (card) {
+                    card.className = 'relative group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300';
+                    card.innerHTML = `
+                        <img src="${imageUrl}" class="w-full h-full object-cover" alt="Mockup ${index}">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
+                            <button data-action="preview" data-index="${index - 1}" class="mockup-action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                                <i class="fas fa-eye"></i>
+                                <span class="hidden sm:inline">Preview</span>
+                            </button>
+                            <button data-action="download" data-index="${index - 1}" class="mockup-action-btn bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                                <i class="fas fa-download"></i>
+                                <span class="hidden sm:inline">Download</span>
+                            </button>
+                        </div>
+                    `;
+                }
 
                 // Update progress
                 const progress = Math.round(((index) / selectedCount) * 100);
@@ -44310,13 +44442,15 @@ Generate mockup yang INSTAGRAM-WORTHY dan SALES-BOOSTING - perfect untuk e-comme
 
             } catch (error) {
                 console.error(`Mockup ${index} generation error:`, error);
-                card.className = 'relative rounded-xl overflow-hidden bg-red-50 border-2 border-red-300 flex items-center justify-center p-4 aspect-square';
-                card.innerHTML = `
-                    <div class="text-center">
-                        <i class="fas fa-exclamation-triangle text-3xl text-red-500 mb-2"></i>
-                        <p class="text-sm text-red-700">Failed to generate</p>
-                    </div>
-                `;
+                if (card) {
+                    card.className = 'relative rounded-xl overflow-hidden bg-red-950/40 border border-red-500/30 flex items-center justify-center p-4 aspect-square';
+                    card.innerHTML = `
+                        <div class="text-center">
+                            <i class="fas fa-exclamation-triangle text-3xl text-red-400 mb-2"></i>
+                            <p class="text-sm text-red-300">Failed to generate</p>
+                        </div>
+                    `;
+                }
             }
         }
 
@@ -44361,6 +44495,7 @@ Generate mockup yang INSTAGRAM-WORTHY dan SALES-BOOSTING - perfect untuk e-comme
                 try {
                     for (let i = 0; i < generatedMockups.length; i++) {
                         const img = generatedMockups[i];
+                        if (!img) continue;
                         downloadAllBtn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i><span>Downloading ${i + 1}/${generatedMockups.length}...</span>`;
 
                         try {
