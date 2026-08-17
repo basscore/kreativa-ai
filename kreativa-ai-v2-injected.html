@@ -356,9 +356,9 @@
         }
 
         #content-miniature .glassmorphism {
-            background: rgba(157, 149, 255, .5);
+            background: rgba(22, 27, 40, .72);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 252, 225, .2)
+            border: 1px solid rgba(255, 255, 255, .1)
         }
 
         #content-miniature .loader {
@@ -964,9 +964,9 @@
         }
 
         #content-food-selfie .glassmorphism {
-            background: rgba(157, 149, 255, .5);
+            background: rgba(22, 27, 40, .72);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 252, 225, .2)
+            border: 1px solid rgba(255, 255, 255, .1)
         }
 
         #content-food-selfie .loader {
@@ -6277,9 +6277,9 @@
         .count-btn-grid>button {
             padding: .625rem .25rem;
             border-radius: 1rem !important;
-            border: 1px solid #D6D2C6;
-            background-color: #FFFFFF;
-            color: #16181C;
+            border: 1px solid rgba(255, 255, 255, .12);
+            background-color: rgba(255, 255, 255, .04);
+            color: #E5E7EB;
             font-weight: 600;
             font-size: .95rem;
             cursor: pointer;
@@ -6295,20 +6295,14 @@
 
         .count-btn-grid>button:hover:not(.selected) {
             border-color: var(--map);
-            background-color: #FBFAF6
+            background-color: rgba(255, 255, 255, .08)
         }
 
         .count-btn-grid>button.selected {
-            background-color: #FBFAF6;
-            border-color: var(--map);
-            color: var(--map);
+            background: linear-gradient(135deg, #FF3366 0%, #B829E6 100%);
+            border-color: transparent;
+            color: #FFFFFF;
             font-weight: 700
-        }
-
-        .count-btn-grid.theme-pink>button {
-            background-color: rgba(255, 255, 255, .04);
-            border-color: rgba(255, 255, 255, .12);
-            color: #E5E7EB
         }
 
         .count-btn-grid.theme-pink>button:hover:not(.selected) {
