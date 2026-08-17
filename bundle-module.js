@@ -1429,8 +1429,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // 90+ Fitur badge
             '<div class="flex items-center justify-center gap-2 mb-5 px-4 py-2 rounded-xl" style="background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%);border:2px solid #f59e0b;">' +
             '<i class="fas fa-layer-group" style="color:#d97706;"></i>' +
-            '<span class="font-bold text-sm" style="color:#92400e;">90+ Fitur</span>' +
-            '<span class="text-xs" style="color:#b45309;">tersedia di aplikasi ini</span>' +
+            '<span class="font-bold text-sm" style="color:#F19D6A;">90+ Fitur</span>' +
+            '<span class="text-xs" style="color:#F7A364;">tersedia di aplikasi ini</span>' +
             '</div>';
 
             // Loop releases — max 3 ditampilkan, urut tanggal terbaru di atas
@@ -2641,14 +2641,14 @@ Format your response as JSON with this structure:
                     </div>
 
                     <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
-                        <p class="text-xs text-blue-800">
+                        <p class="text-xs text-blue-600">
                             <i class="fas fa-info-circle mr-1"></i>
                             <strong>Tips:</strong> Pilih caption yang sesuai dengan brand voice Anda!
                         </p>
                     </div>
 
                     <button data-action="close-modal"
-                        class="w-full bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">
+                        class="w-full bg-gray-300 hover:bg-gray-200 text-white font-bold py-3 px-4 rounded-lg transition-colors">
                         Tutup
                     </button>
                 `;
@@ -2809,14 +2809,14 @@ Output ONLY the video prompt, nothing else.`;
                         </div>
 
                         <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
-                            <p class="text-xs text-blue-800">
+                            <p class="text-xs text-blue-600">
                                 <i class="fas fa-info-circle mr-1"></i>
                                 <strong>Cara Pakai:</strong> Copy prompt ini dan gunakan di platform Image-to-Video seperti Runway, Pika Labs, Stable Video Diffusion, atau yang lainnya. Upload gambar produk Anda dan paste prompt ini untuk hasil terbaik.
                             </p>
                         </div>
 
                         <div class="flex gap-2">
-                            <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                            <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-300 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded-lg transition-colors">
                                 Tutup
                             </button>
                         </div>
@@ -2915,7 +2915,7 @@ Output ONLY the video prompt, nothing else.`;
                             </p>
                         </div>
                         <div class="flex gap-2">
-                            <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                            <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-300 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded-lg transition-colors">
                                 Batal
                             </button>
                             <button id="confirm-edit-broll-btn" class="flex-1 bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
@@ -3570,14 +3570,14 @@ Format your response as JSON with this structure:
                     </div>
 
                     <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
-                        <p class="text-xs text-blue-800">
+                        <p class="text-xs text-blue-600">
                             <i class="fas fa-info-circle mr-1"></i>
                             <strong>Tips:</strong> Pilih caption yang sesuai dengan brand voice Anda!
                         </p>
                     </div>
 
                     <button data-action="close-modal"
-                        class="w-full bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">
+                        class="w-full bg-gray-300 hover:bg-gray-200 text-white font-bold py-3 px-4 rounded-lg transition-colors">
                         Tutup
                     </button>
                 `;
@@ -3738,14 +3738,14 @@ Output ONLY the video prompt, nothing else.`;
                         </div>
 
                         <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
-                            <p class="text-xs text-blue-800">
+                            <p class="text-xs text-blue-600">
                                 <i class="fas fa-info-circle mr-1"></i>
                                 <strong>Cara Pakai:</strong> Copy prompt ini dan gunakan di platform Image-to-Video seperti Runway, Pika Labs, Stable Video Diffusion, atau yang lainnya. Upload gambar produk Anda dan paste prompt ini untuk hasil terbaik.
                             </p>
                         </div>
 
                         <div class="flex gap-2">
-                            <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                            <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-300 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded-lg transition-colors">
                                 Tutup
                             </button>
                         </div>
@@ -3844,7 +3844,7 @@ Output ONLY the video prompt, nothing else.`;
                             </p>
                         </div>
                         <div class="flex gap-2">
-                            <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                            <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-300 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded-lg transition-colors">
                                 Batal
                             </button>
                             <button id="confirm-edit-hrg-btn" class="flex-1 bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
@@ -4230,7 +4230,7 @@ CRITICAL: The model must be clearly wearing/using the product in the specified a
 
                 if (card) {
                     card.className = 'relative group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 bg-white';
-                    card.innerHTML = `<img src="${imageUrl}" class="w-full object-contain ${tryonAspectClass()}" alt="Try-On ${index}"><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2"><button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2"><i class="fas fa-eye"></i><span class="hidden sm:inline">Preview</span></button><button data-action="download" data-index="${index - 1}" class="action-btn bg-gradient-to-r from-teal-500 to-lime-500 text-white px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2"><i class="fas fa-download"></i><span class="hidden sm:inline">Download</span></button></div>`;
+                    card.innerHTML = `<img src="${imageUrl}" class="w-full object-contain ${tryonAspectClass()}" alt="Try-On ${index}"><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2"><button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2"><i class="fas fa-eye"></i><span class="hidden sm:inline">Preview</span></button><button data-action="download" data-index="${index - 1}" class="action-btn bg-gradient-to-r from-teal-500 to-lime-500 text-white px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2"><i class="fas fa-download"></i><span class="hidden sm:inline">Download</span></button></div>`;
                 }
             } catch (error) {
                 console.error(`Error generating try-on ${index}:`, error);
@@ -4246,7 +4246,7 @@ CRITICAL: The model must be clearly wearing/using the product in the specified a
                 successful.forEach((img, idx) => {
                     const card = document.createElement('div');
                     card.className = 'relative group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 bg-white';
-                    card.innerHTML = `<img src="${img.url}" class="w-full object-contain ${tryonAspectClass()}" alt="Try-On ${idx + 1}"><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2"><button data-action="preview" data-index="${idx}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2"><i class="fas fa-eye"></i><span class="hidden sm:inline">Preview</span></button><button data-action="download" data-index="${idx}" class="action-btn bg-gradient-to-r from-teal-500 to-lime-500 text-white px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2"><i class="fas fa-download"></i><span class="hidden sm:inline">Download</span></button></div>`;
+                    card.innerHTML = `<img src="${img.url}" class="w-full object-contain ${tryonAspectClass()}" alt="Try-On ${idx + 1}"><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2"><button data-action="preview" data-index="${idx}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2"><i class="fas fa-eye"></i><span class="hidden sm:inline">Preview</span></button><button data-action="download" data-index="${idx}" class="action-btn bg-gradient-to-r from-teal-500 to-lime-500 text-white px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2"><i class="fas fa-download"></i><span class="hidden sm:inline">Download</span></button></div>`;
                     tryonResultsGrid.appendChild(card);
                 });
             }
@@ -4601,7 +4601,7 @@ IMPORTANT: Generate a brand new photo of this person in the specified pose. Keep
                 card.innerHTML = `
                     <img src="${img.url}" class="w-full h-full object-cover aspect-[3/4]" alt="Pose Fashion ${idx + 1}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${idx}" class="bg-white/90 hover:bg-white text-gray-800 px-3 py-2 rounded-full font-semibold shadow-lg text-sm flex items-center gap-1 transition-all">
+                        <button data-action="preview" data-index="${idx}" class="bg-gray-200/90 hover:bg-white text-gray-800 px-3 py-2 rounded-full font-semibold shadow-lg text-sm flex items-center gap-1 transition-all">
                             <i class="fas fa-eye"></i><span class="hidden sm:inline">Preview</span>
                         </button>
                         <button data-action="download" data-index="${idx}" class="bg-cyan-500 hover:bg-cyan-600 text-white px-3 py-2 rounded-full font-semibold shadow-lg text-sm flex items-center gap-1 transition-all">
@@ -5819,7 +5819,7 @@ The result MUST fool even professional photographers - it should be IMPOSSIBLE t
                 card.innerHTML = `
                     <img src="${imgData.url}" class="w-full h-full object-cover aspect-square" alt="${imgData.style}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${idx}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                        <button data-action="preview" data-index="${idx}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                             <i class="fas fa-eye"></i>
                             <span class="hidden sm:inline">Preview</span>
                         </button>
@@ -8372,7 +8372,7 @@ PENTING: Adaptasi elemen dari referensi agar cocok dengan struktur ruangan asli 
                     card.innerHTML = `
                         <img src="${imageUrl}" class="w-full h-full object-cover" alt="Room Design ${index}">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                                 <i class="fas fa-eye"></i>
                                 <span class="hidden sm:inline">Preview</span>
                             </button>
@@ -11113,7 +11113,7 @@ Generate a professionally restored photograph that clearly demonstrates signific
                 if (malePreview) malePreview.src = '';
                 if (malePlaceholder) {
                     malePlaceholder.innerHTML = `
-                        <i class="fas fa-user-tie transition-transform duration-300" style="font-size: 2.5rem; color: #f43f5e;"></i>
+                        <i class="fas fa-user-tie transition-transform duration-300" style="font-size: 2.5rem; color: #F6657E;"></i>
                         <p class="mt-2 text-sm font-semibold">🤵 Klik untuk upload foto pria</p>
                         <p class="mt-1 text-xs text-gray-400">Format: JPG, PNG, HEIC</p>
                     `;
@@ -11829,13 +11829,13 @@ This is NOT an AI render - this is a REAL professional wedding photograph with n
                                 </p>
                             </div>
                             <div class="flex gap-2 ml-3">
-                                <button data-id="${item.id}" data-action="play" class="history-btn text-purple-600 hover:text-purple-800 p-2">
+                                <button data-id="${item.id}" data-action="play" class="history-btn text-purple-600 hover:text-purple-600 p-2">
                                     <i class="fas fa-play"></i>
                                 </button>
-                                <button data-id="${item.id}" data-action="download" class="history-btn text-green-600 hover:text-green-800 p-2">
+                                <button data-id="${item.id}" data-action="download" class="history-btn text-green-600 hover:text-green-600 p-2">
                                     <i class="fas fa-download"></i>
                                 </button>
-                                <button data-id="${item.id}" data-action="delete" class="history-btn text-red-600 hover:text-red-800 p-2">
+                                <button data-id="${item.id}" data-action="delete" class="history-btn text-red-600 hover:text-red-600 p-2">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </div>
@@ -12583,7 +12583,7 @@ Overall style: clean and aesthetic composition, white sticker outline aesthetic,
                 card.innerHTML = `
                     <img src="${imageUrl}" class="w-full h-full object-cover" alt="Studio Aesthetic ${index}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                             <i class="fas fa-eye"></i>
                             <span class="hidden sm:inline">Preview</span>
                         </button>
@@ -12745,10 +12745,10 @@ Overall style: clean and aesthetic composition, white sticker outline aesthetic,
                 btn.addEventListener('click', () => {
                     hairRatioBtns.forEach(b => {
                         b.classList.remove('hair-ratio-selected', 'bg-blue-600', 'text-white', 'border-blue-500', 'font-medium');
-                        b.classList.add('bg-gray-800', 'hover:bg-gray-700', 'text-gray-300', 'border-gray-700');
+                        b.classList.add('bg-gray-200', 'hover:bg-gray-300', 'text-gray-600', 'border-gray-300');
                     });
                     btn.classList.add('hair-ratio-selected', 'bg-blue-600', 'text-white', 'border-2', 'border-blue-500', 'font-medium');
-                    btn.classList.remove('bg-gray-800', 'hover:bg-gray-700', 'text-gray-300', 'border-gray-700');
+                    btn.classList.remove('bg-gray-200', 'hover:bg-gray-300', 'text-gray-600', 'border-gray-300');
                     selectedRatio = btn.dataset.value;
                 });
             });
@@ -12964,7 +12964,7 @@ Overall style: clean and aesthetic composition, white sticker outline aesthetic,
                     for (let i = 1; i <= selectedCount; i++) {
                         const card = document.createElement('div');
                         card.id = `hair-card-${i}`;
-                        card.className = 'relative group rounded-xl overflow-hidden bg-gray-800 flex items-center justify-center aspect-[3/4]';
+                        card.className = 'relative group rounded-xl overflow-hidden bg-gray-200 flex items-center justify-center aspect-[3/4]';
                         card.innerHTML = '<div class="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-400"></div>';
                         resultsGrid.appendChild(card);
                     }
@@ -13463,7 +13463,7 @@ Overall style: clean and aesthetic composition, white sticker outline aesthetic,
                 card.innerHTML = `
                     <img src="${imgData.url}" class="w-full h-full object-cover" alt="Touring Photo ${idx + 1}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${idx}" class="touring-action-btn bg-white/90 hover:bg-white text-gray-800">
+                        <button data-action="preview" data-index="${idx}" class="touring-action-btn bg-gray-200/90 hover:bg-white text-gray-800">
                             <i class="fas fa-eye"></i>
                             <span class="hidden sm:inline">Preview</span>
                         </button>
@@ -14243,7 +14243,7 @@ IMPORTANT: Use the EXACT environment/location from IMAGE 1 as the background. Do
                             </p>
                         </div>
                         <div class="flex gap-2">
-                            <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                            <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-300 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded-lg transition-colors">
                                 Batal
                             </button>
                             <button id="confirm-edit-pov-btn" class="flex-1 bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">
@@ -15595,20 +15595,20 @@ Execution Instructions:
                 const modal = document.createElement('div');
                 modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
                 modal.innerHTML = `
-                    <div class="bg-gray-900 border border-pink-500/30 rounded-2xl p-6 max-w-2xl w-full text-white shadow-2xl">
+                    <div class="bg-gray-100 border border-pink-500/30 rounded-2xl p-6 max-w-2xl w-full text-white shadow-2xl">
                         <h3 class="text-xl font-bold mb-4 text-white flex items-center gap-2">
                             <i class="fas fa-edit text-pink-500"></i> Edit Tema Mockup
                         </h3>
                         <div class="mb-4">
-                            <label class="block text-sm font-semibold text-gray-300 mb-2">Tema / Suasana Mockup:</label>
-                            <textarea id="edit-mockup-input" rows="4" class="w-full p-3.5 bg-gray-800 border border-gray-700 rounded-xl focus:border-pink-500 focus:outline-none resize-none text-white text-sm" placeholder="Contoh: white ceramic coffee mug on wooden desk, t-shirt mockup on white background, poster frame on wall...">${currentTheme}</textarea>
+                            <label class="block text-sm font-semibold text-gray-600 mb-2">Tema / Suasana Mockup:</label>
+                            <textarea id="edit-mockup-input" rows="4" class="w-full p-3.5 bg-gray-200 border border-gray-300 rounded-xl focus:border-pink-500 focus:outline-none resize-none text-white text-sm" placeholder="Contoh: white ceramic coffee mug on wooden desk, t-shirt mockup on white background, poster frame on wall...">${currentTheme}</textarea>
                             <p class="text-xs text-gray-400 mt-2 flex items-center gap-1">
                                 <i class="fas fa-info-circle text-pink-400"></i>
                                 Deskripsikan objek atau suasana mockup yang diinginkan
                             </p>
                         </div>
                         <div class="flex gap-3">
-                            <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2.5 px-4 rounded-xl transition-all text-sm">
+                            <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-300 hover:bg-gray-200 text-white font-semibold py-2.5 px-4 rounded-xl transition-all text-sm">
                                 Batal
                             </button>
                             <button id="confirm-edit-mockup-btn" class="flex-1 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-2.5 px-4 rounded-xl transition-all text-sm flex items-center justify-center gap-2 shadow-lg">
@@ -15651,7 +15651,7 @@ Execution Instructions:
                 targetCard.innerHTML = `
                     <div class="flex flex-col items-center justify-center h-full min-h-[200px]">
                         <div class="loader !border-l-pink-500"></div>
-                        <p class="mt-4 text-sm text-gray-300">Merender ulang...</p>
+                        <p class="mt-4 text-sm text-gray-600">Merender ulang...</p>
                     </div>
                 `;
 
@@ -16366,7 +16366,7 @@ PENTING:
                 card.innerHTML = `
                     <img src="${imgData.url}" class="w-full h-full object-cover" alt="Mirror Selfie ${idx + 1}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${idx}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                        <button data-action="preview" data-index="${idx}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                             <i class="fas fa-eye"></i>
                             <span class="hidden sm:inline">Preview</span>
                         </button>
@@ -16790,7 +16790,7 @@ PENTING:
                     card.className = 'relative group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300';
                     card.innerHTML = '<img src="' + imageUrl + '" class="w-full h-auto object-cover" alt="Walking Pad ' + index + '">' +
                         '<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">' +
-                        '<button data-action="preview" data-index="' + (index - 1) + '" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2"><i class="fas fa-eye"></i><span class="hidden sm:inline ml-1">Preview</span></button>' +
+                        '<button data-action="preview" data-index="' + (index - 1) + '" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2"><i class="fas fa-eye"></i><span class="hidden sm:inline ml-1">Preview</span></button>' +
                         '<button data-action="download" data-index="' + (index - 1) + '" class="action-btn text-white px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2" style="background:linear-gradient(135deg,#7c3aed 0%,#db2877 100%)"><i class="fas fa-download"></i><span class="hidden sm:inline ml-1">Download</span></button>' +
                         '</div>';
                 }
@@ -16823,7 +16823,7 @@ PENTING:
                 card.className = 'relative group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300';
                 card.innerHTML = '<img src="' + img.url + '" class="w-full h-auto object-cover" alt="Walking Pad ' + (idx + 1) + '">' +
                     '<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">' +
-                    '<button data-action="preview" data-index="' + idx + '" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2"><i class="fas fa-eye"></i><span class="hidden sm:inline ml-1">Preview</span></button>' +
+                    '<button data-action="preview" data-index="' + idx + '" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2"><i class="fas fa-eye"></i><span class="hidden sm:inline ml-1">Preview</span></button>' +
                     '<button data-action="download" data-index="' + idx + '" class="action-btn text-white px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2" style="background:linear-gradient(135deg,#7c3aed 0%,#db2877 100%)"><i class="fas fa-download"></i><span class="hidden sm:inline ml-1">Download</span></button>' +
                     '</div>';
                 resultsGrid.appendChild(card);
@@ -17634,7 +17634,7 @@ IMPORTANT:
                     card.innerHTML = `
                         <img src="${imageUrl}" class="w-full h-full object-cover" alt="Catalog Photo ${index}">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                                 <i class="fas fa-eye pointer-events-none"></i>
                                 <span class="hidden sm:inline pointer-events-none">Preview</span>
                             </button>
@@ -18046,7 +18046,7 @@ Pastikan semua elemen dekorasi terintegrasi dengan sempurna, lighting dramatis n
                 card.innerHTML = `
                     <div class="flex flex-col items-center gap-3">
                         <div class="animate-spin rounded-full h-12 w-12 border-b-3 border-t-3" style="border-color: #d97706;"></div>
-                        <p class="text-sm font-medium" style="color: #92400e;">Desain ${i}/${selectedCount}</p>
+                        <p class="text-sm font-medium" style="color: #F19D6A;">Desain ${i}/${selectedCount}</p>
                     </div>
                 `;
                 if (resultsGrid) resultsGrid.appendChild(card);
@@ -18101,7 +18101,7 @@ Pastikan semua elemen dekorasi terintegrasi dengan sempurna, lighting dramatis n
                     card.innerHTML = `
                         <img src="${imageUrl}" class="w-full h-full object-cover" alt="Wedding Design ${index}">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                                 <i class="fas fa-eye"></i>
                                 <span class="hidden sm:inline">Preview</span>
                             </button>
@@ -18802,7 +18802,7 @@ Pastikan identitas ${peopleCount > 1 ? 'SETIAP ORANG' : 'subjek'} TETAP SAMA PER
                     card.innerHTML = `
                         <div class="flex flex-col items-center gap-3">
                             <div class="animate-spin rounded-full h-12 w-12 border-b-3 border-t-3" style="border-color: #ec4899;"></div>
-                            <p class="text-sm font-medium" style="color: #be185d;">Foto ${i}/${selectedCount}</p>
+                            <p class="text-sm font-medium" style="color: #ED6EA3;">Foto ${i}/${selectedCount}</p>
                         </div>
                     `;
                     if (resultsGrid) resultsGrid.appendChild(card);
@@ -18889,7 +18889,7 @@ Pastikan identitas ${peopleCount > 1 ? 'SETIAP ORANG' : 'subjek'} TETAP SAMA PER
                     card.innerHTML = `
                         <img src="${imageUrl}" class="w-full h-full object-cover" alt="Birthday Photo ${index}">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                                 <i class="fas fa-eye"></i>
                                 <span class="hidden sm:inline">Preview</span>
                             </button>
@@ -21085,7 +21085,7 @@ Style: photorealistic, high quality, warm festive Lebaran lighting, elegant deco
                     card.innerHTML = `
                         <img src="${imageUrl}" class="w-full h-full object-cover" alt="Kartu Lebaran ${index}">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                                 <i class="fas fa-eye"></i>
                                 <span class="hidden sm:inline">Preview</span>
                             </button>
@@ -22045,7 +22045,7 @@ OUTPUT: Create a stunning, production-ready packaging design that a brand would 
                     card.innerHTML = `
                         <img src="${imageUrl}" class="w-full h-full object-cover" alt="Packaging Design ${index + 1}">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="${index}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                            <button data-action="preview" data-index="${index}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                                 <i class="fas fa-eye"></i>
                                 <span class="hidden sm:inline">Preview</span>
                             </button>
@@ -22404,7 +22404,7 @@ OUTPUT: Create a stunning, production-ready packaging design that a brand would 
                     card.innerHTML = `
                         <img src="${imageUrl}" class="w-full h-full object-cover" alt="After Image">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="0" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                            <button data-action="preview" data-index="0" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                                 <i class="fas fa-eye"></i>
                                 <span class="hidden sm:inline">Preview</span>
                             </button>
@@ -22467,7 +22467,7 @@ OUTPUT: Create a stunning, production-ready packaging design that a brand would 
                         </div>
                         <img src="${beforeImageUrl}" class="w-full h-full object-cover" alt="Before Image">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="0" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                            <button data-action="preview" data-index="0" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                                 <i class="fas fa-eye"></i>
                                 <span class="hidden sm:inline">Preview</span>
                             </button>
@@ -22496,7 +22496,7 @@ OUTPUT: Create a stunning, production-ready packaging design that a brand would 
                         </div>
                         <img src="${afterImageUrl}" class="w-full h-full object-cover" alt="After Image">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="1" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                            <button data-action="preview" data-index="1" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                                 <i class="fas fa-eye"></i>
                                 <span class="hidden sm:inline">Preview</span>
                             </button>
@@ -22715,9 +22715,9 @@ OUTPUT: A stunning, photorealistic image showing the "after" state that demonstr
             btn.addEventListener('click', () => {
                 frameBtns.forEach(b => {
                     b.classList.remove('bg-purple-600', 'ring-2', 'ring-purple-400');
-                    b.classList.add('bg-gray-700');
+                    b.classList.add('bg-gray-300');
                 });
-                btn.classList.remove('bg-gray-700');
+                btn.classList.remove('bg-gray-300');
                 btn.classList.add('bg-purple-600', 'ring-2', 'ring-purple-400');
                 selectedFrameCount = parseInt(btn.dataset.frames);
             });
@@ -22915,7 +22915,7 @@ OUTPUT: A stunning, photorealistic image showing the "after" state that demonstr
                 frameCard.innerHTML = `
                     <img src="data:image/jpeg;base64,${frame.base64}"
                          alt="Frame ${index + 1}"
-                         class="w-full h-auto rounded-lg border-2 border-gray-700 hover:border-purple-500 shadow-lg">
+                         class="w-full h-auto rounded-lg border-2 border-gray-300 hover:border-purple-500 shadow-lg">
                     <div class="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded-full font-semibold">
                         Frame ${index + 1}
                     </div>
@@ -23659,7 +23659,7 @@ Respond ONLY with a valid JSON array of ${selectedCount} objects, in sequential 
                             <i class="fas fa-copy mr-2"></i>Salin Caption
                         </button>
                         <button data-action="close-modal"
-                            class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">
+                            class="bg-gray-300 hover:bg-gray-200 text-white font-bold py-3 px-4 rounded-lg transition-colors">
                             Tutup
                         </button>
                     </div>
@@ -24621,7 +24621,7 @@ Respond HANYA dengan valid JSON array dari ${selectedCount} objects, dalam uruta
                             <i class="fas fa-copy mr-2"></i>Salin Caption
                         </button>
                         <button data-action="close-modal"
-                            class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">
+                            class="bg-gray-300 hover:bg-gray-200 text-white font-bold py-3 px-4 rounded-lg transition-colors">
                             Tutup
                         </button>
                     </div>
@@ -25257,7 +25257,7 @@ Respond ONLY with valid JSON array of ${selectedCount} objects.`;
                 const caption = result.candidates[0].content.parts[0].text;
                 const modal = document.getElementById('universal-modal');
                 const modalContent = modal.querySelector('.modal-content-inner');
-                modalContent.innerHTML = `<div class="max-h-[60vh] overflow-y-auto mb-4" style="-webkit-overflow-scrolling: touch;"><div class="whitespace-pre-wrap bg-gray-100 p-4 rounded-lg text-gray-800 leading-relaxed">${caption.trim()}</div></div><div class="flex gap-2"><button data-action="copy-caption" data-caption="${caption.trim().replace(/"/g, '&quot;')}" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-lg transition-colors"><i class="fas fa-copy mr-2"></i>Salin Caption</button><button data-action="close-modal" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">Tutup</button></div>`;
+                modalContent.innerHTML = `<div class="max-h-[60vh] overflow-y-auto mb-4" style="-webkit-overflow-scrolling: touch;"><div class="whitespace-pre-wrap bg-gray-100 p-4 rounded-lg text-gray-800 leading-relaxed">${caption.trim()}</div></div><div class="flex gap-2"><button data-action="copy-caption" data-caption="${caption.trim().replace(/"/g, '&quot;')}" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-lg transition-colors"><i class="fas fa-copy mr-2"></i>Salin Caption</button><button data-action="close-modal" class="bg-gray-300 hover:bg-gray-200 text-white font-bold py-3 px-4 rounded-lg transition-colors">Tutup</button></div>`;
                 modalContent.addEventListener('click', async (e) => {
                     e.stopPropagation();
                     const copyBtn = e.target.closest('[data-action="copy-caption"]');
@@ -25942,7 +25942,7 @@ Respond ONLY with a valid JSON array of ${selectedCount} objects, in sequential 
                             <i class="fas fa-copy mr-2"></i>Salin Caption
                         </button>
                         <button data-action="close-modal"
-                            class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">
+                            class="bg-gray-300 hover:bg-gray-200 text-white font-bold py-3 px-4 rounded-lg transition-colors">
                             Tutup
                         </button>
                     </div>
@@ -26475,7 +26475,7 @@ Respond ONLY with a valid JSON array of ${selectedCount} objects, in sequential 
                         <button class="btn-view-image bg-white hover:bg-gray-100 text-gray-800 p-2 rounded-full shadow-md" title="Lihat Gambar">
                             <i class="fas fa-eye w-4 h-4"></i>
                         </button>
-                        <button class="btn-download-image text-white p-2 rounded-full shadow-md" style="background-color: #F59E0B;" title="Unduh Gambar" data-action="download">
+                        <button class="btn-download-image text-white p-2 rounded-full shadow-md" style="background-color: #302515;" title="Unduh Gambar" data-action="download">
                             <i class="fas fa-download w-4 h-4"></i>
                         </button>
                     </div>`;
@@ -26758,7 +26758,7 @@ Respond ONLY with a valid JSON array of ${selectedCount} objects, in sequential 
                         <button class="btn-view-passport bg-white hover:bg-gray-100 text-gray-800 p-2 rounded-full shadow-md" title="Lihat Gambar">
                             <i class="fas fa-eye w-4 h-4"></i>
                         </button>
-                        <button class="btn-download-passport text-white p-2 rounded-full shadow-md" style="background-color: #7DDCDD;" title="Unduh Gambar" data-action="download">
+                        <button class="btn-download-passport text-white p-2 rounded-full shadow-md" style="background-color: #1D2F37;" title="Unduh Gambar" data-action="download">
                             <i class="fas fa-download w-4 h-4"></i>
                         </button>
                     </div>`;
@@ -27124,7 +27124,7 @@ The final result should be a complete photo booth image ready to print or share,
                 card.innerHTML = `
                     <img src="${imageUrl}" class="w-full h-full object-cover" alt="Photo Booth ${index}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                             <i class="fas fa-eye"></i>
                             <span class="hidden sm:inline">Preview</span>
                         </button>
@@ -27677,7 +27677,7 @@ Overall style: realistic photography of the person (face unchanged from referenc
                     <img src="${imageUrl}" class="w-full h-full object-cover" alt="Sticker ${exprId}">
                     <div class="absolute top-2 left-2 bg-black/60 text-white text-xs font-semibold px-2 py-1 rounded-full backdrop-blur-sm">${exprId}</div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-3 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2 text-sm">
+                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-3 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2 text-sm">
                             <i class="fas fa-eye"></i>
                             <span class="hidden sm:inline">Preview</span>
                         </button>
@@ -27996,7 +27996,7 @@ The result should be a natural-looking photo where only the facial expression ha
                 card.innerHTML = `
                     <img src="${imageUrl}" class="w-full h-full object-cover" alt="Expression ${index}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                             <i class="fas fa-eye"></i>
                             <span class="hidden sm:inline">Preview</span>
                         </button>
@@ -28462,7 +28462,7 @@ Generate a stunning, professional caricature that the subject would be proud to 
                 card.innerHTML = `
                     <img src="${imageUrl}" class="w-full h-full object-cover" alt="Karikatur ${index}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                             <i class="fas fa-eye"></i>
                             <span class="hidden sm:inline">Preview</span>
                         </button>
@@ -28871,7 +28871,7 @@ Cinematic composition, vibrant color contrast between subject and interface, tre
                 card.innerHTML = `
                     <img src="${imageUrl}" class="w-full h-full object-cover" alt="Studio Profil ${index}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                             <i class="fas fa-eye"></i>
                             <span class="hidden sm:inline">Preview</span>
                         </button>
@@ -29668,7 +29668,7 @@ Generate a stunning, professionally enhanced photo that maintains the person's a
                 card.innerHTML = `
                     <img src="${imageUrl}" class="w-full h-full object-cover" alt="Beauty ${index}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                             <i class="fas fa-eye"></i>
                             <span class="hidden sm:inline">Preview</span>
                         </button>
@@ -30250,7 +30250,7 @@ CRITICAL: Photo must look natural, professional, and appealing for affiliate mar
 
                 const card = document.getElementById(`islami-card-${index}`);
                 if (card) {
-                    card.innerHTML = `<img src="${imageUrl}" class="w-full h-full object-cover" alt="Cultural ${index}"><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2"><button data-action="preview" data-index="${index - 1}" class="bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2 text-sm" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;"><i class="fas fa-eye" style="pointer-events:none;"></i><span class="hidden sm:inline" style="pointer-events:none;">Preview</span></button><button data-action="download" data-index="${index - 1}" class="bg-gradient-to-r from-violet-500 to-indigo-600 text-white px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2 text-sm" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;"><i class="fas fa-download" style="pointer-events:none;"></i><span class="hidden sm:inline" style="pointer-events:none;">Download</span></button></div>`;
+                    card.innerHTML = `<img src="${imageUrl}" class="w-full h-full object-cover" alt="Cultural ${index}"><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2"><button data-action="preview" data-index="${index - 1}" class="bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2 text-sm" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;"><i class="fas fa-eye" style="pointer-events:none;"></i><span class="hidden sm:inline" style="pointer-events:none;">Preview</span></button><button data-action="download" data-index="${index - 1}" class="bg-gradient-to-r from-violet-500 to-indigo-600 text-white px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2 text-sm" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;"><i class="fas fa-download" style="pointer-events:none;"></i><span class="hidden sm:inline" style="pointer-events:none;">Download</span></button></div>`;
                 }
             } catch (error) {
                 console.error(`Error generating cultural photo ${index}:`, error);
@@ -30266,7 +30266,7 @@ CRITICAL: Photo must look natural, professional, and appealing for affiliate mar
             successful.forEach((img, idx) => {
                 const card = document.createElement('div');
                 card.className = 'relative group rounded-xl overflow-hidden bg-gray-100 shadow-lg aspect-[3/4]';
-                card.innerHTML = `<img src="${img.url}" class="w-full h-full object-cover" alt="Cultural ${idx + 1}"><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2"><button data-action="preview" data-index="${idx}" class="bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2 text-sm" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;"><i class="fas fa-eye" style="pointer-events:none;"></i><span class="hidden sm:inline" style="pointer-events:none;">Preview</span></button><button data-action="download" data-index="${idx}" class="bg-gradient-to-r from-violet-500 to-indigo-600 text-white px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2 text-sm" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;"><i class="fas fa-download" style="pointer-events:none;"></i><span class="hidden sm:inline" style="pointer-events:none;">Download</span></button></div>`;
+                card.innerHTML = `<img src="${img.url}" class="w-full h-full object-cover" alt="Cultural ${idx + 1}"><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2"><button data-action="preview" data-index="${idx}" class="bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2 text-sm" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;"><i class="fas fa-eye" style="pointer-events:none;"></i><span class="hidden sm:inline" style="pointer-events:none;">Preview</span></button><button data-action="download" data-index="${idx}" class="bg-gradient-to-r from-violet-500 to-indigo-600 text-white px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2 text-sm" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;"><i class="fas fa-download" style="pointer-events:none;"></i><span class="hidden sm:inline" style="pointer-events:none;">Download</span></button></div>`;
                 islamiResultsGrid.appendChild(card);
             });
         }
@@ -30669,7 +30669,7 @@ CRITICAL: Banner harus PROFESSIONAL, eye-catching, dan optimized untuk ${selecte
                     card.innerHTML = `
                         <img src="${imageUrl}" class="w-full h-full object-cover" alt="Banner ${index}">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-3 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-1.5">
+                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-3 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-1.5">
                                 <i class="fas fa-eye"></i>
                                 <span class="hidden sm:inline">Preview</span>
                             </button>
@@ -30828,7 +30828,7 @@ CRITICAL: Banner harus PROFESSIONAL, eye-catching, dan optimized untuk ${selecte
                 card.innerHTML = `
                     <img src="${imageUrl}" class="w-full h-full object-cover" alt="Banner ${cardNumber}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${cardIndex}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-3 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-1.5">
+                        <button data-action="preview" data-index="${cardIndex}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-3 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-1.5">
                             <i class="fas fa-eye"></i><span class="hidden sm:inline">Preview</span>
                         </button>
                         <button data-action="edit" data-index="${cardIndex}" class="action-btn bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-1.5">
@@ -31231,7 +31231,7 @@ The result MUST show complete background replacement with professional quality s
                     card.innerHTML = `
                         <img src="${imageUrl}" class="w-full h-full object-cover" alt="Background Removed ${index}">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="${index - 1}" class="bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2 text-sm">
+                            <button data-action="preview" data-index="${index - 1}" class="bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2 text-sm">
                                 <i class="fas fa-eye"></i>
                                 <span class="hidden sm:inline">Preview</span>
                             </button>
@@ -31586,7 +31586,7 @@ Important: This should look like ONE cohesive photograph, not a composite. The e
                     card.innerHTML = `
                         <img src="${imageUrl}" class="w-full h-full object-cover" alt="Extended Photo ${index}">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                                 <i class="fas fa-eye"></i>
                                 <span class="hidden sm:inline">Preview</span>
                             </button>
@@ -32066,7 +32066,7 @@ ${selectedVisualStyle === 'sketch' ?
                             <img src="${imageUrl}" class="w-full ${getAspectClass()} object-cover" alt="Frame ${frameNumber}">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2 p-3">
                                 <div class="flex gap-2">
-                                    <button data-action="preview" data-index="${frameNumber - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-3 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2 text-sm">
+                                    <button data-action="preview" data-index="${frameNumber - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-3 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2 text-sm">
                                         <i class="fas fa-eye"></i>
                                         <span class="hidden sm:inline">Preview</span>
                                     </button>
@@ -32087,7 +32087,7 @@ ${selectedVisualStyle === 'sketch' ?
                                     <div class="w-6 h-6 rounded-full bg-gradient-to-br from-purple-500 to-violet-600 text-white text-xs font-bold flex items-center justify-center">${frameNumber}</div>
                                     <span class="text-xs font-semibold text-gray-700">Frame ${frameNumber}</span>
                                 </div>
-                                <button data-action="edit-prompt" data-index="${frameNumber - 1}" data-frame="${frameNumber}" class="action-btn text-purple-600 hover:text-purple-800 transition-colors" title="Edit Prompt">
+                                <button data-action="edit-prompt" data-index="${frameNumber - 1}" data-frame="${frameNumber}" class="action-btn text-purple-600 hover:text-purple-600 transition-colors" title="Edit Prompt">
                                     <i class="fas fa-edit text-sm"></i>
                                 </button>
                             </div>
@@ -32633,7 +32633,7 @@ Generate a single high-quality architectural photo for this timelapse frame.`;
                             '<img src="' + imageUrl + '" class="w-full h-auto object-cover" alt="Timelapse Frame ' + frameNum + '">' +
                             '<div class="absolute top-2 left-2 bg-black/70 text-white text-xs font-bold px-2 py-1 rounded-full">Frame ' + frameNum + '</div>' +
                             '<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">' +
-                            '<button data-action="preview" data-index="' + idx + '" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-3 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-1 text-xs"><i class="fas fa-eye"></i><span class="hidden sm:inline">Preview</span></button>' +
+                            '<button data-action="preview" data-index="' + idx + '" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-3 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-1 text-xs"><i class="fas fa-eye"></i><span class="hidden sm:inline">Preview</span></button>' +
                             '<button data-action="download" data-index="' + idx + '" class="action-btn text-white px-3 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-1 text-xs" style="background:linear-gradient(135deg,#f59e0b 0%,#0d9488 100%)"><i class="fas fa-download"></i><span class="hidden sm:inline">Download</span></button>' +
                             '</div>';
                     }
@@ -33783,7 +33783,7 @@ The final result must be a high-quality professional headshot suitable for Linke
                     card.innerHTML = `
                         <img src="${imageUrl}" class="w-full h-full object-cover" alt="Professional Headshot ${index}">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                                 <i class="fas fa-eye"></i>
                                 <span class="hidden sm:inline">Preview</span>
                             </button>
@@ -34309,7 +34309,7 @@ Generate foto maternity yang indah, bermakna, dan profesional.`;
                 card.innerHTML = `
                     <img src="${imageUrl}" class="w-full h-full object-cover" alt="Maternity Photo ${index}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                             <i class="fas fa-eye"></i>
                             <span class="hidden sm:inline">Preview</span>
                         </button>
@@ -34718,7 +34718,7 @@ Generate foto maternity yang indah, bermakna, dan profesional.`;
                         <button onclick="window.open('${imageUrl}', '_blank')" class="bg-white hover:bg-gray-100 text-gray-800 p-2 rounded-full shadow-md" title="Lihat Gambar">
                             <i class="fas fa-eye"></i>
                         </button>
-                        <button onclick="downloadDataURINew('${imageUrl}', 'desain_interior_${id}.png'); event.stopPropagation();" class="text-white p-2 rounded-full shadow-md" style="background-color: #0EA5E9;" title="Unduh Gambar" data-action="download">
+                        <button onclick="downloadDataURINew('${imageUrl}', 'desain_interior_${id}.png'); event.stopPropagation();" class="text-white p-2 rounded-full shadow-md" style="background-color: #0B2639;" title="Unduh Gambar" data-action="download">
                             <i class="fas fa-download"></i>
                         </button>
                     </div>`;
@@ -34916,7 +34916,7 @@ Generate foto maternity yang indah, bermakna, dan profesional.`;
                         <button onclick="window.open('${imageUrl}', '_blank')" class="bg-white hover:bg-gray-100 text-gray-800 p-2 rounded-full shadow-md" title="Lihat Gambar">
                             <i class="fas fa-eye"></i>
                         </button>
-                        <button onclick="downloadDataURINew('${imageUrl}', 'desain_eksterior_${id}.png'); event.stopPropagation();" class="text-white p-2 rounded-full shadow-md" style="background-color: #0EA5E9;" title="Unduh Gambar" data-action="download">
+                        <button onclick="downloadDataURINew('${imageUrl}', 'desain_eksterior_${id}.png'); event.stopPropagation();" class="text-white p-2 rounded-full shadow-md" style="background-color: #0B2639;" title="Unduh Gambar" data-action="download">
                             <i class="fas fa-download"></i>
                         </button>
                     </div>`;
@@ -35881,7 +35881,7 @@ The script's tone and content must be tailored to the chosen script type.`;
             const slides = card.querySelectorAll('.carousel-slide');
             if (slides[slideIndex]) {
                 slides[slideIndex].innerHTML = `
-                    <div class="w-full h-full flex items-center justify-center bg-gray-900 min-h-[200px]">
+                    <div class="w-full h-full flex items-center justify-center bg-gray-100 min-h-[200px]">
                         <div class="text-center">
                             <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-pink-500 mx-auto mb-2"></div>
                             <p class="text-white text-xs">Generating slide ${slideIndex + 1}...</p>
@@ -36907,7 +36907,7 @@ OUTPUT: High-quality logo design, clean background, professional presentation, P
                 <!-- Do's and Don'ts -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="border-2 border-green-200 bg-green-50 rounded-xl p-4">
-                        <h4 class="font-bold text-green-800 mb-3"><i class="fas fa-check-circle mr-2"></i>Do's</h4>
+                        <h4 class="font-bold text-green-600 mb-3"><i class="fas fa-check-circle mr-2"></i>Do's</h4>
                         <ul class="space-y-2">
                             ${voice.dos.map(item => `
                                 <li class="text-sm text-gray-700 flex items-start">
@@ -36918,7 +36918,7 @@ OUTPUT: High-quality logo design, clean background, professional presentation, P
                         </ul>
                     </div>
                     <div class="border-2 border-red-200 bg-red-50 rounded-xl p-4">
-                        <h4 class="font-bold text-red-800 mb-3"><i class="fas fa-times-circle mr-2"></i>Don'ts</h4>
+                        <h4 class="font-bold text-red-600 mb-3"><i class="fas fa-times-circle mr-2"></i>Don'ts</h4>
                         <ul class="space-y-2">
                             ${voice.donts.map(item => `
                                 <li class="text-sm text-gray-700 flex items-start">
@@ -37548,7 +37548,7 @@ Repeat this format for all ${totalPosts} posts. Make each post unique and valuab
                 } else {
                     card.innerHTML = `
                         <div class="text-xs font-bold text-gray-400">Day ${day}</div>
-                        <div class="text-xs text-gray-300">Rest day</div>
+                        <div class="text-xs text-gray-600">Rest day</div>
                     `;
                 }
 
@@ -38235,7 +38235,7 @@ IMPROVEMENT TIPS:
                 const winnerInsight = document.createElement('div');
                 winnerInsight.className = 'p-4 rounded-lg bg-green-50 border-2 border-green-200';
                 winnerInsight.innerHTML = `
-                    <h5 class="font-bold text-green-800 mb-2">🏆 Why Variant ${winner.label} Wins:</h5>
+                    <h5 class="font-bold text-green-600 mb-2">🏆 Why Variant ${winner.label} Wins:</h5>
                     <p class="text-sm text-gray-700">${winner.insight}</p>
                 `;
                 insightsContainer.appendChild(winnerInsight);
@@ -38245,7 +38245,7 @@ IMPROVEMENT TIPS:
                     const tipsCard = document.createElement('div');
                     tipsCard.className = 'p-4 rounded-lg bg-blue-50 border-2 border-blue-200';
                     tipsCard.innerHTML = `
-                        <h5 class="font-bold text-blue-800 mb-2">💡 How to Make Variant ${winner.label} Even Better:</h5>
+                        <h5 class="font-bold text-blue-600 mb-2">💡 How to Make Variant ${winner.label} Even Better:</h5>
                         <ul class="text-sm text-gray-700 space-y-1">
                             ${winner.tips.map(tip => `<li>• ${tip}</li>`).join('')}
                         </ul>
@@ -38259,7 +38259,7 @@ IMPROVEMENT TIPS:
                     const platformCard = document.createElement('div');
                     platformCard.className = 'p-4 rounded-lg bg-purple-50 border-2 border-purple-200';
                     platformCard.innerHTML = `
-                        <h5 class="font-bold text-purple-800 mb-2">🎯 ${selectedPlatform} Pro Tip:</h5>
+                        <h5 class="font-bold text-purple-600 mb-2">🎯 ${selectedPlatform} Pro Tip:</h5>
                         <p class="text-sm text-gray-700">${platformTip}</p>
                     `;
                     insightsContainer.appendChild(platformCard);
@@ -39540,7 +39540,7 @@ CRITICAL: Keep the person's face and identity EXACTLY the same from the PERSON i
                     card.innerHTML = `
                         <img src="${imageUrl}" class="w-full h-full object-cover" alt="Graduation Photo ${index}">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="${index - 1}" class="graduation-action-btn bg-white/90 hover:bg-white text-gray-800">
+                            <button data-action="preview" data-index="${index - 1}" class="graduation-action-btn bg-gray-200/90 hover:bg-white text-gray-800">
                                 <i class="fas fa-eye"></i>
                                 <span class="hidden sm:inline ml-1">Preview</span>
                             </button>
@@ -41716,7 +41716,7 @@ Generate a complete, print-ready poster yang eye-catching, professional, dan ses
                     card.innerHTML = `
                         <img src="${imageUrl}" class="w-full h-full object-cover" alt="Poster ${index}">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                                 <i class="fas fa-eye"></i>
                                 <span class="hidden sm:inline">Preview</span>
                             </button>
@@ -42349,7 +42349,7 @@ Generate a professionally cleaned image with all distractions removed.`;
                 if (card) card.innerHTML = `
                     <img src="${imageUrl}" class="w-full h-full object-cover" alt="Result ${index}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                        <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                             <i class="fas fa-eye"></i>
                             <span class="hidden sm:inline">Preview</span>
                         </button>
@@ -43112,7 +43112,7 @@ Generate comparison image yang SANGAT PROFESSIONAL dan ENGAGING!`;
                     card.innerHTML = `
                         <img src="${imageUrl}" class="w-full h-full object-cover" alt="Comparison ${index}">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="${index - 1}" class="comparison-action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                            <button data-action="preview" data-index="${index - 1}" class="comparison-action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                                 <i class="fas fa-eye"></i>
                                 <span class="hidden sm:inline">Preview</span>
                             </button>
@@ -43501,7 +43501,7 @@ Generate unboxing scene yang SANGAT PROFESSIONAL dan ENGAGING - seperti unboxing
                 card.innerHTML = `
                     <img src="${imageUrl}" class="w-full h-full object-cover" alt="Unboxing ${index}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${index - 1}" class="unboxing-action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                        <button data-action="preview" data-index="${index - 1}" class="unboxing-action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                             <i class="fas fa-eye"></i>
                             <span class="hidden sm:inline">Preview</span>
                         </button>
@@ -43761,7 +43761,7 @@ Generate unboxing scene yang SANGAT PROFESSIONAL dan ENGAGING - seperti unboxing
                 for (let i = 1; i <= selectedCount; i++) {
                     const card = document.createElement('div');
                     card.id = `prodmockup-card-${i}`;
-                    card.className = 'relative rounded-xl overflow-hidden bg-gray-800/50 flex items-center justify-center aspect-square border border-white/10';
+                    card.className = 'relative rounded-xl overflow-hidden bg-gray-200/50 flex items-center justify-center aspect-square border border-white/10';
                     card.innerHTML = '<div class="animate-spin rounded-full h-10 w-10 border-b-2 border-emerald-500"></div>';
                     resultsGrid?.appendChild(card);
                 }
@@ -43904,7 +43904,7 @@ Generate mockup yang INSTAGRAM-WORTHY dan SALES-BOOSTING - perfect untuk e-comme
                     card.innerHTML = `
                         <img src="${imageUrl}" class="w-full h-full object-cover" alt="Mockup ${index}">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="${index - 1}" class="mockup-action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                            <button data-action="preview" data-index="${index - 1}" class="mockup-action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                                 <i class="fas fa-eye"></i>
                                 <span class="hidden sm:inline">Preview</span>
                             </button>
@@ -44401,7 +44401,7 @@ Generate testimonial card yang CONVINCING dan PROFESSIONAL - perfect untuk websi
                 card.innerHTML = `
                     <img src="${imageUrl}" class="w-full h-full object-cover" alt="Testimonial ${index}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${generatedTestimonials.length - 1}" class="testimonial-action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                        <button data-action="preview" data-index="${generatedTestimonials.length - 1}" class="testimonial-action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                             <i class="fas fa-eye"></i>
                             <span class="hidden sm:inline">Preview</span>
                         </button>
@@ -44809,7 +44809,7 @@ Generate size guide yang SANGAT HELPFUL dan PROFESSIONAL - perfect untuk e-comme
                 card.innerHTML = `
                     <img src="${imageUrl}" class="w-full h-full object-cover" alt="Size Guide ${index}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${index - 1}" class="sizeguide-action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                        <button data-action="preview" data-index="${index - 1}" class="sizeguide-action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                             <i class="fas fa-eye"></i>
                             <span class="hidden sm:inline">Preview</span>
                         </button>
@@ -45226,7 +45226,7 @@ Generate frame ${index} dengan PERFECT CONTINUITY untuk sequential video - siap 
                         Frame ${String(index).padStart(2, '0')}
                     </div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${index - 1}" class="videoframes-action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                        <button data-action="preview" data-index="${index - 1}" class="videoframes-action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                             <i class="fas fa-eye"></i>
                             <span class="hidden sm:inline">Preview</span>
                         </button>
@@ -45685,7 +45685,7 @@ Generate modified vehicle yang STUNNING dan REALISTIC - perfect untuk visualisas
                 card.innerHTML = `
                     <img src="${imageUrl}" class="w-full h-full object-cover" alt="Modified Vehicle ${index}">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${index - 1}" class="vehicle-action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                        <button data-action="preview" data-index="${index - 1}" class="vehicle-action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                             <i class="fas fa-eye"></i>
                             <span class="hidden sm:inline">Preview</span>
                         </button>
@@ -46112,7 +46112,7 @@ Make it look like a real ${selectedSize.toLowerCase()} ${selectedColor.toLowerCa
                     card.innerHTML = `
                         <img src="${imageUrl}" class="w-full h-full object-cover" alt="Tattoo Design ${index}">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
+                            <button data-action="preview" data-index="${index - 1}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
                                 <i class="fas fa-eye"></i>
                                 <span class="hidden sm:inline">Preview</span>
                             </button>
@@ -46490,7 +46490,7 @@ Make it look like a real ${selectedSize.toLowerCase()} ${selectedColor.toLowerCa
                 card.innerHTML = `
                     <img src="${img.url}" class="w-full h-full object-cover" alt="Model Photo">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-result-index="${idx}" class="action-btn min-w-[44px] min-h-[44px] bg-white/90 hover:bg-white text-gray-800 px-4 py-2.5 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center justify-center gap-2 text-sm">
+                        <button data-action="preview" data-result-index="${idx}" class="action-btn min-w-[44px] min-h-[44px] bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2.5 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center justify-center gap-2 text-sm">
                             <i class="fas fa-eye pointer-events-none"></i>
                             <span class="pointer-events-none">Preview</span>
                         </button>
@@ -47011,7 +47011,7 @@ This photo will be used as a consistent model reference for various product phot
             return `
                 <img src="${imageUrl}" class="w-full h-full object-cover" alt="Fotogenic ${idx + 1}">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                    <button data-action="preview" data-index="${idx}" class="action-btn bg-white/90 hover:bg-white text-gray-800 px-3 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-1 text-xs">
+                    <button data-action="preview" data-index="${idx}" class="action-btn bg-gray-200/90 hover:bg-white text-gray-800 px-3 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-1 text-xs">
                         <i class="fas fa-eye pointer-events-none"></i>
                         <span class="hidden sm:inline pointer-events-none">Preview</span>
                     </button>
@@ -47352,7 +47352,7 @@ The result must look completely natural and photorealistic, as if the person fro
                     card.innerHTML = `
                         <img src="${imageUrl}" class="w-full h-full object-cover" alt="Face Swap ${variation}">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                            <button data-action="preview" data-index="${generatedResults.length - 1}" class="bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2 text-sm" style="touch-action: manipulation; -webkit-tap-highlight-color: transparent;">
+                            <button data-action="preview" data-index="${generatedResults.length - 1}" class="bg-gray-200/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2 text-sm" style="touch-action: manipulation; -webkit-tap-highlight-color: transparent;">
                                 <i class="fas fa-eye" style="pointer-events: none;"></i>
                                 <span class="hidden sm:inline" style="pointer-events: none;">Preview</span>
                             </button>
@@ -47527,12 +47527,12 @@ The result must look completely natural and photorealistic, as if the person fro
                 previewContainer.classList.remove('hidden');
                 uploadPrompt.classList.add('hidden');
                 ageSelect.disabled = true;
-                ageSelect.classList.add('disabled:bg-gray-800', 'disabled:cursor-not-allowed', 'disabled:text-gray-500');
+                ageSelect.classList.add('disabled:bg-gray-200', 'disabled:cursor-not-allowed', 'disabled:text-gray-500');
             } else {
                 previewContainer.classList.add('hidden');
                 uploadPrompt.classList.remove('hidden');
                 ageSelect.disabled = false;
-                ageSelect.classList.remove('disabled:bg-gray-800', 'disabled:cursor-not-allowed', 'disabled:text-gray-500');
+                ageSelect.classList.remove('disabled:bg-gray-200', 'disabled:cursor-not-allowed', 'disabled:text-gray-500');
             }
         };
 

@@ -82,7 +82,7 @@
         /* Tangga netral, DIBALIK: 50 tergelap -> 900 putih. */
         const netral = {
             50: '#0B0E17', 100: '#121826', 200: '#1A2130', 300: '#29303F',
-            400: '#8695A8', 500: '#A3B0C0', 600: '#CBD5E1', 700: '#E2E8F0',
+            400: '#93A1B2', 500: '#AEBACA', 600: '#CBD5E1', 700: '#E2E8F0',
             800: '#F1F5F9', 900: '#FFFFFF', 950: '#FFFFFF'
         };
 
@@ -8347,20 +8347,35 @@
         [id^="content-"][data-map] :is(.text-pink-600, .text-pink-700) { color: #F472B6 }
         [id^="content-"][data-map] :is(.text-rose-600, .text-rose-700) { color: #FB7185 }
 
-        /* Sisi sebaliknya dari batas yang sama: keluarga terang dipakai
-           sebagai LATAR tombol dengan `text-white` di atasnya. Nada 500/600
-           terlalu terang untuk itu, jadi peran latarnya diturunkan satu
-           langkah. Peran teksnya tidak ikut turun — keluarga ini memang
-           sudah cukup terang untuk dibaca apa adanya. */
-        [id^="content-"][data-map] :is(.bg-cyan-500, .bg-cyan-600) { background-color: #0891B2 }
-        [id^="content-"][data-map] :is(.bg-sky-500, .bg-sky-600) { background-color: #0284C7 }
-        [id^="content-"][data-map] :is(.bg-teal-500, .bg-teal-600) { background-color: #0D9488 }
-        [id^="content-"][data-map] :is(.bg-green-500, .bg-green-600) { background-color: #16A34A }
-        [id^="content-"][data-map] :is(.bg-emerald-500, .bg-emerald-600) { background-color: #059669 }
-        [id^="content-"][data-map] :is(.bg-lime-500, .bg-lime-600) { background-color: #65A30D }
-        [id^="content-"][data-map] :is(.bg-yellow-500, .bg-yellow-600) { background-color: #CA8A04 }
-        [id^="content-"][data-map] :is(.bg-amber-500, .bg-amber-600) { background-color: #D97706 }
-        [id^="content-"][data-map] :is(.bg-orange-500, .bg-orange-600) { background-color: #EA580C }
+        /* Sisi sebaliknya dari batas yang sama: nada 500/600 juga dipakai
+           sebagai LATAR tombol dengan `text-white` di atasnya. Nilainya
+           diturunkan sampai teks putih lolos AA (>=4,5) — bukan sekadar
+           "cukup gelap", tapi diambil dari nada stok yang memang lolos:
+           keluarga terang perlu turun ke stok 700, keluarga gelap cukup 600.
+           Peran teksnya tidak ikut turun; itu diatur blok di atas.
+
+           Varian hover: dan peer-checked: ikut didaftar eksplisit. Sengaja
+           TIDAK memakai [class*="bg-indigo-600"] yang akan menjaring semua
+           varian sekaligus: itu akan menyalakan warna hover secara permanen
+           pada elemen yang cuma punya hover:bg-indigo-600. Satu-satunya cara
+           yang benar keadaan adalah menyebut state-nya. */
+        [id^="content-"][data-map] :is(.bg-cyan-500, .bg-cyan-600, .hover\:bg-cyan-500:hover, .hover\:bg-cyan-600:hover, .peer:checked ~ .peer-checked\:bg-cyan-500, .peer:checked ~ .peer-checked\:bg-cyan-600) { background-color: #0E7490 }
+        [id^="content-"][data-map] :is(.bg-sky-500, .bg-sky-600, .hover\:bg-sky-500:hover, .hover\:bg-sky-600:hover, .peer:checked ~ .peer-checked\:bg-sky-500, .peer:checked ~ .peer-checked\:bg-sky-600) { background-color: #0369A1 }
+        [id^="content-"][data-map] :is(.bg-teal-500, .bg-teal-600, .hover\:bg-teal-500:hover, .hover\:bg-teal-600:hover, .peer:checked ~ .peer-checked\:bg-teal-500, .peer:checked ~ .peer-checked\:bg-teal-600) { background-color: #0F766E }
+        [id^="content-"][data-map] :is(.bg-green-500, .bg-green-600, .hover\:bg-green-500:hover, .hover\:bg-green-600:hover, .peer:checked ~ .peer-checked\:bg-green-500, .peer:checked ~ .peer-checked\:bg-green-600) { background-color: #15803D }
+        [id^="content-"][data-map] :is(.bg-emerald-500, .bg-emerald-600, .hover\:bg-emerald-500:hover, .hover\:bg-emerald-600:hover, .peer:checked ~ .peer-checked\:bg-emerald-500, .peer:checked ~ .peer-checked\:bg-emerald-600) { background-color: #047857 }
+        [id^="content-"][data-map] :is(.bg-lime-500, .bg-lime-600, .hover\:bg-lime-500:hover, .hover\:bg-lime-600:hover, .peer:checked ~ .peer-checked\:bg-lime-500, .peer:checked ~ .peer-checked\:bg-lime-600) { background-color: #4D7C0F }
+        [id^="content-"][data-map] :is(.bg-yellow-500, .bg-yellow-600, .hover\:bg-yellow-500:hover, .hover\:bg-yellow-600:hover, .peer:checked ~ .peer-checked\:bg-yellow-500, .peer:checked ~ .peer-checked\:bg-yellow-600) { background-color: #A16207 }
+        [id^="content-"][data-map] :is(.bg-amber-500, .bg-amber-600, .hover\:bg-amber-500:hover, .hover\:bg-amber-600:hover, .peer:checked ~ .peer-checked\:bg-amber-500, .peer:checked ~ .peer-checked\:bg-amber-600) { background-color: #B45309 }
+        [id^="content-"][data-map] :is(.bg-orange-500, .bg-orange-600, .hover\:bg-orange-500:hover, .hover\:bg-orange-600:hover, .peer:checked ~ .peer-checked\:bg-orange-500, .peer:checked ~ .peer-checked\:bg-orange-600) { background-color: #C2410C }
+        [id^="content-"][data-map] :is(.bg-blue-500, .bg-blue-600, .hover\:bg-blue-500:hover, .hover\:bg-blue-600:hover, .peer:checked ~ .peer-checked\:bg-blue-500, .peer:checked ~ .peer-checked\:bg-blue-600) { background-color: #2563EB }
+        [id^="content-"][data-map] :is(.bg-indigo-500, .bg-indigo-600, .hover\:bg-indigo-500:hover, .hover\:bg-indigo-600:hover, .peer:checked ~ .peer-checked\:bg-indigo-500, .peer:checked ~ .peer-checked\:bg-indigo-600) { background-color: #4F46E5 }
+        [id^="content-"][data-map] :is(.bg-violet-500, .bg-violet-600, .hover\:bg-violet-500:hover, .hover\:bg-violet-600:hover, .peer:checked ~ .peer-checked\:bg-violet-500, .peer:checked ~ .peer-checked\:bg-violet-600) { background-color: #7C3AED }
+        [id^="content-"][data-map] :is(.bg-purple-500, .bg-purple-600, .hover\:bg-purple-500:hover, .hover\:bg-purple-600:hover, .peer:checked ~ .peer-checked\:bg-purple-500, .peer:checked ~ .peer-checked\:bg-purple-600) { background-color: #9333EA }
+        [id^="content-"][data-map] :is(.bg-fuchsia-500, .bg-fuchsia-600, .hover\:bg-fuchsia-500:hover, .hover\:bg-fuchsia-600:hover, .peer:checked ~ .peer-checked\:bg-fuchsia-500, .peer:checked ~ .peer-checked\:bg-fuchsia-600) { background-color: #C026D3 }
+        [id^="content-"][data-map] :is(.bg-pink-500, .bg-pink-600, .hover\:bg-pink-500:hover, .hover\:bg-pink-600:hover, .peer:checked ~ .peer-checked\:bg-pink-500, .peer:checked ~ .peer-checked\:bg-pink-600) { background-color: #DB2777 }
+        [id^="content-"][data-map] :is(.bg-rose-500, .bg-rose-600, .hover\:bg-rose-500:hover, .hover\:bg-rose-600:hover, .peer:checked ~ .peer-checked\:bg-rose-500, .peer:checked ~ .peer-checked\:bg-rose-600) { background-color: #E11D48 }
+        [id^="content-"][data-map] :is(.bg-red-500, .bg-red-600, .hover\:bg-red-500:hover, .hover\:bg-red-600:hover, .peer:checked ~ .peer-checked\:bg-red-500, .peer:checked ~ .peer-checked\:bg-red-600) { background-color: #DC2626 }
 
         /* --- Permukaan kartu -------------------------------------
            `bg-white` polos (bukan `bg-white/5` — itu kelas lain dan
@@ -21658,7 +21673,7 @@ finish review, the verdict, and DESIGN.md
                                                 <i class="fas fa-circle mr-1" style="color: #10b981;"></i>Green
                                             </button>
                                             <button class="option-btn-banner" data-value="purple" type="button">
-                                                <i class="fas fa-circle mr-1" style="color: #8b5cf6;"></i>Purple
+                                                <i class="fas fa-circle mr-1" style="color: #986EF7;"></i>Purple
                                             </button>
                                             <button class="option-btn-banner" data-value="orange" type="button">
                                                 <i class="fas fa-circle mr-1" style="color: #f97316;"></i>Orange
@@ -22916,7 +22931,7 @@ finish review, the verdict, and DESIGN.md
                                             <button class="checkbox-btn-brandkit" data-value="Purple (Luxury, Creative)"
                                                 type="button">
                                                 <i class="fas fa-check hidden mr-1"></i> <span
-                                                    style="color: #8b5cf6;">●</span> Purple
+                                                    style="color: #986EF7;">●</span> Purple
                                             </button>
                                             <button class="checkbox-btn-brandkit"
                                                 data-value="Orange (Friendly, Energetic)" type="button">
@@ -26984,7 +26999,7 @@ finish review, the verdict, and DESIGN.md
                                             for="pod-photo-upload"
                                             style="border-color: #a855f7; background: linear-gradient(135deg, #363841 0%, #373741 100%);">
                                             <div class="flex flex-col items-center gap-2">
-                                                <i class="fas fa-user text-4xl" style="color: #a855f7;"></i>
+                                                <i class="fas fa-user text-4xl" style="color: #B46DF8;"></i>
                                                 <span class="font-semibold" data-i18n="pod.upload-photo-cta"
                                                     style="color: #A174E6;">Klik untuk upload foto karakter</span>
                                                 <span class="text-xs text-gray-500"
@@ -27118,7 +27133,7 @@ finish review, the verdict, and DESIGN.md
                         <main class="flex-1 lg:w-7/12">
                             <div class="bg-white rounded-2xl shadow-lg p-12 border text-center" id="pod-empty-state"
                                 style="border-color: #2C05E0;">
-                                <i class="fas fa-microphone-lines text-6xl mb-4" style="color: #a855f7;"></i>
+                                <i class="fas fa-microphone-lines text-6xl mb-4" style="color: #B46DF8;"></i>
                                 <p class="text-lg text-gray-600" data-i18n="pod.empty-state">Upload foto karakter untuk
                                     mulai</p>
                             </div>
@@ -27930,7 +27945,7 @@ finish review, the verdict, and DESIGN.md
                                     <!-- Mode Selector (NOT a numbered step) -->
                                     <div>
                                         <div class="flex items-center gap-3 mb-4">
-                                            <i class="fas fa-toggle-on text-xl" style="color: #a855f7;"></i>
+                                            <i class="fas fa-toggle-on text-xl" style="color: #B46DF8;"></i>
                                             <h3 class="text-lg font-bold text-gray-800" data-i18n="pp.mode-section">
                                                 Pilih Mode</h3>
                                         </div>
@@ -27964,7 +27979,7 @@ finish review, the verdict, and DESIGN.md
                                             for="pp-product-upload"
                                             style="border-color: #a855f7; background: linear-gradient(135deg, #373741 0%, #363841 100%);">
                                             <div class="flex flex-col items-center gap-2">
-                                                <i class="fas fa-cube text-4xl" style="color: #a855f7;"></i>
+                                                <i class="fas fa-cube text-4xl" style="color: #B46DF8;"></i>
                                                 <span class="font-semibold" data-i18n="pp.upload-product-cta"
                                                     style="color: #B173E8;">Klik untuk upload foto produk</span>
                                                 <span class="text-xs text-gray-500"
@@ -28183,7 +28198,7 @@ finish review, the verdict, and DESIGN.md
                         <main class="flex-1 lg:w-7/12">
                             <div class="bg-white rounded-2xl shadow-lg p-12 border text-center" id="pp-empty-state"
                                 style="border-color: #B605E1;">
-                                <i class="fas fa-wand-magic-sparkles text-6xl mb-4" style="color: #a855f7;"></i>
+                                <i class="fas fa-wand-magic-sparkles text-6xl mb-4" style="color: #B46DF8;"></i>
                                 <p class="text-lg text-gray-600" data-i18n="pp.empty-state">Upload foto produk dan
                                     generate untuk lihat hasilnya</p>
                             </div>
@@ -29919,7 +29934,7 @@ finish review, the verdict, and DESIGN.md
                                             style="border-color: #6366f1; background: linear-gradient(135deg, #343741 0%, #363841 100%);">
                                             <div class="flex flex-col items-center gap-2"
                                                 id="studio-profil-placeholder">
-                                                <i class="fas fa-cloud-upload-alt text-4xl" style="color: #6366f1;"></i>
+                                                <i class="fas fa-cloud-upload-alt text-4xl" style="color: #8588F4;"></i>
                                                 <span class="font-semibold" data-i18n="sp.upload-cta"
                                                     style="color: #857EDD;">Klik untuk upload foto</span>
                                                 <span class="text-xs text-gray-500" data-i18n="sp.upload-hint">Foto
@@ -30017,7 +30032,7 @@ finish review, the verdict, and DESIGN.md
                                                 <div class="flex flex-col items-center gap-1"
                                                     id="studio-profil-screenshot-placeholder">
                                                     <i class="fas fa-mobile-screen-button text-2xl"
-                                                        style="color: #a855f7;"></i>
+                                                        style="color: #B46DF8;"></i>
                                                     <span class="font-semibold text-sm" data-i18n="sp.screenshot-cta"
                                                         style="color: #B377E4;">Klik upload screenshot profil</span>
                                                     <span class="text-xs text-gray-500"
@@ -30936,7 +30951,7 @@ finish review, the verdict, and DESIGN.md
                                             style="border-color:#0d9488;background:linear-gradient(135deg,#343940 0%,#2E393E 100%);">
                                             <div class="flex flex-col items-center gap-2"
                                                 id="timelapse-after-placeholder">
-                                                <i class="fas fa-house-chimney text-4xl" style="color:#0d9488;"></i>
+                                                <i class="fas fa-house-chimney text-4xl" style="color:#72F3E7;"></i>
                                                 <span class="font-semibold text-sm" data-i18n="tl.after-upload"
                                                     style="color:#75E6DF;">Foto referensi rumah impian (opsional)</span>
                                                 <span class="text-xs text-gray-500" data-i18n="tl.after-hint">Jika
@@ -30976,7 +30991,7 @@ finish review, the verdict, and DESIGN.md
                                                     style="color:#60a5fa;"></i>Scandinavian</button>
                                             <button class="option-btn-timelapse text-left" data-value="industrial-loft"
                                                 type="button"><i class="fas fa-industry mr-1"
-                                                    style="color:#6b7280;"></i>Industrial Loft</button>
+                                                    style="color:#88A4DD;"></i>Industrial Loft</button>
                                             <button class="option-btn-timelapse text-left" data-value="tropis-modern"
                                                 type="button"><i class="fas fa-leaf mr-1"
                                                     style="color:#16a34a;"></i>Tropis Modern</button>
@@ -31018,7 +31033,7 @@ finish review, the verdict, and DESIGN.md
                                                     style="color:#f59e0b;"></i>Luxury Mansion</button>
                                             <button class="option-btn-timelapse text-left" data-value="container-house"
                                                 type="button"><i class="fas fa-box mr-1"
-                                                    style="color:#64748b;"></i>Container House</button>
+                                                    style="color:#88ABDD;"></i>Container House</button>
                                             <button class="option-btn-timelapse text-left" data-value="ruko-modern"
                                                 type="button"><i class="fas fa-store mr-1"
                                                     style="color:#6A94F1;"></i>Ruko Modern</button>
@@ -31027,7 +31042,7 @@ finish review, the verdict, and DESIGN.md
                                                     style="color:#d97706;"></i>Cafe &amp; Resto</button>
                                             <button class="option-btn-timelapse text-left"
                                                 data-value="heritage-restoration" type="button"><i
-                                                    class="fas fa-landmark mr-1" style="color:#78716c;"></i>Heritage
+                                                    class="fas fa-landmark mr-1" style="color:#DDAB88;"></i>Heritage
                                                 Restore</button>
                                         </div>
                                     </div>
