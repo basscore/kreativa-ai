@@ -1357,6 +1357,27 @@
             aspect-ratio: 16/9
         }
 
+        #content-wedding .option-btn-wedding {
+            padding: .75rem 1rem;
+            border-radius: .75rem;
+            border: 1px solid #e5e7eb;
+            background-color: #FFFFFF;
+            color: #374151;
+            cursor: pointer;
+            font-weight: 500;
+            transition: .2s ease
+        }
+
+        #content-wedding .option-btn-wedding:hover {
+            border-color: #fda4af
+        }
+
+        #content-wedding .option-btn-wedding.selected {
+            background: linear-gradient(135deg, #f43f5e 0%, #ec4899 100%);
+            border-color: transparent;
+            color: #FFFFFF
+        }
+
         #content-wedding .loader {
             border: 4px solid #D6D2C6;
             border-top: 4px solid #F4F2EA;
@@ -2043,27 +2064,25 @@
         }
 
         #content-mockup-studio {
-            background: linear-gradient(135deg, #F4F2EA 0, #F4F2EA 100%);
             min-height: 100vh;
             padding: 2rem 1rem
         }
 
         #content-mockup-studio .card {
-            background: #FFFFFF;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .1);
             border-radius: 1rem;
             padding: 2rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, .1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .25);
             transition: .3s
         }
 
         #content-mockup-studio .upload-area {
-            border: 1px dashed #D6D2C6;
             border-radius: 1rem;
             padding: 3rem 2rem;
             text-align: center;
             cursor: pointer;
             transition: .3s;
-            background: linear-gradient(135deg, #FFFFFF 0, #FBFAF6 100%);
             min-height: 200px;
             display: flex;
             align-items: center;
@@ -2071,14 +2090,31 @@
         }
 
         #content-mockup-studio .upload-area:hover {
-            border-color: var(--map);
-            background: linear-gradient(135deg, #FBFAF6 0, #FBFAF6 100%);
             transform: translateY(-2px)
         }
 
         #content-mockup-studio .upload-area.has-image {
-            border-color: var(--map);
-            background: #FFFFFF
+            border-color: #EC4899 !important
+        }
+
+        #mockup-upload-area {
+            background: rgba(236, 72, 153, .08) !important;
+            border-color: rgba(236, 72, 153, .4) !important;
+        }
+
+        #mockup-upload-area:hover {
+            background: rgba(236, 72, 153, .12) !important;
+            border-color: #EC4899 !important;
+        }
+
+        #mockup-template-upload-area {
+            background: rgba(139, 92, 246, .08) !important;
+            border-color: rgba(139, 92, 246, .4) !important;
+        }
+
+        #mockup-template-upload-area:hover {
+            background: rgba(139, 92, 246, .12) !important;
+            border-color: #8B5CF6 !important;
         }
 
         #content-mockup-studio .preview-image {
@@ -2086,12 +2122,10 @@
             max-height: 300px;
             border-radius: 1rem !important;
             object-fit: contain;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, .1)
+            box-shadow: 0 4px 15px rgba(0, 0, 0, .3)
         }
 
         #content-mockup-studio .btn-generate {
-            background: linear-gradient(135deg, #F4F2EA 0, #F4F2EA 100%);
-            color: #16181C;
             font-size: 1.125rem;
             font-weight: 700;
             padding: 1rem 3rem;
@@ -2099,12 +2133,12 @@
             border: none;
             cursor: pointer;
             transition: .3s;
-            box-shadow: 0 8px 20px rgba(157, 149, 255, .4)
+            box-shadow: 0 8px 20px rgba(236, 72, 153, .35)
         }
 
         #content-mockup-studio .btn-generate:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(157, 149, 255, .5)
+            box-shadow: 0 12px 30px rgba(236, 72, 153, .5)
         }
 
         #content-mockup-studio .btn-generate:disabled {
@@ -2113,13 +2147,13 @@
         }
 
         #content-mockup-studio .mockup-preset-btn {
-            background-color: #FFFFFF;
-            border: 1px solid #D6D2C6;
+            background-color: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .12);
             padding: .6rem .75rem;
             border-radius: .625rem;
             font-size: .8125rem;
             font-weight: 500;
-            color: #16181C;
+            color: #E5E7EB;
             transition: all .25s ease;
             cursor: pointer;
             display: flex;
@@ -2130,7 +2164,7 @@
 
         #content-mockup-studio .mockup-preset-btn:hover {
             border-color: #EC4899;
-            background-color: #FDF2F8;
+            background-color: rgba(236, 72, 153, .12);
             transform: translateY(-1px);
         }
 
@@ -2147,11 +2181,12 @@
         }
 
         #content-mockup-studio .ratio-btn-mockup {
-            background-color: #FFFFFF;
-            border: 1px solid #D6D2C6;
+            background-color: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .12);
             padding: .75rem;
             border-radius: .5rem;
             font-weight: 500;
+            color: #E5E7EB;
             transition: .3s;
             cursor: pointer;
             display: flex;
@@ -2161,7 +2196,7 @@
 
         #content-mockup-studio .ratio-btn-mockup:hover {
             border-color: #EC4899;
-            background-color: #FDF2F8;
+            background-color: rgba(236, 72, 153, .12);
         }
 
         #content-mockup-studio .ratio-btn-mockup.selected {
@@ -2174,8 +2209,8 @@
         #content-mockup-studio .pov-loader {
             width: 60px;
             height: 60px;
-            border: 5px solid #D6D2C6;
-            border-top-color: var(--map);
+            border: 5px solid rgba(255, 255, 255, .12);
+            border-top-color: #EC4899;
             border-radius: 50%;
             animation: 1s linear infinite spin
         }
@@ -2191,14 +2226,15 @@
             position: relative;
             border-radius: 1rem;
             overflow: hidden;
-            background: #FFFFFF;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, .1);
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, .25);
             transition: .3s
         }
 
         #content-mockup-studio .result-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(157, 149, 255, .3)
+            box-shadow: 0 12px 30px rgba(139, 92, 246, .3)
         }
 
         #content-mockup-studio .result-card img {
@@ -2212,7 +2248,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, .8) 0, transparent 100%);
+            background: linear-gradient(to top, rgba(0, 0, 0, .85) 0, transparent 100%);
             padding: 1.5rem 1rem 1rem;
             display: flex;
             justify-content: center;
@@ -2226,8 +2262,8 @@
         }
 
         #content-mockup-studio .btn-preview {
-            background: linear-gradient(135deg, #F4F2EA 0, #F4F2EA 100%);
-            color: #16181C;
+            background: linear-gradient(135deg, #EC4899 0%, #8B5CF6 100%);
+            color: #FFFFFF;
             padding: .5rem 1.25rem;
             border-radius: 9999px;
             border: none;
@@ -2238,46 +2274,45 @@
             align-items: center;
             gap: .5rem;
             transition: .3s;
-            box-shadow: 0 4px 10px rgba(0, 186, 226, .3)
+            box-shadow: 0 4px 10px rgba(139, 92, 246, .35)
         }
 
         #content-mockup-studio .btn-preview:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 15px rgba(0, 186, 226, .5)
+            box-shadow: 0 6px 15px rgba(139, 92, 246, .5)
         }
 
         #content-mockup-studio .btn-download {
-            background: linear-gradient(135deg, #F4F2EA 0, #F4F2EA 100%);
-            color: #16181C;
+            background: rgba(255, 255, 255, .1);
+            color: #FFFFFF;
             padding: .5rem 1.25rem;
             border-radius: 9999px;
-            border: none;
+            border: 1px solid rgba(255, 255, 255, .15);
             cursor: pointer;
             font-size: .875rem;
             font-weight: 600;
             display: flex;
             align-items: center;
             gap: .5rem;
-            transition: .3s;
-            box-shadow: 0 4px 10px rgba(10, 228, 72, .3)
+            transition: .3s
         }
 
         #content-mockup-studio .btn-download:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 15px rgba(10, 228, 72, .5)
+            background: rgba(255, 255, 255, .18);
+            transform: scale(1.05)
         }
 
         #content-mockup-studio .image-counter {
             position: absolute;
             top: .75rem;
             right: .75rem;
-            background: linear-gradient(135deg, #F4F2EA 0, #F4F2EA 100%);
-            color: #16181C;
+            background: rgba(0, 0, 0, .6);
+            color: #FFFFFF;
             padding: .375rem 1rem;
             border-radius: 9999px;
             font-size: .875rem;
             font-weight: 700;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, .2)
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .3)
         }
 
         .image-preview-modal {
@@ -6206,1746 +6241,6 @@
             background: linear-gradient(135deg, #FBFAF6, #F4F2EA)
         }
 
-        /* ==========================================================================
-   BERKAS — LAPISAN DUNIA VISUAL
-   --------------------------------------------------------------------------
-   Ditambahkan di akhir <style> supaya menang atas 6.000 baris CSS di atasnya
-   tanpa satu pun aturan lama perlu dihapus. Hapus blok ini = kembali ke
-   perilaku lama.
-
-   Blok JS terobfuskasi tidak pernah disentuh; kelas Tailwind yang ia suntik
-   ikut berubah lewat tailwind.config di <head>.
-
-   TATA BAHASA
-   Meja (abu kertas) menyangga PLAT (lembar putih). Setiap plat berkepala KOP
-   yang menyebut kategori dan nomor formulir. Delapan MAP berwarna mengarsip
-   101 berkas. Warna hidup di tepi map dan di kop; bidang isi plat akromatik.
-   Status dibawa bentuk garis dan cap, tidak pernah oleh hue.
-   ========================================================================== */
-
-        :root {
-            /* --- permukaan --- */
-            --meja: #EDEBE3;
-            --meja-2: #E3E0D6;
-            --kertas: #FBFAF6;
-            --plat: #FFFFFF;
-
-            /* --- tinta --- */
-            --tinta: #16181C;
-            --redup: #555B63;
-            --pudar: #706D63;
-            /* 4.96:1 di atas kertas; #7C7970 lama hanya 4.35:1 */
-
-            /* --- garis --- */
-            --rambut: #D6D2C6;
-            --rambut-tegas: #A8A498;
-
-            /* --- delapan map arsip ---
-       Setiap warna lolos 4.5:1 di KEDUA arah: putih di atasnya, dan ia
-       sendiri sebagai teks di atas plat putih. Karena itu satu warna bisa
-       jadi bidang sekaligus tanda tanpa varian kedua. */
-            --map-1: #C8102E;
-            --map-2: #0B57C4;
-            --map-3: #A81E5E;
-            --map-4: #A6520B;
-            --map-5: #1A6B40;
-            --map-6: #6C3FB5;
-            --map-7: #0B6672;
-            --map-8: #8A1538;
-
-            --map: var(--map-2);
-            --bahaya: #C8102E;
-
-            /* --- ukuran --- */
-            --r: 2px;
-            --rail: 288px;
-            --kop-tinggi: 3px;
-
-            /* --- gerak: kertas, bukan kaca --- */
-            --luwes: cubic-bezier(.2, .9, .25, 1);
-            --pegas: cubic-bezier(.22, 1.18, .36, 1);
-
-            --font: 'Archivo', ui-sans-serif, system-ui, -apple-system, sans-serif;
-        }
-
-        [data-map="1"] {
-            --map: var(--map-1);
-        }
-
-        [data-map="2"] {
-            --map: var(--map-2);
-        }
-
-        [data-map="3"] {
-            --map: var(--map-3);
-        }
-
-        [data-map="4"] {
-            --map: var(--map-4);
-        }
-
-        [data-map="5"] {
-            --map: var(--map-5);
-        }
-
-        [data-map="6"] {
-            --map: var(--map-6);
-        }
-
-        [data-map="7"] {
-            --map: var(--map-7);
-        }
-
-        [data-map="8"] {
-            --map: var(--map-8);
-        }
-
-        /* ==========================================================================
-   DASAR
-   ========================================================================== */
-
-        html {
-            scrollbar-color: var(--rambut-tegas) var(--meja);
-        }
-
-        body {
-            font-family: var(--font);
-            font-variation-settings: 'wdth' 100;
-            background-color: var(--meja);
-            color: var(--tinta);
-            -webkit-font-smoothing: antialiased;
-            font-variant-numeric: tabular-nums;
-        }
-
-        body,
-        button,
-        input,
-        select,
-        textarea,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        .sidebar,
-        .main-tab-btn,
-        .card,
-        .modal-content-universal,
-        .login-card {
-            font-family: var(--font);
-        }
-
-        /* Permukaan yang tidak kita gambar sendiri tetap membawa desainnya. */
-        ::selection {
-            background: var(--map);
-            color: #fff;
-        }
-
-        input,
-        textarea,
-        select {
-            caret-color: var(--map);
-        }
-
-        ::-webkit-scrollbar {
-            width: 12px;
-            height: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--meja-2);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--rambut-tegas);
-            border: 3px solid var(--meja-2);
-            border-radius: 0;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--redup);
-        }
-
-        ::-webkit-scrollbar-corner {
-            background: var(--meja-2);
-        }
-
-        :focus-visible {
-            outline: 2px solid var(--map);
-            outline-offset: 2px;
-            border-radius: 0;
-        }
-
-        a {
-            text-underline-offset: 3px;
-            text-decoration-thickness: 1px;
-        }
-
-        /* ==========================================================================
-   MENETRALKAN UTILITY YANG MEMBAWA DUNIA LAMA
-   2.900 kelas berwarna sudah padam lewat tailwind.config. Yang tersisa di
-   sini adalah bentuk: gradien, bayangan empuk, sudut membulat.
-   ========================================================================== */
-
-        /* 247 gradien -> bidang datar. Kedalaman datang dari kertas bertumpuk. */
-        [class*="bg-gradient-to-"] {
-            background-image: none !important;
-            background-color: var(--plat) !important;
-            border: 1px solid var(--rambut);
-            color: var(--tinta) !important;
-        }
-
-        /* Teks gradien dilarang: penekanan datang dari lebar dan ukuran. */
-        .bg-clip-text,
-        [class*="bg-clip-text"] {
-            background-image: none !important;
-            -webkit-background-clip: initial !important;
-            background-clip: initial !important;
-            -webkit-text-fill-color: var(--tinta) !important;
-            color: var(--tinta) !important;
-        }
-
-        /* Bayangan empuk -> kertas di atas kertas: satu garis, satu offset kecil. */
-        .shadow,
-        .shadow-sm,
-        .shadow-md,
-        .shadow-lg,
-        .shadow-xl,
-        .shadow-2xl {
-            --tw-shadow: 0 0 #0000 !important;
-            --tw-shadow-colored: 0 0 #0000 !important;
-            box-shadow: 0 1px 0 0 var(--rambut), 0 2px 6px -4px rgba(22, 24, 28, .18) !important;
-        }
-
-        /* Sudut: berkas punya sudut kertas, bukan sudut pil. */
-        .rounded,
-        .rounded-md,
-        .rounded-lg,
-        .rounded-xl,
-        .rounded-2xl,
-        .rounded-3xl {
-            border-radius: var(--r) !important;
-        }
-
-        .rounded-full {
-            border-radius: 100px !important;
-        }
-
-        /* Garis tebal -> garis rambut. Tabel formulir tidak pernah bergaris gemuk. */
-        [class*="border-t-4"],
-        [class*="border-t-8"] {
-            border-top-width: 1px !important;
-        }
-
-        [class*="border-b-4"],
-        [class*="border-b-8"] {
-            border-bottom-width: 1px !important;
-        }
-
-        [class*="border-l-4"],
-        [class*="border-l-8"] {
-            border-left-width: 1px !important;
-        }
-
-        [class*="border-r-4"],
-        [class*="border-r-8"] {
-            border-right-width: 1px !important;
-        }
-
-        .border-2,
-        .border-4,
-        .border-8 {
-            border-width: 1px !important;
-        }
-
-        [class*="border-"] {
-            border-color: var(--rambut);
-        }
-
-        .fas,
-        .far,
-        .fab,
-        .fa-solid,
-        .fa-regular,
-        .fa-brands {
-            color: inherit;
-        }
-
-        /* ==========================================================================
-   MEJA & PLAT
-   ========================================================================== */
-
-        .app-container {
-            background: #0B0E17;
-        }
-
-        .main-content-wrapper {
-            background: #0B0E17;
-        }
-
-        /* Setiap panel fitur adalah PLAT: selembar kertas di atas meja. */
-        .main-content-panel {
-            background: var(--plat);
-            border: 1px solid var(--rambut);
-            box-shadow: 0 1px 0 0 var(--rambut-tegas), 0 12px 28px -22px rgba(22, 24, 28, .5);
-            margin: 1.25rem;
-            padding-top: 0;
-            animation: plat-turun .34s var(--pegas) both;
-        }
-
-        @keyframes plat-turun {
-            from {
-                opacity: 0;
-                transform: translateY(-6px);
-            }
-
-            to {
-                opacity: 1;
-                transform: none;
-            }
-        }
-
-        /* Kartu di DALAM plat tidak boleh jadi kartu lagi — plat sudah kartunya.
-   Ini yang membuat 101 panel berhenti terasa seperti tumpukan kartu. */
-        .main-content-panel .bg-white,
-        .main-content-panel [class*="rounded-2xl"][class*="shadow"],
-        .main-content-panel [class*="rounded-xl"][class*="shadow"] {
-            background: var(--plat) !important;
-            box-shadow: none !important;
-            border: 1px solid var(--rambut) !important;
-            border-radius: var(--r) !important;
-        }
-
-        /* ==========================================================================
-   KOP — kepala setiap plat
-   Disuntik oleh berkas.js ke 101 panel. Satu kop, selalu: inilah yang
-   memaksa 101 panel jadi seragam secara mekanis, bukan secara niat.
-   ========================================================================== */
-
-        .kop {
-            display: flex;
-            align-items: baseline;
-            gap: 1rem;
-            flex-wrap: wrap;
-            padding: 1rem 1.5rem .75rem;
-            border-top: var(--kop-tinggi) solid var(--map);
-            border-bottom: 1px solid var(--rambut-tegas);
-            background: var(--plat);
-            margin-bottom: 1.5rem;
-        }
-
-        .kop-kategori {
-            font-variation-settings: 'wdth' 78;
-            font-weight: 700;
-            font-size: .6875rem;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: var(--map);
-            white-space: nowrap;
-        }
-
-        .kop-nama {
-            font-variation-settings: 'wdth' 118;
-            font-weight: 600;
-            font-size: 1.5rem;
-            letter-spacing: -.015em;
-            color: var(--tinta);
-            margin: 0;
-            flex: 1 1 auto;
-            line-height: 1.15;
-        }
-
-        .kop-no {
-            font-variation-settings: 'wdth' 78;
-            font-weight: 600;
-            font-size: .6875rem;
-            letter-spacing: .1em;
-            color: var(--pudar);
-            white-space: nowrap;
-            font-variant-numeric: tabular-nums;
-        }
-
-        @media (max-width: 640px) {
-            .kop {
-                padding: .75rem 1rem .625rem;
-                gap: .5rem 1rem;
-            }
-
-            .kop-nama {
-                font-size: 1.25rem;
-                flex-basis: 100%;
-                order: 3;
-            }
-        }
-
-        /* Judul asli panel disembunyikan setelah kop mengambil alih namanya.
-   berkas.js menandai elemen yang ia serap. */
-        [data-kop-serap="1"] {
-            display: none !important;
-        }
-
-        /* ==========================================================================
-   TIPOGRAFI DI DALAM PLAT
-   Hierarki dibawa LEBAR dan ukuran, bukan warna. Ini yang mematikan 123
-   judul warna-warni yang dulu bikin tiap panel terasa milik aplikasi lain.
-   ========================================================================== */
-
-        [id^="content-"] :is(h1, h2, h3, h4, h5, h6),
-        [id^="content-"] :is(h1, h2, h3, h4, h5, h6) span,
-        [id^="content-"] :is(h1, h2, h3, h4, h5, h6) i {
-            color: var(--tinta) !important;
-            -webkit-text-fill-color: var(--tinta) !important;
-            font-family: var(--font) !important;
-        }
-
-        /* Kepala bagian: lebar sempit, huruf besar, digarisi rambut penuh baris. */
-        [id^="content-"] h2 {
-            font-variation-settings: 'wdth' 82;
-            font-weight: 700 !important;
-            font-size: .8125rem !important;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            padding-bottom: .5rem;
-            border-bottom: 1px solid var(--rambut);
-            margin-bottom: 1rem !important;
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-        }
-
-        [id^="content-"] h3 {
-            font-variation-settings: 'wdth' 100;
-            font-weight: 600 !important;
-            font-size: .9375rem !important;
-            letter-spacing: -.005em;
-        }
-
-        [id^="content-"] label {
-            color: var(--redup) !important;
-            font-variation-settings: 'wdth' 88;
-            font-weight: 600;
-            font-size: .75rem;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-        }
-
-        [id^="content-"] :is(.text-xs, small, p.text-sm):not(button):not(a):not([class*="bg-"]) {
-            color: var(--redup) !important;
-        }
-
-        /* Ukuran raksasa milik markup lama diturunkan ke skala berkas. */
-        [id^="content-"] .text-5xl {
-            font-size: 1.875rem !important;
-        }
-
-        [id^="content-"] .text-4xl {
-            font-size: 1.625rem !important;
-        }
-
-        [id^="content-"] .text-3xl {
-            font-size: 1.375rem !important;
-        }
-
-        /* ==========================================================================
-   KOLOM ISIAN
-   ========================================================================== */
-
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="number"],
-        input[type="search"],
-        input[type="url"],
-        textarea,
-        select {
-            background: var(--plat) !important;
-            color: var(--tinta) !important;
-            border: 1px solid var(--rambut-tegas) !important;
-            border-radius: var(--r) !important;
-            padding: .625rem .75rem;
-            font-family: var(--font);
-            font-size: .9375rem;
-            transition: border-color .14s var(--luwes), box-shadow .14s var(--luwes);
-        }
-
-        input::placeholder,
-        textarea::placeholder {
-            color: var(--pudar);
-            opacity: 1;
-        }
-
-        input:focus,
-        textarea:focus,
-        select:focus {
-            outline: none !important;
-            border-color: var(--map) !important;
-            box-shadow: inset 0 -2px 0 0 var(--map) !important;
-        }
-
-        input:disabled,
-        textarea:disabled,
-        select:disabled {
-            background: var(--kertas) !important;
-            color: var(--pudar) !important;
-            border-color: var(--rambut) !important;
-            cursor: not-allowed;
-        }
-
-        /* Kotak unggah: bidang bergaris putus — tempat menempel lampiran. */
-        [class*="border-dashed"] {
-            border-style: dashed !important;
-            border-width: 1px !important;
-            border-color: var(--rambut-tegas) !important;
-            background: var(--kertas) !important;
-            border-radius: var(--r) !important;
-            transition: border-color .16s var(--luwes), background-color .16s var(--luwes);
-        }
-
-        [class*="border-dashed"]:hover {
-            border-color: var(--map) !important;
-            background: var(--plat) !important;
-        }
-
-        /* ==========================================================================
-   BILAH PROSES — aksi utama, berwarna map yang sedang aktif
-   ========================================================================== */
-
-        button[class*="bg-gradient-to-"],
-        button[class*="w-full"][class*="bg-blue"],
-        button[class*="w-full"][class*="bg-green"],
-        button[class*="w-full"][class*="bg-indigo"],
-        button[class*="w-full"][class*="bg-purple"],
-        button[class*="w-full"][class*="bg-orange"] {
-            background-image: none !important;
-            background-color: var(--map) !important;
-            color: #fff !important;
-            border: 1px solid var(--map) !important;
-            border-radius: var(--r) !important;
-            font-variation-settings: 'wdth' 92;
-            font-weight: 700 !important;
-            letter-spacing: .07em;
-            text-transform: uppercase;
-            font-size: .8125rem !important;
-            padding: .8125rem 1.25rem;
-            box-shadow: none !important;
-            transition: transform .12s var(--luwes), filter .16s var(--luwes);
-        }
-
-        button[class*="bg-gradient-to-"] * {
-            color: #fff !important;
-        }
-
-        button[class*="bg-gradient-to-"]:hover:not(:disabled) {
-            filter: brightness(1.1);
-        }
-
-        button[class*="bg-gradient-to-"]:active:not(:disabled) {
-            transform: translateY(1px);
-        }
-
-        button[class*="bg-gradient-to-"]:disabled {
-            background-color: var(--rambut) !important;
-            border-color: var(--rambut-tegas) !important;
-            color: var(--pudar) !important;
-            cursor: not-allowed;
-        }
-
-        button[class*="bg-gradient-to-"]:disabled * {
-            color: var(--pudar) !important;
-        }
-
-        /* ==========================================================================
-   RAIL MAP — sidebar sebagai laci arsip
-   ========================================================================== */
-
-        .sidebar {
-            width: var(--rail);
-            background: var(--meja-2) !important;
-            border-right: 1px solid var(--rambut-tegas) !important;
-            box-shadow: none !important;
-            padding: 0 !important;
-        }
-
-        /* Kepala laci */
-        .sidebar>.text-center {
-            background: var(--tinta);
-            margin: 0 !important;
-            padding: 1.125rem 1.25rem !important;
-            border-bottom: 1px solid var(--tinta) !important;
-            text-align: left !important;
-        }
-
-        .sidebar>.text-center h1 {
-            font-variation-settings: 'wdth' 112;
-            font-weight: 700;
-            font-size: 1.0625rem !important;
-            letter-spacing: -.01em;
-            color: var(--plat) !important;
-            -webkit-text-fill-color: var(--plat) !important;
-            background: none !important;
-        }
-
-        .sidebar>.text-center p {
-            font-variation-settings: 'wdth' 78;
-            font-size: .625rem !important;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            color: var(--rambut-tegas) !important;
-            margin-top: .25rem !important;
-        }
-
-        .sidebar>.text-center span {
-            background: none !important;
-            background-color: transparent !important;
-            border: 1px solid var(--redup) !important;
-            color: var(--rambut) !important;
-            border-radius: var(--r) !important;
-            font-variation-settings: 'wdth' 78;
-            font-size: .625rem !important;
-            letter-spacing: .08em;
-            padding: .0625rem .375rem !important;
-            box-shadow: none !important;
-        }
-
-        .sidebar nav {
-            padding: .5rem 0 4rem;
-            gap: 0 !important;
-        }
-
-        /* Sekat map: satu kategori, satu warna, satu tab. */
-        .menu-category {
-            border-bottom: 1px solid var(--rambut);
-            margin: 0 !important;
-            background: transparent;
-        }
-
-        .menu-category-title {
-            font-variation-settings: 'wdth' 80;
-            font-weight: 700;
-            font-size: .6875rem !important;
-            letter-spacing: .13em;
-            text-transform: uppercase;
-            color: var(--redup) !important;
-            padding: .8125rem 1.25rem .8125rem 1.25rem !important;
-            background: transparent !important;
-            border-left: 4px solid transparent;
-            cursor: pointer;
-            transition: background-color .16s var(--luwes), color .16s var(--luwes), border-color .16s var(--luwes);
-        }
-
-        .menu-category-title:hover {
-            background: var(--meja) !important;
-            color: var(--tinta) !important;
-        }
-
-        /* Map terbuka: tepinya menyala penuh warna, isinya keluar. */
-        details.menu-category[open]>.menu-category-title {
-            background: var(--plat) !important;
-            color: var(--map) !important;
-            border-left-color: var(--map);
-        }
-
-        details.menu-category[open] {
-            background: var(--plat);
-        }
-
-        .menu-category-title::after {
-            color: currentColor;
-            opacity: .55;
-        }
-
-        /* Berkas di dalam map */
-        .main-tab-btn {
-            display: flex !important;
-            align-items: center;
-            gap: .625rem;
-            width: 100%;
-            text-align: left;
-            background: transparent !important;
-            color: var(--redup) !important;
-            border: 0 !important;
-            border-left: 4px solid transparent !important;
-            border-radius: 0 !important;
-            padding: .5rem 1.25rem .5rem 1.75rem !important;
-            font-variation-settings: 'wdth' 96;
-            font-weight: 500;
-            font-size: .8125rem !important;
-            letter-spacing: 0;
-            box-shadow: none !important;
-            transition: background-color .13s var(--luwes), color .13s var(--luwes), border-color .13s var(--luwes);
-        }
-
-        .main-tab-btn i {
-            width: 1rem;
-            font-size: .8125rem;
-            text-align: center;
-            color: var(--rambut-tegas);
-            flex: none;
-            transition: color .13s var(--luwes);
-        }
-
-        .main-tab-btn:hover {
-            background: var(--kertas) !important;
-            color: var(--tinta) !important;
-        }
-
-        .main-tab-btn:hover i {
-            color: var(--redup);
-        }
-
-        .main-tab-btn.active {
-            background: var(--kertas) !important;
-            color: var(--tinta) !important;
-            border-left-color: var(--map) !important;
-            font-weight: 700;
-        }
-
-        .main-tab-btn.active i {
-            color: var(--map);
-        }
-
-        /* Beranda duduk di kepala rail sebagai satu baris tegas, bukan tombol pil. */
-        .sidebar nav>button[data-tab="beranda"] {
-            background: var(--plat) !important;
-            color: var(--tinta) !important;
-            border-left: 4px solid var(--tinta) !important;
-            border-bottom: 1px solid var(--rambut) !important;
-            margin: 0 !important;
-            padding: .8125rem 1.25rem !important;
-            font-variation-settings: 'wdth' 82;
-            font-weight: 700 !important;
-            font-size: .6875rem !important;
-            letter-spacing: .13em;
-            text-transform: uppercase;
-            box-shadow: none !important;
-        }
-
-        .sidebar nav>button[data-tab="beranda"] i {
-            color: var(--tinta);
-        }
-
-        /* Lencana NEW: tanda kecil bergaris, bukan gelembung berwarna. */
-        .new-badge,
-        .card-badge {
-            background: transparent !important;
-            background-image: none !important;
-            color: var(--map) !important;
-            border: 1px solid currentColor !important;
-            border-radius: var(--r) !important;
-            font-variation-settings: 'wdth' 76;
-            font-weight: 700 !important;
-            font-size: .5625rem !important;
-            letter-spacing: .1em;
-            padding: .0625rem .25rem !important;
-            box-shadow: none !important;
-            animation: none !important;
-            text-transform: uppercase;
-        }
-
-        .toggle-sidebar-btn {
-            background: var(--tinta) !important;
-            color: var(--plat) !important;
-            border: 0 !important;
-            border-radius: 0 var(--r) var(--r) 0 !important;
-            box-shadow: none !important;
-        }
-
-        /* ==========================================================================
-   PENCARIAN RAIL — jawaban langsung untuk "101 alat susah dicari"
-   ========================================================================== */
-
-        .rail-cari {
-            position: sticky;
-            top: 0;
-            z-index: 5;
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-            padding: .625rem 1rem;
-            background: var(--meja-2);
-            border-bottom: 1px solid var(--rambut-tegas);
-        }
-
-        .rail-cari i {
-            color: var(--pudar);
-            font-size: .75rem;
-            flex: none;
-        }
-
-        .rail-cari input {
-            flex: 1 1 auto;
-            min-width: 0;
-            background: var(--plat) !important;
-            border: 1px solid var(--rambut-tegas) !important;
-            border-radius: var(--r) !important;
-            padding: .375rem .5rem !important;
-            font-size: .8125rem !important;
-            font-variation-settings: 'wdth' 94;
-        }
-
-        .rail-hitung {
-            font-variation-settings: 'wdth' 76;
-            font-size: .625rem;
-            letter-spacing: .08em;
-            color: var(--pudar);
-            padding: .5rem 1.25rem;
-            border-bottom: 1px solid var(--rambut);
-            text-transform: uppercase;
-        }
-
-        /* Saat mencari, sekat map yang kosong ikut menghilang. */
-        .menu-category[data-sepi="1"],
-        .main-tab-btn[data-sepi="1"] {
-            display: none !important;
-        }
-
-        /* ==========================================================================
-   BERANDA — laci arsip terbuka
-   Kartu-seukuran-ikon-plus-judul dibongkar jadi BARIS BERKAS bernomor.
-   ========================================================================== */
-
-        #content-beranda .container {
-            max-width: 1180px;
-        }
-
-        .beranda-search-wrapper {
-            display: flex;
-            align-items: center;
-            gap: .625rem;
-            background: var(--plat);
-            border: 1px solid var(--rambut-tegas);
-            border-radius: var(--r);
-            padding: .625rem .875rem;
-            margin: 0 0 1.75rem;
-            box-shadow: none;
-        }
-
-        .beranda-search-wrapper i {
-            color: var(--pudar);
-        }
-
-        .beranda-search-input {
-            border: 0 !important;
-            box-shadow: none !important;
-            padding: 0 !important;
-            font-size: .9375rem !important;
-            background: transparent !important;
-            width: 100%;
-        }
-
-        .beranda-search-input:focus {
-            box-shadow: none !important;
-        }
-
-        .beranda-cat-section {
-            margin-bottom: 2rem;
-            border-top: var(--kop-tinggi) solid var(--map);
-            background: var(--plat);
-            border-left: 1px solid var(--rambut);
-            border-right: 1px solid var(--rambut);
-            border-bottom: 1px solid var(--rambut);
-        }
-
-        .beranda-category-title {
-            font-variation-settings: 'wdth' 80;
-            font-weight: 700;
-            font-size: .6875rem !important;
-            letter-spacing: .13em;
-            text-transform: uppercase;
-            color: var(--map) !important;
-            padding: .75rem 1rem;
-            border-bottom: 1px solid var(--rambut-tegas);
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-        }
-
-        .beranda-feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-            gap: 0;
-        }
-
-        /* Satu baris berkas: ikon, nama, tanda. Bukan kartu. */
-        .beranda-feature-card {
-            display: flex !important;
-            align-items: center;
-            gap: .625rem;
-            background: var(--plat) !important;
-            border: 0 !important;
-            border-right: 1px solid var(--rambut) !important;
-            border-bottom: 1px solid var(--rambut) !important;
-            border-radius: 0 !important;
-            box-shadow: none !important;
-            padding: .6875rem .875rem !important;
-            text-align: left !important;
-            cursor: pointer;
-            position: relative;
-            transition: background-color .13s var(--luwes), color .13s var(--luwes);
-        }
-
-        .beranda-feature-card::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: transparent;
-            transition: background-color .13s var(--luwes);
-        }
-
-        .beranda-feature-card:hover {
-            background: var(--kertas) !important;
-        }
-
-        .beranda-feature-card:hover::before {
-            background: var(--map);
-        }
-
-        .beranda-feature-card i {
-            font-size: .875rem !important;
-            color: var(--rambut-tegas) !important;
-            width: 1.125rem;
-            text-align: center;
-            flex: none;
-            margin: 0 !important;
-            transition: color .13s var(--luwes);
-        }
-
-        .beranda-feature-card:hover i {
-            color: var(--map) !important;
-        }
-
-        .beranda-feature-card span {
-            font-variation-settings: 'wdth' 96;
-            font-weight: 500;
-            font-size: .8125rem !important;
-            color: var(--tinta) !important;
-            line-height: 1.3;
-        }
-
-        .beranda-feature-card .card-badge {
-            position: static !important;
-            margin-left: auto;
-            flex: none;
-        }
-
-        .beranda-contact {
-            background: var(--tinta);
-            border: 0;
-            border-radius: var(--r);
-            padding: 1.25rem;
-            margin-top: 2.5rem;
-        }
-
-        .beranda-contact h3 {
-            font-variation-settings: 'wdth' 80;
-            font-weight: 700;
-            font-size: .6875rem !important;
-            letter-spacing: .13em;
-            text-transform: uppercase;
-            color: var(--rambut-tegas) !important;
-            margin-bottom: .875rem;
-        }
-
-        .beranda-contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 1px;
-            background: var(--redup);
-            border: 1px solid var(--redup);
-        }
-
-        .beranda-contact-link,
-        .beranda-contact-link.yt,
-        .beranda-contact-link.ig,
-        .beranda-contact-link.tg,
-        .beranda-contact-link.lk {
-            background: var(--tinta) !important;
-            background-image: none !important;
-            color: var(--kertas) !important;
-            border: 0 !important;
-            border-radius: 0 !important;
-            padding: .6875rem .75rem !important;
-            font-variation-settings: 'wdth' 88;
-            font-weight: 600;
-            font-size: .75rem !important;
-            letter-spacing: .04em;
-            box-shadow: none !important;
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-            transition: background-color .14s var(--luwes);
-        }
-
-        .beranda-contact-link:hover {
-            background: #24282D !important;
-        }
-
-        #beranda-no-result {
-            background: var(--plat);
-            border: 1px dashed var(--rambut-tegas);
-            color: var(--redup) !important;
-            padding: 2.5rem 1rem !important;
-        }
-
-        /* ==========================================================================
-   HASIL — lembar kontak
-   ========================================================================== */
-
-        .result-grid,
-        .image-grid,
-        [id*="result"] .grid {
-            gap: 1px;
-        }
-
-        img[class*="rounded"],
-        .result-item img {
-            border-radius: var(--r) !important;
-            border: 1px solid var(--rambut);
-            background: var(--kertas);
-        }
-
-        /* ==========================================================================
-   STATUS DIBAWA BENTUK GARIS DAN CAP, TIDAK PERNAH HUE
-   ========================================================================== */
-
-        .berkas-status {
-            display: inline-flex;
-            align-items: center;
-            gap: .5rem;
-            font-variation-settings: 'wdth' 78;
-            font-weight: 700;
-            font-size: .625rem;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-            color: var(--redup);
-        }
-
-        .berkas-status::before {
-            content: '';
-            width: 14px;
-            height: 0;
-            border-top: 2px solid currentColor;
-        }
-
-        /* antre: garis putus  |  jalan: garis berdenyut  |  selesai: garis ganda */
-        .berkas-status[data-status="antre"]::before {
-            border-top-style: dashed;
-        }
-
-        .berkas-status[data-status="jalan"]::before {
-            animation: garis-jalan 1.1s var(--luwes) infinite;
-        }
-
-        .berkas-status[data-status="selesai"]::before {
-            height: 4px;
-            border-top: 2px solid currentColor;
-            border-bottom: 2px solid currentColor;
-        }
-
-        .berkas-status[data-status="gagal"] {
-            color: var(--bahaya);
-        }
-
-        .berkas-status[data-status="gagal"]::before {
-            transform: rotate(-20deg);
-        }
-
-        @keyframes garis-jalan {
-
-            0%,
-            100% {
-                opacity: .25;
-            }
-
-            50% {
-                opacity: 1;
-            }
-        }
-
-        /* Cap "SELESAI": kejadian, bukan toast. */
-        .berkas-cap {
-            display: inline-block;
-            border: 2px solid var(--map);
-            color: var(--map);
-            padding: .1875rem .5rem;
-            font-variation-settings: 'wdth' 76;
-            font-weight: 800;
-            font-size: .6875rem;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            transform: rotate(-3deg);
-            animation: cap-turun .3s var(--pegas) both;
-        }
-
-        @keyframes cap-turun {
-            from {
-                opacity: 0;
-                transform: rotate(-14deg) scale(1.5);
-            }
-
-            to {
-                opacity: 1;
-                transform: rotate(-3deg) scale(1);
-            }
-        }
-
-        /* Pemuat: tahapan yang terbaca, bukan lingkaran berputar tanpa kabar. */
-        .animate-spin {
-            animation: putar 1s linear infinite !important;
-            border-color: var(--rambut) !important;
-            border-top-color: var(--map) !important;
-        }
-
-        @keyframes putar {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* ==========================================================================
-   KERANGKA SELULER — pemilik toko, satu tangan, layar silau
-   ========================================================================== */
-
-        .mobile-sidebar {
-            background: var(--meja-2) !important;
-            border-right: 1px solid var(--rambut-tegas) !important;
-        }
-
-        .mobile-sidebar .ms-header {
-            background: var(--tinta) !important;
-            border-bottom: 0 !important;
-        }
-
-        .mobile-sidebar .ms-header h2 {
-            font-variation-settings: 'wdth' 112;
-            color: var(--plat) !important;
-            -webkit-text-fill-color: var(--plat) !important;
-            background: none !important;
-            font-size: 1rem !important;
-        }
-
-        .mobile-sidebar .ms-close {
-            background: transparent !important;
-            border: 1px solid var(--redup) !important;
-            color: var(--rambut) !important;
-            border-radius: var(--r) !important;
-        }
-
-        .mobile-sidebar .ms-category {
-            font-variation-settings: 'wdth' 80;
-            font-weight: 700;
-            font-size: .625rem !important;
-            letter-spacing: .13em;
-            text-transform: uppercase;
-            color: var(--map) !important;
-            background: var(--plat) !important;
-            border-top: 2px solid var(--map);
-            border-bottom: 1px solid var(--rambut);
-            padding: .625rem 1rem !important;
-        }
-
-        .mobile-sidebar .ms-tab-btn {
-            background: var(--plat) !important;
-            color: var(--redup) !important;
-            border: 0 !important;
-            border-bottom: 1px solid var(--rambut) !important;
-            border-left: 4px solid transparent !important;
-            border-radius: 0 !important;
-            /* target sentuh 44px: dipakai satu tangan sambil jaga toko */
-            min-height: 44px;
-            padding: .625rem 1rem !important;
-            font-size: .875rem !important;
-            font-variation-settings: 'wdth' 96;
-        }
-
-        .mobile-sidebar .ms-tab-btn i {
-            color: var(--rambut-tegas) !important;
-            width: 1.125rem;
-        }
-
-        .mobile-sidebar .ms-tab-btn.active {
-            background: var(--kertas) !important;
-            color: var(--tinta) !important;
-            border-left-color: var(--map) !important;
-            font-weight: 700;
-        }
-
-        .mobile-sidebar .ms-tab-btn.active i {
-            color: var(--map) !important;
-        }
-
-        .mobile-sidebar-overlay {
-            background: rgba(22, 24, 28, .5) !important;
-        }
-
-        .mobile-bottom-nav {
-            background: var(--plat) !important;
-            border-top: 1px solid var(--rambut-tegas) !important;
-            box-shadow: 0 -2px 12px -8px rgba(22, 24, 28, .35) !important;
-        }
-
-        .mobile-bottom-nav button,
-        .mobile-bottom-nav a {
-            color: var(--redup) !important;
-            min-height: 48px;
-            font-variation-settings: 'wdth' 84;
-            font-size: .625rem !important;
-            letter-spacing: .04em;
-        }
-
-        .mobile-bottom-nav .active,
-        .mobile-bottom-nav button.active {
-            color: var(--map) !important;
-        }
-
-        @media (max-width: 1024px) {
-            .main-content-panel {
-                margin: .625rem;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .main-content-panel {
-                margin: 0;
-                border-left: 0;
-                border-right: 0;
-            }
-
-            #content-beranda .beranda-feature-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .beranda-feature-card {
-                min-height: 44px;
-                padding: .75rem .875rem !important;
-            }
-
-            /* Bilah PROSES menempel di kaki layar: ibu jari tidak perlu naik. */
-            button[class*="bg-gradient-to-"][class*="w-full"] {
-                position: sticky;
-                bottom: .5rem;
-                z-index: 20;
-            }
-        }
-
-        /* ==========================================================================
-   PENYELESAIAN ATURAN LAMA YANG MASIH MENANG
-   Aturan di bawah ini menutup selisih spesifisitas yang ketahuan di ronde
-   tangkapan layar pertama — bukan dugaan, tapi yang benar-benar terlihat.
-   ========================================================================== */
-
-        /* Baris berkas beranda masih tegak (flex-direction lama tidak pernah ditimpa),
-   jadi tiap baris setinggi 230px di HP. Ini yang merebahkannya. */
-        .beranda-feature-card {
-            flex-direction: row !important;
-            justify-content: flex-start !important;
-            text-align: left !important;
-            overflow: visible !important;
-            transform: none !important;
-            padding: .6875rem .875rem !important;
-            gap: .625rem !important;
-        }
-
-        .beranda-feature-card:hover {
-            transform: none !important;
-            box-shadow: none !important;
-            border-color: var(--rambut) !important;
-        }
-
-        .beranda-feature-card i {
-            font-size: .875rem !important;
-            color: var(--rambut-tegas) !important;
-            transform: none !important;
-        }
-
-        .beranda-feature-card:hover i {
-            color: var(--map) !important;
-        }
-
-        /* Pita kosong 2rem di bawah tiap kategori. */
-        .beranda-feature-grid {
-            margin-bottom: 0 !important;
-        }
-
-        /* Ikon pencarian beranda diposisikan absolut oleh CSS lama sehingga menimpa
-   teks placeholder. Di sini ia kembali jadi anggota baris biasa. */
-        .beranda-search-wrapper {
-            max-width: none !important;
-            margin: 0 0 1.75rem !important;
-        }
-
-        .beranda-search-wrapper i {
-            position: static !important;
-            transform: none !important;
-            font-size: .875rem !important;
-        }
-
-        /* Kartu pilihan gaya: kilau hijau/toska sisa dunia lama. Terpilih ditandai
-   garis map yang tegas, bukan cahaya. */
-        .style-card,
-        .category-card {
-            border-radius: var(--r) !important;
-            box-shadow: none !important;
-            transform: none !important;
-        }
-
-        .style-card.selected,
-        .category-card.selected,
-        .style-card.active,
-        .category-card.active {
-            border-color: var(--map) !important;
-            box-shadow: inset 0 0 0 1px var(--map) !important;
-            background-color: var(--kertas) !important;
-        }
-
-        .style-card:hover,
-        .category-card:hover {
-            transform: none !important;
-            box-shadow: none !important;
-            border-color: var(--rambut-tegas) !important;
-        }
-
-        /* Sudut membulat yang lolos dari peta utility. */
-        [class*="rounded"]:not([class*="rounded-full"]) {
-            border-radius: var(--r) !important;
-        }
-
-        /* --- Kepala seluler ------------------------------------------------------ */
-        .mobile-header {
-            background: var(--tinta) !important;
-            border-bottom: 0 !important;
-            box-shadow: none !important;
-            padding: .625rem .75rem !important;
-        }
-
-        .mobile-header h1,
-        .mobile-header h1 * {
-            color: var(--plat) !important;
-            -webkit-text-fill-color: var(--plat) !important;
-            background: none !important;
-            font-variation-settings: 'wdth' 112;
-            font-weight: 700;
-            font-size: 1.0625rem !important;
-            letter-spacing: -.01em;
-        }
-
-        .mobile-header p,
-        .mobile-header .text-xs {
-            color: var(--rambut-tegas) !important;
-            font-variation-settings: 'wdth' 78;
-            font-size: .5625rem !important;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-        }
-
-        .mobile-header span[class*="rounded"] {
-            background: transparent !important;
-            border: 1px solid var(--redup) !important;
-            color: var(--rambut) !important;
-            font-size: .5625rem !important;
-            letter-spacing: .08em;
-        }
-
-        .mobile-hamburger {
-            background: transparent !important;
-            background-image: none !important;
-            border: 1px solid var(--redup) !important;
-            border-radius: var(--r) !important;
-            color: var(--plat) !important;
-            box-shadow: none !important;
-            /* target sentuh penuh: dipakai satu tangan sambil jaga toko */
-            min-width: 44px;
-            min-height: 44px;
-        }
-
-        .mobile-hamburger:hover {
-            background: #24282D !important;
-        }
-
-        /* Map ke-9 adalah laci serba-ada. Ia mengambil tinta, bukan warna kesembilan
-   yang akan bertabrakan dengan salah satu dari delapan. */
-        [data-map="9"] {
-            --map: var(--tinta);
-        }
-
-
-        /* ==========================================================================
-   RAPATKAN LACI (diukur, bukan dikira)
-   .menu-category menambah 16px padding + 8px margin judul = 26px per baris,
-   sehingga 9 kategori memakan 616px. Dirapatkan jadi 42px per baris.
-   ========================================================================== */
-        .menu-category {
-            padding: 0 !important;
-        }
-
-        .menu-category-title {
-            margin: 0 !important;
-        }
-
-        .beranda-category-title {
-            margin-bottom: 0 !important;
-        }
-
-        /* Beranda adalah MEJA, bukan satu plat: tiap kategori jadi lembar terpisah
-   yang terarsip di atasnya. Celah antar-lembar dulu tampil putih karena
-   platnya putih; sekarang ia memperlihatkan meja. */
-        #content-beranda {
-            background: #0B0E17 !important;
-            border: 0 !important;
-            box-shadow: none !important;
-            margin: 0 !important;
-            padding: 1.25rem !important;
-        }
-
-        .beranda-cat-section {
-            margin-bottom: 1rem;
-            box-shadow: 0 1px 0 0 var(--rambut-tegas);
-        }
-
-
-        /* ==========================================================================
-   PERBAIKAN KONTRAS TERUKUR
-   19 kegagalan nyata dari 325 elemen teks terlihat di 8 panel, diukur pada
-   render, bukan pada sumber. Tiap aturan di bawah menutup satu kelompok.
-   ========================================================================== */
-
-        /* 1. Teks putih di atas latar yang baru saja diratakan jadi putih.
-      Aturan gradien menetralkan LATAR tapi tidak pernah menurunkan teksnya —
-      "Buat Carousel" jadi putih di atas putih (1:1). Tombol dikecualikan:
-      bilah PROSES memang putih di atas warna map. */
-        :not(button)[class*="bg-gradient-to-"],
-        :not(button)[class*="bg-gradient-to-"] :is(span, p, h1, h2, h3, h4, div, i) {
-            color: var(--tinta) !important;
-            -webkit-text-fill-color: var(--tinta) !important;
-        }
-
-        /* 2. Label yang MEMBAWA latarnya sendiri adalah chip pilihan, bukan label
-      kolom. Ia tidak boleh mewarisi warna teks redup: di atas latar pekat
-      hasilnya 1.36:1. */
-        [id^="content-"] label[class*="bg-"],
-        [id^="content-"] label[class*="border-"] {
-            background-image: none !important;
-            background-color: var(--plat) !important;
-            color: var(--tinta) !important;
-            border: 1px solid var(--rambut-tegas) !important;
-            text-transform: none;
-            letter-spacing: 0;
-            font-size: .8125rem;
-            font-variation-settings: wdth 96;
-            font-weight: 500;
-        }
-
-        [id^="content-"] input:checked+label,
-        [id^="content-"] label:has(input:checked) {
-            background-color: var(--map) !important;
-            border-color: var(--map) !important;
-            color: #fff !important;
-        }
-
-        [id^="content-"] input:checked+label *,
-        [id^="content-"] label:has(input:checked) * {
-            color: #fff !important;
-        }
-
-        /* 3. Langkah abu paling terang dipakai sebagai TEKS keadaan kosong (2.49:1).
-      Sebagai garis ia benar, sebagai teks tidak pernah. */
-        .text-gray-200,
-        .text-gray-300,
-        .text-gray-400,
-        .text-slate-200,
-        .text-slate-300,
-        .text-slate-400,
-        .text-zinc-300,
-        .text-zinc-400,
-        .text-neutral-300,
-        .text-neutral-400 {
-            color: var(--redup) !important;
-        }
-
-
-        /* ==========================================================================
-   PUTARAN KEDUA KONTRAS
-   Dua sisa kegagalan adalah regresi dari aturan saya sendiri, bukan warisan.
-   ========================================================================== */
-
-        /* Tombol aksi yang latarnya hilang saat gradien dimatikan tetap membawa
-   text-white, jadi ia jadi putih di atas plat putih (1:1). Tanpa latar
-   sendiri, ia memang bilah PROSES — jadi diperlakukan begitu. */
-        button[class*="text-white"],
-        a[class*="text-white"] {
-            background-color: var(--map) !important;
-            color: #fff !important;
-            border: 1px solid var(--map) !important;
-            border-radius: var(--r) !important;
-        }
-
-        button[class*="text-white"] *,
-        a[class*="text-white"] * {
-            color: #fff !important;
-        }
-
-        /* ==========================================================================
-   BATCH PERBAIKAN FINISH REVIEW
-   Delapan perbaikan material dari finish reviewer + empat cacat layar login
-   yang saya temukan sendiri. Semua bekerja di tingkat LAPISAN supaya
-   menjangkau 100 panel tanpa menyentuh JS terobfuskasi.
-   ========================================================================== */
-
-        /* --- 2. LACI BERWARNA SAAT TERTUTUP -------------------------------------
-   STORY menjanjikan "melihat delapan map berwarna", tapi di viewport pertama
-   sembilan kategori tampil abu identik; warna baru muncul setelah dibuka.
-   Itu membunuh jalur cari-lewat-warna, yaitu jawaban untuk masalah #1. */
-        .menu-category-title {
-            border-left-color: var(--map) !important;
-            color: var(--tinta) !important;
-        }
-
-        .menu-category-title>i:first-child {
-            color: var(--map) !important;
-        }
-
-        /* Map terbuka menaikkan tekanan: tepinya menebal dan judulnya ikut warna. */
-        details.menu-category[open]>.menu-category-title {
-            color: var(--map) !important;
-            border-left-width: 6px !important;
-        }
-
-        /* Tab bertingkat: laci terbaca sebagai tumpukan map, bukan akordeon biasa. */
-        .menu-category-title::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--map);
-            opacity: .28;
-        }
-
-        .menu-category-title {
-            position: relative;
-        }
-
-        details.menu-category[open]>.menu-category-title::before {
-            opacity: 1;
-        }
-
-        /* --- 4. HALO HUE WARISAN -------------------------------------------------
-   rgba(10,228,72,.1) dkk masih memakai WARNA untuk membawa keadaan terpilih —
-   persis yang kenaikan 1 janjikan tidak pernah terjadi — dan halo tanpa
-   offset melanggar aturan kedalaman craft floor. */
-        [id^="content-"] :is(.selected, .active, [class*="ring-"], [class*="ring "]) {
-            box-shadow: inset 0 -2px 0 0 var(--map) !important;
-        }
-
-        /* Halo hue dimatikan HANYA untuk fokus tetikus; :focus-visible tetap
-   mendapat cincinnya sendiri. Menghapus afordansi fokus papan tik adalah
-   regresi aksesibilitas, dan paling menyakitkan di sesi laptop panjang. */
-        [id^="content-"] *:focus:not(:focus-visible) {
-            box-shadow: none !important;
-        }
-
-        [id^="content-"] *:focus-visible {
-            box-shadow: none !important;
-            outline: 2px solid var(--map) !important;
-            outline-offset: 2px !important;
-        }
-
-        /* --- 5. KOP DI HP: JUDUL DULU -------------------------------------------
-   order:3 membuat "KATEGORI  No. 063" menumpuk DI ATAS judul = eyebrow,
-   satu-satunya larangan mutlak di craft floor. */
-        @media (max-width: 640px) {
-            .kop {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: baseline;
-                gap: 0;
-                padding: .75rem 1rem .625rem;
-            }
-
-            .kop-nama {
-                order: 0;
-                flex: 1 0 100%;
-                font-size: 1.1875rem;
-                margin: 0 0 .3125rem;
-            }
-
-            /* kategori dan nomor jadi satu baris arsip DI BAWAH judul */
-            .kop-kategori {
-                order: 1;
-                font-size: .6875rem;
-            }
-
-            .kop-no {
-                order: 2;
-                margin-left: auto;
-                font-size: .6875rem;
-            }
-
-
-
-            .kop-no {
-                color: var(--pudar);
-            }
-        }
-
-        /* --- 6. LANTAI UKURAN HURUF DI ADEGAN HP-SILAU --------------------------
-   Semua di bawah 11px, huruf besar, tracking lebar, dipakai satu tangan di
-   bawah matahari. Lencana minimum 11px; label navigasi & kategori 12px. */
-        @media (max-width: 640px) {
-
-            .mobile-header p,
-            .mobile-header .text-xs {
-                font-size: .6875rem !important;
-            }
-
-            .mobile-header span[class*="rounded"] {
-                font-size: .6875rem !important;
-            }
-
-            .mobile-bottom-nav button,
-            .mobile-bottom-nav a {
-                font-size: .75rem !important;
-            }
-
-            .mobile-sidebar .ms-category {
-                font-size: .75rem !important;
-            }
-
-            .new-badge,
-            .card-badge {
-                font-size: .6875rem !important;
-            }
-        }
-
-        /* --- 7. GLIF KEADAAN KOSONG SEUKURAN SEPEREMPAT LAYAR --------------------
-   Ikon palet abu raksasa adalah celah yang menyamar jadi chrome. Di dunia
-   berkas, keadaan kosong adalah baris berstatus, bukan monumen. */
-        [id^="content-"] :is(.fas, .far, .fab):is(.fa-4x, .fa-5x, .fa-6x, .fa-7x),
-        [id^="content-"] :is(.fas, .far, .fab)[class*="text-8xl"],
-        [id^="content-"] :is(.fas, .far, .fab)[class*="text-7xl"],
-        [id^="content-"] :is(.fas, .far, .fab)[class*="text-6xl"] {
-            font-size: 1.125rem !important;
-            color: var(--rambut-tegas) !important;
-            display: block;
-            margin-bottom: .5rem;
-        }
-
-        /* --- 8. PENCARIAN GANDA -------------------------------------------------
-   Rail sudah membawa pencarian yang ditempelkan kontrak. Dua medan identik
-   di satu layar adalah kegagalan mode operate untuk sesi laptop panjang. */
-        @media (min-width: 1025px) {
-            .beranda-search-wrapper {
-                display: none !important;
-            }
-        }
-
-        /* --- STATUS SEBAGAI BENTUK GARIS (kenaikan 1 & 4, kini terpasang) --------
-   Spinner warisan TIDAK diganti nodenya — JS terobfuskasi masih memegangnya.
-   Ia dibentuk ulang jadi garis bertahap lewat CSS saja, jadi keadaannya
-   dibawa BENTUK, bukan hue, tanpa satu baris JS lama tersentuh. */
-        [id^="content-"] .animate-spin,
-        .login-spinner {
-            animation: garis-jalan 1.05s var(--luwes) infinite !important;
-            border: 0 !important;
-            border-radius: 0 !important;
-            width: 32px !important;
-            height: 2px !important;
-            min-width: 32px;
-            min-height: 2px;
-            background: currentColor !important;
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        /* REGRESI DARI BATCH SEBELUMNYA: .animate-pulse dipakai elemen warisan
-   untuk MENARIK PERHATIAN, bukan untuk menandai proses berjalan. Memberinya
-   garis-jalan membocorkan kosakata status ke elemen yang tidak berjalan. */
-        [id^="content-"] .animate-pulse {
-            animation: none !important;
-            opacity: 1 !important;
-        }
-
-        /* --- 3. BILAH PROSES SUNGGUHAN ------------------------------------------
-   berkas.js memindahkan tombol aksi utama ke sini. Di HP ia benar-benar
-   menempel di dasar layar; di desktop ia jadi kaki formulir yang tegas. */
-        .berkas-proses {
-            display: flex;
-            gap: .5rem;
-            align-items: stretch;
-            background: var(--plat);
-            border-top: 1px solid var(--rambut-tegas);
-            padding: .75rem 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .berkas-proses>* {
-            flex: 1 1 auto;
-            margin: 0 !important;
-        }
-
-        @media (max-width: 640px) {
-            .berkas-proses {
-                position: fixed;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                z-index: 900;
-                box-shadow: 0 -6px 20px -14px rgba(22, 24, 28, .6);
-                padding: .625rem .75rem calc(.625rem + env(safe-area-inset-bottom));
-            }
-
-            /* ruang supaya bilah tidak menutup kolom terakhir */
-            .main-content-panel:not(.hidden) {
-                padding-bottom: 5.5rem;
-            }
-        }
-
-
-        /* Netralkan aturan data-peringkat agar tidak mengubah warna ikon dan ukuran teks */
-        .beranda-feature-card[data-peringkat] span {
-            font-size: inherit;
-        }
-
-        .beranda-feature-card[data-peringkat] i {
-            color: inherit;
-        }
-
-        .main-tab-btn[data-peringkat] i {
-            color: inherit;
-        }
-
-
-        /* --- LENCANA DI KEPALA GELAP --------------------------------------------
-   Regresi dari aturan gradien: lencana V1.5 membawa kelas bg-gradient-to-*,
-   jadi ia ikut dipaksa berwarna tinta — di atas kepala rail yang JUGA tinta,
-   hasilnya kotak kosong. Kepala gelap butuh tinta terbalik. */
-        .sidebar>.text-center span,
-        .sidebar>.text-center span *,
-        .mobile-header span[class*="rounded"],
-        .mobile-header span[class*="rounded"] * {
-            color: var(--rambut) !important;
-            -webkit-text-fill-color: var(--rambut) !important;
-        }
-
-        /* ==========================================================================
-   HORMATI PREFERENSI GERAK
-   ========================================================================== */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: .01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: .01ms !important;
-            }
-        }
     </style>
 
     <!-- ==========================================================
@@ -7989,6 +6284,24 @@
             background-color: #FBFAF6;
             border-color: var(--map);
             color: var(--map);
+            font-weight: 700
+        }
+
+        .count-btn-grid.theme-pink>button {
+            background-color: rgba(255, 255, 255, .04);
+            border-color: rgba(255, 255, 255, .12);
+            color: #E5E7EB
+        }
+
+        .count-btn-grid.theme-pink>button:hover:not(.selected) {
+            border-color: #EC4899;
+            background-color: rgba(236, 72, 153, .12)
+        }
+
+        .count-btn-grid.theme-pink>button.selected {
+            background: linear-gradient(135deg, #EC4899 0%, #8B5CF6 100%);
+            border-color: transparent;
+            color: #FFFFFF;
             font-weight: 700
         }
     </style>
@@ -9602,7 +7915,7 @@
             padding: 0.75rem 0.5rem 4rem !important;
         }
 
-        .ms-category {
+        .mobile-sidebar .ms-category {
             font-size: 0.74rem !important;
             font-weight: 700 !important;
             letter-spacing: 0.5px !important;
@@ -9616,7 +7929,7 @@
             gap: 0.45rem !important;
         }
 
-        .ms-category i {
+        .mobile-sidebar .ms-category i {
             color: #FF456A !important;
             font-size: 0.8rem !important;
         }
@@ -9912,7 +8225,8 @@
         #content-affiliate .kop,
         #content-affiliate-harga .kop,
         #content-affiliate-islami .kop,
-        #content-konten-affiliator .kop {
+        #content-konten-affiliator .kop,
+        #content-mockup-studio .kop {
             display: flex !important;
             align-items: baseline !important;
             gap: 1rem !important;
@@ -9932,7 +8246,8 @@
         #content-affiliate .kop-kategori,
         #content-affiliate-harga .kop-kategori,
         #content-affiliate-islami .kop-kategori,
-        #content-konten-affiliator .kop-kategori {
+        #content-konten-affiliator .kop-kategori,
+        #content-mockup-studio .kop-kategori {
             color: var(--map) !important;
             filter: brightness(1.75) !important;
         }
@@ -9940,7 +8255,8 @@
         #content-affiliate .kop-nama,
         #content-affiliate-harga .kop-nama,
         #content-affiliate-islami .kop-nama,
-        #content-konten-affiliator .kop-nama {
+        #content-konten-affiliator .kop-nama,
+        #content-mockup-studio .kop-nama {
             color: #FFFFFF !important;
             -webkit-text-fill-color: #FFFFFF !important;
         }
@@ -9948,7 +8264,8 @@
         #content-affiliate .kop-no,
         #content-affiliate-harga .kop-no,
         #content-affiliate-islami .kop-no,
-        #content-konten-affiliator .kop-no {
+        #content-konten-affiliator .kop-no,
+        #content-mockup-studio .kop-no {
             color: #64748B !important;
         }
 
@@ -9956,7 +8273,8 @@
         #content-affiliate :is(h1, h2, h3, h4, h5, h6),
         #content-affiliate-harga :is(h1, h2, h3, h4, h5, h6),
         #content-affiliate-islami :is(h1, h2, h3, h4, h5, h6),
-        #content-konten-affiliator :is(h1, h2, h3, h4, h5, h6) {
+        #content-konten-affiliator :is(h1, h2, h3, h4, h5, h6),
+        #content-mockup-studio :is(h1, h2, h3, h4, h5, h6) {
             color: #FFFFFF !important;
             -webkit-text-fill-color: #FFFFFF !important;
         }
@@ -9985,9 +8303,15 @@
         #content-affiliate :is(.text-gray-400, .text-gray-500, .text-gray-600, .text-slate-400, .text-slate-500, .text-slate-600),
         #content-affiliate-harga :is(.text-gray-400, .text-gray-500, .text-gray-600, .text-slate-400, .text-slate-500, .text-slate-600),
         #content-affiliate-islami :is(.text-gray-400, .text-gray-500, .text-gray-600, .text-slate-400, .text-slate-500, .text-slate-600),
-        #content-konten-affiliator :is(.text-gray-400, .text-gray-500, .text-gray-600, .text-slate-400, .text-slate-500, .text-slate-600) {
+        #content-konten-affiliator :is(.text-gray-400, .text-gray-500, .text-gray-600, .text-slate-400, .text-slate-500, .text-slate-600),
+        #content-mockup-studio :is(.text-gray-400, .text-gray-500, .text-gray-600, .text-slate-400, .text-slate-500, .text-slate-600) {
             color: #94A3B8 !important;
             -webkit-text-fill-color: #94A3B8 !important;
+        }
+
+        #content-mockup-studio :is(.text-gray-200, .text-gray-300) {
+            color: #CBD5E1 !important;
+            -webkit-text-fill-color: #CBD5E1 !important;
         }
 
         #content-affiliate :is(.text-gray-700, .text-gray-800, .text-gray-900, .text-slate-700, .text-slate-800, .text-slate-900),
@@ -10074,7 +8398,8 @@
         #content-affiliate :is(input, textarea, select):not([type="file"]),
         #content-affiliate-harga :is(input, textarea, select):not([type="file"]),
         #content-affiliate-islami :is(input, textarea, select):not([type="file"]),
-        #content-konten-affiliator :is(input, textarea, select):not([type="file"]) {
+        #content-konten-affiliator :is(input, textarea, select):not([type="file"]),
+        #content-mockup-studio :is(input, textarea, select):not([type="file"]) {
             background: rgba(11, 14, 23, 0.6) !important;
             border-color: rgba(255, 255, 255, 0.12) !important;
             color: #F1F5F9 !important;
@@ -10089,6 +8414,21 @@
             border-color: rgba(255, 69, 106, 0.55) !important;
             box-shadow: 0 0 0 3px rgba(255, 69, 106, 0.15) !important;
             transform: none !important;
+        }
+
+        #content-mockup-studio :is(input, textarea, select):focus {
+            border-color: rgba(236, 72, 153, 0.55) !important;
+            box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15) !important;
+            transform: none !important;
+        }
+
+        #content-mockup-studio button:disabled,
+        #content-mockup-studio button:disabled * {
+            background-color: rgba(255, 255, 255, 0.06) !important;
+            background-image: none !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+            color: #64748B !important;
+            -webkit-text-fill-color: #64748B !important;
         }
 
         #content-affiliate textarea::placeholder,
@@ -12017,7 +10357,7 @@ finish review, the verdict, and DESIGN.md
                         <!-- Header -->
                         <header class="text-center mb-8">
                             <div class="inline-flex items-center gap-4 mb-3">
-                                <div class="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg"
+                                <div class="w-14 h-14 rounded-2xl flex items-center justify-center"
                                     style="background: linear-gradient(135deg, #EC4899 0%, #8B5CF6 100%);">
                                     <i class="fas fa-palette text-white text-2xl"></i>
                                 </div>
@@ -12190,11 +10530,11 @@ finish review, the verdict, and DESIGN.md
                                                 </div>
                                             </div>
                                             <div class="flex flex-col gap-3">
-                                                <button id="mockup-generate-btn" class="btn-generate bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white w-full py-3.5 rounded-xl font-bold flex items-center justify-center shadow-lg transition-all" disabled>
+                                                <button id="mockup-generate-btn" class="btn-generate bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white w-full py-3.5 rounded-xl font-bold flex items-center justify-center transition-all" disabled>
                                                     <i class="fas fa-magic mr-2"></i>
                                                     Generate Mockup
                                                 </button>
-                                                <button id="mockup-stop-btn" class="hidden btn-generate bg-red-600 hover:bg-red-700 text-white w-full py-3.5 rounded-xl font-bold flex items-center justify-center shadow-lg transition-all" type="button">
+                                                <button id="mockup-stop-btn" class="hidden btn-generate bg-red-600 hover:bg-red-700 text-white w-full py-3.5 rounded-xl font-bold flex items-center justify-center transition-all" type="button">
                                                     <i class="fas fa-stop-circle mr-2"></i>
                                                     Stop Generate
                                                 </button>
@@ -12283,7 +10623,7 @@ finish review, the verdict, and DESIGN.md
                                                 Hasil Mockup (<span id="mockup-result-count">0</span> mockup)
                                             </h2>
                                             <button id="mockup-download-all-btn"
-                                                class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-2 px-5 rounded-xl transition-all text-sm flex items-center gap-2 shadow-md">
+                                                class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold py-2 px-5 rounded-xl transition-all text-sm flex items-center gap-2">
                                                 <i class="fas fa-download"></i>
                                                 Download Semua
                                             </button>
@@ -13493,8 +11833,6 @@ finish review, the verdict, and DESIGN.md
                                 <div id="tryon-output-controls"
                                     class="absolute bottom-0 left-0 right-0 hidden flex justify-between items-center bg-black bg-opacity-60 p-2">
                                     <p id="tryon-image-dimensions" class="text-sm text-gray-200 font-mono"></p>
-                                    <button id="tryon-download-btn"
-                                        class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded-full text-sm">Unduh</button>
                                 </div>
                             </div>
                         </div>
@@ -16792,27 +15130,49 @@ finish review, the verdict, and DESIGN.md
 
                                     <div class="flex flex-col items-center">
                                         <h2 class="text-2xl font-semibold text-gray-700 mb-4">Foto Pria</h2>
-                                        <div id="wedding-male-preview" class="image-preview mb-4">
-                                            <span class="image-preview-placeholder">🤵</span>
-                                        </div>
-                                        <label for="wedding-male-upload"
-                                            class="cursor-pointer bg-blue-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-600 transition-all">
-                                            Unggah Foto
-                                            <input type="file" id="wedding-male-upload" class="hidden" accept="image/*">
+                                        <label for="wedding-male-upload" id="wedding-male-upload-box"
+                                            class="w-full h-64 rounded-xl flex items-center justify-center cursor-pointer relative overflow-hidden border-2 border-dashed border-gray-300 hover:border-rose-300 transition-colors">
+                                            <div id="wedding-male-placeholder" class="text-center text-gray-500 p-4">
+                                                <i class="fas fa-user-tie transition-transform duration-300"
+                                                    style="font-size: 2.5rem; color: #f43f5e;"></i>
+                                                <p class="mt-2 text-sm font-semibold">🤵 Klik untuk upload foto pria</p>
+                                                <p class="mt-1 text-xs text-gray-400">Format: JPG, PNG, HEIC</p>
+                                            </div>
+                                            <div id="wedding-male-preview-container"
+                                                class="hidden absolute top-0 left-0 w-full h-full">
+                                                <img id="wedding-male-preview" class="w-full h-full object-cover"
+                                                    alt="Preview foto pria">
+                                                <button type="button" id="wedding-remove-male-preview"
+                                                    class="absolute top-2 right-2 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-red-700 z-10 shadow-lg transition-transform hover:scale-110">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
                                         </label>
+                                        <input type="file" id="wedding-male-upload" class="hidden" accept="image/*">
                                     </div>
 
                                     <div class="flex flex-col items-center">
                                         <h2 class="text-2xl font-semibold text-gray-700 mb-4">Foto Wanita</h2>
-                                        <div id="wedding-female-preview" class="image-preview mb-4">
-                                            <span class="image-preview-placeholder">👰</span>
-                                        </div>
-                                        <label for="wedding-female-upload"
-                                            class="cursor-pointer bg-pink-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-pink-600 transition-all">
-                                            Unggah Foto
-                                            <input type="file" id="wedding-female-upload" class="hidden"
-                                                accept="image/*">
+                                        <label for="wedding-female-upload" id="wedding-female-upload-box"
+                                            class="w-full h-64 rounded-xl flex items-center justify-center cursor-pointer relative overflow-hidden border-2 border-dashed border-gray-300 hover:border-pink-300 transition-colors">
+                                            <div id="wedding-female-placeholder" class="text-center text-gray-500 p-4">
+                                                <i class="fas fa-user transition-transform duration-300"
+                                                    style="font-size: 2.5rem; color: #ec4899;"></i>
+                                                <p class="mt-2 text-sm font-semibold">👰 Klik untuk upload foto wanita</p>
+                                                <p class="mt-1 text-xs text-gray-400">Format: JPG, PNG, HEIC</p>
+                                            </div>
+                                            <div id="wedding-female-preview-container"
+                                                class="hidden absolute top-0 left-0 w-full h-full">
+                                                <img id="wedding-female-preview" class="w-full h-full object-cover"
+                                                    alt="Preview foto wanita">
+                                                <button type="button" id="wedding-remove-female-preview"
+                                                    class="absolute top-2 right-2 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-red-700 z-10 shadow-lg transition-transform hover:scale-110">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
                                         </label>
+                                        <input type="file" id="wedding-female-upload" class="hidden"
+                                            accept="image/*">
                                     </div>
                                 </div>
 
@@ -16830,33 +15190,21 @@ finish review, the verdict, and DESIGN.md
                                         <div>
                                             <label class="block text-xl font-semibold text-gray-700 mb-2">Jenis
                                                 Foto</label>
-                                            <div class="flex items-center gap-6">
-                                                <label class="flex items-center cursor-pointer">
-                                                    <input type="radio" name="wedding-photo-type" value="wedding"
-                                                        class="form-radio h-5 w-5 text-rose-500" checked>
-                                                    <span class="ml-2 text-gray-700">Wedding</span>
-                                                </label>
-                                                <label class="flex items-center cursor-pointer">
-                                                    <input type="radio" name="wedding-photo-type" value="prewedding"
-                                                        class="form-radio h-5 w-5 text-rose-500">
-                                                    <span class="ml-2 text-gray-700">Pre-wedding</span>
-                                                </label>
+                                            <div id="wedding-type-options" class="grid grid-cols-2 gap-3">
+                                                <button type="button" data-value="wedding"
+                                                    class="option-btn-wedding selected">Wedding</button>
+                                                <button type="button" data-value="prewedding"
+                                                    class="option-btn-wedding">Pre-wedding</button>
                                             </div>
                                         </div>
                                         <div>
                                             <label class="block text-xl font-semibold text-gray-700 mb-2">Ukuran
                                                 Foto</label>
-                                            <div class="flex items-center gap-6">
-                                                <label class="flex items-center cursor-pointer">
-                                                    <input type="radio" name="wedding-aspect-ratio" value="vertical"
-                                                        class="form-radio h-5 w-5 text-rose-500" checked>
-                                                    <span class="ml-2 text-gray-700">Vertikal (9:16)</span>
-                                                </label>
-                                                <label class="flex items-center cursor-pointer">
-                                                    <input type="radio" name="wedding-aspect-ratio" value="horizontal"
-                                                        class="form-radio h-5 w-5 text-rose-500">
-                                                    <span class="ml-2 text-gray-700">Horizontal (16:9)</span>
-                                                </label>
+                                            <div id="wedding-ratio-options" class="grid grid-cols-2 gap-3">
+                                                <button type="button" data-value="9:16"
+                                                    class="option-btn-wedding selected">Vertikal (9:16)</button>
+                                                <button type="button" data-value="16:9"
+                                                    class="option-btn-wedding">Horizontal (16:9)</button>
                                             </div>
                                         </div>
                                     </div>
@@ -16873,9 +15221,9 @@ finish review, the verdict, and DESIGN.md
                                             <button type="button" data-count="10">10</button>
                                         </div>
                                     </div>
-                                    <button id="wedding-generate-btn"
-                                        class="bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-xl px-12 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-                                        💖 Generate 7 Foto 💖
+                                    <button id="wedding-generate-btn" disabled
+                                        class="bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-xl px-12 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+                                        💖 Generate Foto 💖
                                     </button>
                                 </div>
 
@@ -16887,10 +15235,16 @@ finish review, the verdict, and DESIGN.md
                                 <div id="wedding-error-message"
                                     class="hidden text-center mt-8 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg">
                                 </div>
+                                <div id="wedding-empty-state"
+                                    class="flex flex-col items-center justify-center text-center mt-12 py-8">
+                                    <i class="fas fa-images text-6xl mb-4" style="color: #f43f5e;"></i>
+                                    <p class="text-gray-500 text-base max-w-md">Unggah foto pria dan wanita untuk
+                                        memulai. Hasil foto akan muncul di sini.</p>
+                                </div>
                                 <div id="wedding-results-header"
                                     class="hidden flex items-center justify-between mt-12 mb-4 bg-gradient-to-r from-rose-50 to-pink-50 p-4 rounded-xl border-2 border-rose-200">
                                     <h3 class="text-2xl font-bold text-rose-600">
-                                        💕 Foto Pernikahan Cantik 💕
+                                        💕 <span id="wedding-results-count">0</span> Foto Pernikahan Cantik 💕
                                     </h3>
                                     <button id="wedding-download-all-btn"
                                         class="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white px-6 py-2 rounded-full font-semibold shadow-lg transition transform hover:scale-105 flex items-center gap-2">
@@ -16899,7 +15253,7 @@ finish review, the verdict, and DESIGN.md
                                     </button>
                                 </div>
 
-                                <div id="wedding-image-grid"
+                                <div id="wedding-results-grid"
                                     class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
 
                                 </div>
@@ -16965,10 +15319,6 @@ finish review, the verdict, and DESIGN.md
                                                 <img id="umrah-preview"
                                                     class="hidden absolute top-0 left-0 w-full h-full object-contain"
                                                     alt="Pratinjau Diri">
-                                                <button type="button" id="umrah-remove-btn"
-                                                    class="hidden absolute top-3 right-3 bg-red-500 text-white rounded-full p-2 hover:bg-red-600 z-10 shadow-lg transition-all hover:scale-110">
-                                                    <i class="fas fa-times w-4 h-4"></i>
-                                                </button>
                                             </label>
                                             <input type="file" id="umrah-input" class="hidden"
                                                 accept="image/png, image/jpeg, image/webp, .heic, .HEIC">
@@ -17375,13 +15725,12 @@ finish review, the verdict, and DESIGN.md
                                                 <img id="photo-booth-preview"
                                                     class="hidden absolute top-0 left-0 w-full h-full object-cover"
                                                     alt="Preview">
-                                                <button type="button" id="photo-booth-remove-btn"
-                                                    class="hidden absolute top-2 right-2 bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-red-700 z-10 shadow-lg transition-transform hover:scale-110">
-                                                    <i class="fas fa-times"></i>
-                                                </button>
                                             </label>
-                                            <input type="file" id="photo-booth-input" class="hidden"
+                                            <input type="file" id="photo-booth-input" class="hidden" multiple
                                                 accept="image/png, image/jpeg, image/webp, .heic, .HEIC">
+                                            <p class="mt-1 text-xs text-gray-400">Bisa pilih hingga 4 foto sekaligus</p>
+                                            <div id="photo-booth-preview-container"
+                                                class="hidden grid grid-cols-4 gap-2 mt-3"></div>
                                         </div>
                                         <div>
                                             <div class="flex items-center gap-2 mb-3">
@@ -20908,24 +19257,6 @@ finish review, the verdict, and DESIGN.md
                             class="text-gray-500 text-3xl font-bold hover:text-gray-800">&times;</button>
                     </div>
                     <div id="modal-body"></div>
-                </div>
-            </div>
-            <div id="poses-poseModal"
-                class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50">
-                <div class="bg-white border border-gray-300 rounded-2xl w-full max-w-2xl flex flex-col max-h-[90vh]">
-                    <div class="p-6 border-b border-gray-300">
-                        <h3 class="text-2xl font-bold">Pilih Hingga 6 Pose</h3>
-                        <p class="text-gray-500">Terpilih: <span id="poses-selectionCounter"
-                                class="font-bold">0</span>/6</p>
-                    </div>
-                    <div id="poses-poseListContainer" class="p-6 overflow-y-auto"></div>
-                    <div class="p-6 border-t border-gray-300 flex justify-end gap-4">
-                        <button id="poses-cancelModalBtn"
-                            class="bg-gray-300 text-gray-700 font-semibold py-2 px-6 rounded-lg hover:bg-gray-400">Batal</button>
-                        <button id="poses-generateBtn" disabled
-                            class="bg-cyan-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-cyan-700 disabled:bg-gray-300">Buat
-                            Pose</button>
-                    </div>
                 </div>
             </div>
             <div id="content-poster-generator" class="main-content-panel hidden">
@@ -36161,7 +34492,7 @@ finish review, the verdict, and DESIGN.md
 
     <!-- Injected JS Features -->
     <script
-        src="https://cdn.jsdelivr.net/gh/basscore/kreativa-ai@ad25c496f6dfe4cc3354f4e7dc2369391875e66b/bundle-classic.js"></script>
+        src="https://cdn.jsdelivr.net/gh/basscore/kreativa-ai@a9990a80a5f8b51616ac73775da4c42d2a6c69fc/bundle-classic.js"></script>
     <!-- URL di-pin ke commit SHA, bukan @master. jsDelivr meng-cache alias
          branch di edge-nya sendiri, jadi @master pernah menyajikan bundle
          lama yang syntax error berjam-jam setelah perbaikannya di-push —
@@ -36169,7 +34500,7 @@ finish review, the verdict, and DESIGN.md
          immutable di jsDelivr: tidak pernah stale, tidak butuh ?v=.
          GANTI SHA INI setiap kali bundle di-push (git rev-parse master). -->
     <script
-        src="https://cdn.jsdelivr.net/gh/basscore/kreativa-ai@ad25c496f6dfe4cc3354f4e7dc2369391875e66b/bundle-module.js"
+        src="https://cdn.jsdelivr.net/gh/basscore/kreativa-ai@a9990a80a5f8b51616ac73775da4c42d2a6c69fc/bundle-module.js"
         type="module"></script>
     <!-- ==========================================================
          BERKAS — pendaftar berkas

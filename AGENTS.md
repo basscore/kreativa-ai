@@ -1,13 +1,20 @@
 # Aturan Desain Antarmuka (UI/UX) Kreativa AI
 
 Panduan ini diturunkan langsung dari CSS yang benar-benar dirender di halaman
-Login, Beranda, dan Sidebar (bukan dari draf yang belum dipakai). Versi
-sebelumnya dari dokumen ini mendeskripsikan tema kertas terang ("meja",
-"kertas", "tinta") yang **tidak lagi dipakai** — itu draf redesain yang
-ditinggalkan sebelum sempat menyentuh body/canvas utama. Tema yang benar-benar
-tayang adalah tema gelap di bawah ini. Jangan gunakan variabel `--meja`,
-`--kertas`, `--tinta`, dll. sebagai acuan visual; variabel itu masih ada di
-`:root` tapi sudah vestigial (di-override oleh blok gelap dengan `!important`).
+Login, Beranda, dan Sidebar. Tema yang benar-benar tayang adalah tema gelap di
+bawah ini.
+
+Blok CSS draf redesain lama ("meja"/"kertas"/"tinta", var `--meja`, `--kertas`,
+`--tinta`, dll.) sudah dihapus total dari `kreativa-ai-v2-injected.html`
+(sebelumnya di antara komentar "BERKAS — LAPISAN DUNIA VISUAL"). Penghapusan
+ini juga menghilangkan definisi `--map`/`--map-1..8`/`[data-map="N"]` dan
+sistem header `.kop`/`.kop-kategori`/`.kop-nama`/`.kop-no` yang tadinya
+didefinisikan di blok yang sama — padahal keduanya masih dipakai luas (ratusan
+`var(--map)` di seluruh stylesheet, dan skrip inline "BERKAS — pendaftar
+berkas" di dekat akhir file yang menyuntik `.kop` ke tiap panel `#content-*`).
+Jika elemen kategori sidebar/beranda kehilangan warna aksen atau header panel
+konten hilang/rusak, itu sebabnya — perlu didefinisikan ulang secara terpisah
+dari sistem warna kertas yang sudah tidak ada.
 
 ## 1. Tipografi
 - **Font Utama:** `Archivo`, `ui-sans-serif`, `system-ui`, `-apple-system`, `sans-serif`

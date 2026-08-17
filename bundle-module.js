@@ -11104,7 +11104,9 @@ Generate a professionally restored photograph that clearly demonstrates signific
 
         // Remove male preview
         if (removeMalePreview) {
-            removeMalePreview.addEventListener('click', () => {
+            removeMalePreview.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 maleImageData = null;
                 if (maleUpload) maleUpload.value = '';
                 if (malePreviewContainer) malePreviewContainer.classList.add('hidden');
@@ -11175,7 +11177,9 @@ Generate a professionally restored photograph that clearly demonstrates signific
 
         // Remove female preview
         if (removeFemalePreview) {
-            removeFemalePreview.addEventListener('click', () => {
+            removeFemalePreview.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 femaleImageData = null;
                 if (femaleUpload) femaleUpload.value = '';
                 if (femalePreviewContainer) femalePreviewContainer.classList.add('hidden');
@@ -26307,17 +26311,18 @@ Respond ONLY with a valid JSON array of ${selectedCount} objects, in sequential 
 
     // ==================== FOTO UMRAH/HAJI ====================
     (function() {
-        const fileInputArea = document.getElementById('umrah-file-input-area');
-        const addPhotoBtn = document.getElementById('umrah-add-photo-btn');
+        const umrahInput = document.getElementById('umrah-input');
+        const umrahUploadBox = document.getElementById('umrah-upload-box');
+        const umrahPlaceholder = document.getElementById('umrah-placeholder');
+        const umrahPreview = document.getElementById('umrah-preview');
         const umrahValidation = document.getElementById('umrah-validation');
         const umrahGenerateBtn = document.getElementById('umrah-generate-btn');
         const umrahDownloadAllBtn = document.getElementById('umrah-download-all-btn');
 
-        if (!fileInputArea) return;
+        if (!umrahInput) return;
 
-        let photos = [null, null]; // Will store base64 strings
-        let photoMimeTypes = [null, null]; // Will store mime types
-        let generatedImages = []; // Store generated images
+        let uploadedImageData = null;
+        let generatedImages = [];
         let selectedCount = 4; // 1-10, default 4 (count selector)
 
         // Count selection (1-10), default 4
@@ -26332,201 +26337,37 @@ Respond ONLY with a valid JSON array of ${selectedCount} objects, in sequential 
             });
         }
 
-        function updateFileInputs() {
-            fileInputArea.innerHTML = '';
-            photos.forEach((photo, i) => {
-                const wrapper = document.createElement('div');
-                wrapper.className = 'file-input-wrapper';
-                if (photo) wrapper.classList.add('has-photo');
+        setupImageUploadNew(umrahInput, umrahUploadBox, (data) => {
+            uploadedImageData = data;
+            umrahPreview.src = data.dataUrl;
+            umrahPlaceholder.classList.add('hidden');
+            umrahPreview.classList.remove('hidden');
+            umrahValidation.textContent = '✓ Foto siap digunakan';
+            umrahValidation.className = 'text-center text-sm mt-3 font-medium text-orange-600';
+            umrahGenerateBtn.disabled = false;
+        });
 
-                const input = document.createElement('input');
-                input.type = 'file';
-                input.accept = 'image/png, image/jpeg, image/webp, image/heic, .heic, .HEIC';
-                input.className = 'file-input';
-                input.dataset.index = i;
-                input.addEventListener('change', handleFileChange);
-
-                const preview = document.createElement('img');
-                preview.className = 'file-preview';
-                if (photo) {
-                    preview.src = `data:${photoMimeTypes[i]};base64,${photo}`;
-                } else {
-                    preview.classList.add('hidden');
-                }
-
-                const placeholder = document.createElement('span');
-                placeholder.className = 'text-gray-500 text-center text-sm flex items-center justify-center h-full pointer-events-none';
-                if (!photo) {
-                    placeholder.innerHTML = '<div><i class="fas fa-user text-2xl mb-2" style="color: #F59E0B;"></i><br><span class="text-xs sm:text-sm">Tambah Foto</span></div>';
-                }
-
-                const deleteBtn = document.createElement('button');
-                deleteBtn.className = 'delete-btn';
-                deleteBtn.innerHTML = '×';
-                deleteBtn.type = 'button';
-
-                // Mobile-friendly click handler
-                deleteBtn.addEventListener('click', (e) => umrahDeletePhoto(e, i));
-                deleteBtn.addEventListener('touchstart', (e) => {
-                    e.stopPropagation();
-                    deleteBtn.style.transform = 'scale(0.9)';
-                }, { passive: true });
-                deleteBtn.addEventListener('touchend', (e) => {
-                    e.stopPropagation();
-                    deleteBtn.style.transform = '';
-                }, { passive: true });
-
-                wrapper.append(input, preview, placeholder, deleteBtn);
-                fileInputArea.appendChild(wrapper);
-            });
-            updateValidation();
-        }
-
-        async function handleFileChange(e) {
-            const index = parseInt(e.target.dataset.index, 10);
-            const file = e.target.files[0];
-            if (!file) return;
-
-            // Show loading state
-            const wrapper = e.target.closest('.file-input-wrapper');
-            const placeholder = wrapper.querySelector('span');
-            if (placeholder && !wrapper.classList.contains('has-photo')) {
-                placeholder.innerHTML = '<div><i class="fas fa-spinner fa-spin text-2xl mb-2" style="color: #F59E0B;"></i><br><span class="text-xs">Memproses...</span></div>';
-            }
-
-            let processedFile = file;
-
-            // Convert HEIC to JPEG if needed
-            if (file.type === 'image/heic' || file.name.toLowerCase().endsWith('.heic')) {
-                try {
-                    umrahValidation.textContent = 'Mengkonversi HEIC...';
-                    umrahValidation.className = 'text-center text-sm mt-3 font-medium text-blue-600';
-
-                    const convertedBlob = await heic2any({
-                        blob: file,
-                        toType: 'image/jpeg',
-                        quality: 0.9
-                    });
-                    processedFile = new File([convertedBlob], file.name.replace(/\.heic$/i, '.jpg'), {
-                        type: 'image/jpeg'
-                    });
-                } catch (err) {
-                    console.error('HEIC conversion failed:', err);
-                    umrahValidation.textContent = '❌ Gagal mengkonversi gambar HEIC';
-                    umrahValidation.className = 'text-center text-sm mt-3 font-medium text-red-600';
-                    updateFileInputs(); // Reset UI
-                    return;
-                }
-            }
-
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                photos[index] = event.target.result.split(',')[1];
-                photoMimeTypes[index] = processedFile.type;
-                updateFileInputs();
-            };
-            reader.readAsDataURL(processedFile);
-        }
-
-        window.umrahDeletePhoto = (event, index) => {
-            event.preventDefault();
-            event.stopPropagation();
-
-            // Visual feedback
-            const wrapper = event.target.closest('.file-input-wrapper');
-            if (wrapper) {
-                wrapper.style.transition = 'transform 0.2s, opacity 0.2s';
-                wrapper.style.transform = 'scale(0.9)';
-                wrapper.style.opacity = '0.5';
-            }
-
-            setTimeout(() => {
-                photos[index] = null;
-                photoMimeTypes[index] = null;
-                // Only remove the slot if there are more than 2
-                if (photos.length > 2) {
-                    photos.splice(index, 1);
-                    photoMimeTypes.splice(index, 1);
-                }
-                updateFileInputs();
-            }, 150);
-        };
-
-        function updateValidation() {
-            const uploadedCount = photos.filter(p => p !== null).length;
-
-            if (uploadedCount === 0) {
-                umrahValidation.textContent = 'Silakan upload minimal 1 foto';
-                umrahValidation.className = 'text-center text-sm mt-3 font-medium text-gray-500';
-                umrahGenerateBtn.disabled = true;
-            } else {
-                umrahValidation.textContent = `✓ ${uploadedCount} foto siap digunakan`;
-                umrahValidation.className = 'text-center text-sm mt-3 font-medium text-orange-600';
-                umrahGenerateBtn.disabled = false;
-            }
-        }
-
-        if (addPhotoBtn) {
-            addPhotoBtn.addEventListener('click', () => {
-                if (photos.length < 5) {
-                    photos.push(null);
-                    photoMimeTypes.push(null);
-                    updateFileInputs();
-
-                    // Scroll to bottom to show new input on mobile
-                    if (window.innerWidth < 640) {
-                        setTimeout(() => {
-                            const lastWrapper = fileInputArea.lastElementChild;
-                            if (lastWrapper) {
-                                lastWrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                            }
-                        }, 100);
-                    }
-                } else {
-                    umrahValidation.textContent = '❌ Maksimal 5 foto';
-                    umrahValidation.className = 'text-center text-sm mt-3 font-medium text-red-600';
-                    setTimeout(() => {
-                        updateValidation();
-                    }, 2000);
-                }
-            });
-
-            // Mobile touch feedback
-            addPhotoBtn.addEventListener('touchstart', () => {
-                addPhotoBtn.style.transform = 'scale(0.95)';
-            }, { passive: true });
-
-            addPhotoBtn.addEventListener('touchend', () => {
-                addPhotoBtn.style.transform = '';
-            }, { passive: true });
-        }
-
+        setupOptionButtonsNew(document.getElementById('umrah-gender-options'));
         setupOptionButtonsNew(document.getElementById('umrah-attire-options'));
         setupOptionButtonsNew(document.getElementById('umrah-ratio-options'));
         setupOptionButtonsNew(document.getElementById('umrah-theme-options'));
 
         umrahGenerateBtn.addEventListener('click', async () => {
-            const uploadedFiles = photos.map((p, i) => ({ base64: p, mimeType: photoMimeTypes[i] })).filter(f => f.base64);
-
-            if (uploadedFiles.length === 0) {
-                umrahValidation.textContent = '❌ Silakan upload minimal 1 foto';
+            if (!uploadedImageData) {
+                umrahValidation.textContent = '❌ Silakan upload foto terlebih dahulu';
                 umrahValidation.className = 'text-center text-sm mt-3 font-medium text-red-600';
                 return;
             }
 
             document.getElementById('umrah-results-placeholder').classList.add('hidden');
+            const gender = document.querySelector('#umrah-gender-options .selected').dataset.value;
             const attire = document.querySelector('#umrah-attire-options .selected').dataset.value;
             const aspectRatio = document.querySelector('#umrah-ratio-options .selected').dataset.value;
             const theme = document.querySelector('#umrah-theme-options .selected').dataset.value;
 
-            let prompt;
-            if (uploadedFiles.length === 1) {
-                prompt = `Create a professional photo of the person from the image, placed into an Umrah/Hajj setting. CRITICAL: Preserve the person's exact face, features, and gender from the original photo. The person should be wearing ${attire} that is appropriate for their gender. Scene: ${theme}. The final photo should be high-quality, realistic, and respectful.`;
-            } else {
-                prompt = `IMPORTANT: Create a professional photo showing ALL ${uploadedFiles.length} people from ALL uploaded images together in one Umrah/Hajj scene. CRITICAL: Preserve each person's exact face, features, and gender from their original photos. Each person should be wearing ${attire} that is appropriate for their respective gender (Ihram for men, appropriate covering for women if Ihram is selected). Scene: ${theme}. Compose them naturally in the scene as if they are together. The final photo should be high-quality, realistic, and respectful.`;
-            }
+            const prompt = `Create a professional photo of the person from the image, placed into an Umrah/Hajj setting. CRITICAL: Preserve the person's exact face and features from the original photo. The person is ${gender} and should be wearing ${attire}. Scene: ${theme}. The final photo should be high-quality, realistic, and respectful.`;
 
-            await generatePhotoSet('umrah', prompt, uploadedFiles, aspectRatio);
+            await generatePhotoSet('umrah', prompt, uploadedImageData, aspectRatio);
         });
 
         async function generatePhotoSet(type, prompt, imageData, aspectRatio, refImageData = null) {
@@ -26679,9 +26520,6 @@ Respond ONLY with a valid JSON array of ${selectedCount} objects, in sequential 
                 umrahDownloadAllBtn.innerHTML = '<i class="fas fa-download mr-2"></i>Download Semua';
             });
         }
-
-        // Initialize file inputs on page load
-        updateFileInputs();
     })();
 
     // ==================== PAS FOTO WARNA ====================
@@ -43762,394 +43600,6 @@ Generate unboxing scene yang SANGAT PROFESSIONAL dan ENGAGING - seperti unboxing
 
     })();
 
-    // ==================== BEFORE/AFTER GENERATOR ====================
-    (function() {
-        const apiKey = "";
-
-        // DOM Elements
-        const imageUpload = document.getElementById('beforeafter-image-upload');
-        const uploadBox = document.querySelector('.upload-box-beforeafter');
-        const imagePreview = document.getElementById('beforeafter-image-preview');
-        const previewContainer = document.getElementById('beforeafter-preview-container');
-        const removePreviewBtn = document.getElementById('beforeafter-remove-preview');
-
-        const categoryButtons = document.querySelectorAll('#beforeafter-category-selection [data-category]');
-        const styleButtons = document.querySelectorAll('#beforeafter-style-selection [data-style]');
-        const aspectButtons = document.querySelectorAll('#beforeafter-aspect-selection [data-aspect]');
-        const countButtons = document.querySelectorAll('.count-btn-beforeafter');
-        const countText = document.getElementById('beforeafter-count-text');
-
-        const showLabels = document.getElementById('beforeafter-show-labels');
-        const showArrows = document.getElementById('beforeafter-show-arrows');
-        const showHighlight = document.getElementById('beforeafter-show-highlight');
-
-        const generateBtn = document.getElementById('beforeafter-generate-btn');
-        const errorMessage = document.getElementById('beforeafter-error-message');
-        const errorText = document.getElementById('beforeafter-error-text');
-
-        const loadingIndicator = document.getElementById('beforeafter-loading-indicator');
-        const loadingText = document.getElementById('beforeafter-loading-text');
-        const progressBar = document.getElementById('beforeafter-progress-bar');
-        const progressText = document.getElementById('beforeafter-progress-text');
-
-        const resultsSection = document.getElementById('beforeafter-results-section');
-        const emptyState = document.getElementById('beforeafter-empty-state');
-        const resultsGrid = document.getElementById('beforeafter-results-grid');
-        const resultsCount = document.getElementById('beforeafter-results-count');
-        const downloadAllBtn = document.getElementById('beforeafter-download-all-btn');
-
-        // State
-        let originalImageData = null;
-        let selectedCategory = 'skincare';
-        let selectedStyle = 'split-screen';
-        let selectedAspect = '1:1';
-        let selectedCount = 4; // 1-10, default 4 (count selector untuk text mode)
-        let generatedResults = [];
-
-        // Count selection (1-10), default 4
-        const baCountSel = document.getElementById('ba-count-selection-grid');
-        if (baCountSel) {
-            baCountSel.addEventListener('click', (e) => {
-                const btn = e.target.closest('button[data-count]');
-                if (!btn) return;
-                baCountSel.querySelectorAll('button').forEach(b => b.classList.remove('selected'));
-                btn.classList.add('selected');
-                selectedCount = parseInt(btn.dataset.count, 10);
-            });
-        }
-
-        // Upload handler
-        if (uploadBox) {
-            uploadBox.addEventListener('click', () => imageUpload?.click());
-        }
-
-        if (imageUpload) {
-            imageUpload.addEventListener('change', async (e) => {
-                const file = e.target.files[0];
-                if (!file) return;
-
-                let processedFile = file;
-
-                // HEIC conversion
-                if (file.type === 'image/heic' || file.name.toLowerCase().endsWith('.heic')) {
-                    try {
-                        const convertedBlob = await heic2any({
-                            blob: file,
-                            toType: 'image/jpeg',
-                            quality: 0.9
-                        });
-                        processedFile = new File([convertedBlob], file.name.replace(/\.heic$/i, '.jpg'), {
-                            type: 'image/jpeg'
-                        });
-                    } catch (err) {
-                        console.error('HEIC conversion failed:', err);
-                        showError('Gagal mengkonversi gambar HEIC');
-                        return;
-                    }
-                }
-
-                const reader = new FileReader();
-                reader.onloadend = () => {
-                    originalImageData = reader.result;
-
-                    if (imagePreview && previewContainer) {
-                        imagePreview.src = reader.result;
-                        previewContainer.classList.remove('hidden');
-                    }
-
-                    if (generateBtn) generateBtn.disabled = false;
-                };
-                reader.readAsDataURL(processedFile);
-            });
-        }
-
-        if (removePreviewBtn) {
-            removePreviewBtn.addEventListener('click', () => {
-                originalImageData = null;
-                imageUpload.value = '';
-                if (previewContainer) previewContainer.classList.add('hidden');
-                if (imagePreview) imagePreview.src = '';
-                if (generateBtn) generateBtn.disabled = true;
-            });
-        }
-
-        // Selection handlers
-        categoryButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                categoryButtons.forEach(b => b.classList.remove('selected'));
-                btn.classList.add('selected');
-                selectedCategory = btn.dataset.category;
-            });
-        });
-
-        styleButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                styleButtons.forEach(b => b.classList.remove('selected'));
-                btn.classList.add('selected');
-                selectedStyle = btn.dataset.style;
-            });
-        });
-
-        aspectButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                aspectButtons.forEach(b => b.classList.remove('selected'));
-                btn.classList.add('selected');
-                selectedAspect = btn.dataset.aspect;
-            });
-        });
-
-        // Generate results
-        if (generateBtn) {
-            generateBtn.addEventListener('click', async () => {
-                if (!originalImageData || generateBtn.disabled) return;
-
-                const originalHTML = generateBtn.innerHTML;
-                generateBtn.disabled = true;
-                generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating...';
-
-                if (emptyState) emptyState.classList.add('hidden');
-                if (resultsSection) resultsSection.classList.remove('hidden');
-
-                const MAX_ATTEMPTS = 3;
-                let attempts = 0;
-                let successCount = 0;
-
-                while (attempts < MAX_ATTEMPTS && successCount === 0) {
-                    attempts++;
-                    generatedResults = [];
-                    if (resultsGrid) resultsGrid.innerHTML = '';
-
-                    for (let i = 1; i <= selectedCount; i++) {
-                        const card = document.createElement('div');
-                        card.id = `beforeafter-card-${i}`;
-                        card.className = 'relative rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center aspect-square';
-                        card.innerHTML = '<div class="animate-spin rounded-full h-10 w-10 border-b-2 border-green-600"></div>';
-                        resultsGrid?.appendChild(card);
-                    }
-
-                    const generationPromises = Array.from({ length: selectedCount }, (_, i) =>
-                        generateSingleResult(i + 1)
-                    );
-                    await Promise.allSettled(generationPromises);
-                    successCount = resultsGrid?.querySelectorAll('img').length || 0;
-                }
-
-                resultsGrid?.querySelectorAll('[id^="beforeafter-card-"]').forEach(card => {
-                    if (!card.querySelector('img')) card.remove();
-                });
-                generatedResults = generatedResults.filter(Boolean);
-                if (resultsCount) resultsCount.textContent = generatedResults.length;
-
-                generateBtn.disabled = false;
-                generateBtn.innerHTML = originalHTML;
-
-                if (successCount === 0) {
-                    alert('Akun Google ini sudah mencapai batas, silahkan gunakan akun Google lain');
-                }
-            });
-        }
-
-        async function generateSingleResult(index) {
-            const card = document.getElementById(`beforeafter-card-${index}`);
-
-            try {
-                const base64 = originalImageData.split(',')[1];
-
-                const categoryDescriptions = {
-                    'skincare': 'Skincare transformation (clear skin, reduced wrinkles, even tone)',
-                    'makeup': 'Makeup transformation (natural to glam)',
-                    'hair': 'Hair transformation (color, style, volume)',
-                    'fitness': 'Fitness/body transformation (muscle gain, weight loss)',
-                    'dental': 'Dental transformation (teeth whitening, alignment)',
-                    'other': 'Product transformation results'
-                };
-
-                const styleDescriptions = {
-                    'split-screen': 'Vertical split screen dengan garis pembatas di tengah',
-                    'slider': 'Before/after slider format dengan handle di tengah',
-                    'side-by-side': 'Horizontal side-by-side comparison',
-                    'stacked': 'Vertical stacked (before on top, after on bottom)'
-                };
-
-                const indicators = [];
-                if (showLabels?.checked) indicators.push('Text labels "BEFORE" dan "AFTER" yang BOLD dan jelas');
-                if (showArrows?.checked) indicators.push('Arrow indicators menunjukkan arah transformasi');
-                if (showHighlight?.checked) indicators.push('Highlight/circles pada area perubahan');
-
-                const prompt = `Buat visual BEFORE/AFTER comparison yang SANGAT MENARIK dan PROFESSIONAL!
-
-TRANSFORMATION SETUP:
-- Category: ${categoryDescriptions[selectedCategory]}
-- Layout style: ${styleDescriptions[selectedStyle]}
-- Aspect ratio: ${selectedAspect}
-- Tampilkan: ${indicators.join(', ')}
-
-PANDUAN VISUAL BEFORE/AFTER:
-✓ Layout ${styleDescriptions[selectedStyle]} yang clean dan professional
-✓ BEFORE side: Menampilkan kondisi sebelum menggunakan produk
-✓ AFTER side: Menampilkan hasil transformasi yang JELAS dan impressive
-${showLabels?.checked ? '✓ Text labels "BEFORE" dan "AFTER" dengan typography yang BOLD dan kontras tinggi' : ''}
-${showArrows?.checked ? '✓ Arrow indicators (→) yang jelas menunjukkan transformasi' : ''}
-${showHighlight?.checked ? '✓ Circles atau highlight marks pada area yang berubah' : ''}
-✓ Background yang bersih dan tidak mengalihkan perhatian
-✓ Lighting yang konsisten di kedua sisi
-✓ Professional color grading
-✓ Trustworthy dan believable transformation
-✓ High contrast untuk visibility maksimal
-
-TRANSFORMATION DETAILS untuk ${selectedCategory}:
-✓ Perubahan harus terlihat NYATA dan SIGNIFIKAN
-✓ Improvement yang believable (tidak over-the-top)
-✓ Detail yang jelas visible
-✓ Professional photography quality
-✓ Before/After harus dari angle yang sama
-
-COMPOSITION:
-✓ Perfect alignment antara before & after
-✓ Equal space untuk kedua sisi
-✓ Visual balance yang baik
-✓ Typography yang clean dan modern (jika ada text)
-
-VARIASI ${index}:
-${index === 1 ? 'Standard before/after comparison' :
-  index === 2 ? 'Different transformation intensity' :
-  index === 3 ? 'Alternative visual emphasis' :
-  `Creative variation #${index}`}
-
-Generate before/after yang SANGAT CONVINCING dan PROFESSIONAL - perfect untuk showcase product results!`;
-
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image-preview:generateContent?key=${apiKey}`;
-
-                const payload = {
-                    contents: [{
-                        parts: [
-                            { text: prompt },
-                            { inlineData: { mimeType: 'image/jpeg', data: base64 } }
-                        ]
-                    }],
-                    generationConfig: {
-                        responseModalities: ['TEXT', 'IMAGE'],
-                        imageConfig: { aspectRatio: selectedAspect }
-                    }
-                };
-
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                const result = await response.json();
-                const imageData = result?.candidates?.[0]?.content?.parts?.find(p => p.inlineData)?.inlineData?.data;
-                if (!imageData) throw new Error('No image data received');
-
-                const imageUrl = `data:image/jpeg;base64,${imageData}`;
-                const filename = `beforeafter_${selectedCategory}_${selectedStyle}_${Date.now()}_${index}.jpg`;
-
-                generatedResults[index - 1] = { url: imageUrl, filename: filename };
-
-                card.className = 'relative group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300';
-                card.innerHTML = `
-                    <img src="${imageUrl}" class="w-full h-full object-cover" alt="Before/After ${index}">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 gap-2">
-                        <button data-action="preview" data-index="${index - 1}" class="beforeafter-action-btn bg-white/90 hover:bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
-                            <i class="fas fa-eye"></i>
-                            <span class="hidden sm:inline">Preview</span>
-                        </button>
-                        <button data-action="download" data-index="${index - 1}" class="beforeafter-action-btn bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-4 py-2 rounded-full font-semibold shadow-lg transition-all duration-200 hover:scale-105 flex items-center gap-2">
-                            <i class="fas fa-download"></i>
-                            <span class="hidden sm:inline">Download</span>
-                        </button>
-                    </div>
-                `;
-
-            } catch (error) {
-                console.error(`Before/After ${index} generation error:`, error);
-                if (card) card.innerHTML = '';
-            }
-        }
-
-        // Event delegation for action buttons
-        if (resultsGrid) {
-            resultsGrid.addEventListener('click', async (e) => {
-                e.stopPropagation();
-
-                const actionBtn = e.target.closest('[data-action]');
-                if (!actionBtn) return;
-
-                const action = actionBtn.dataset.action;
-                const index = parseInt(actionBtn.dataset.index, 10);
-                const imageData = generatedResults[index];
-
-                if (!imageData) return;
-
-                if (action === 'preview') {
-                    if (window.showPreviewModal) {
-                        window.showPreviewModal(imageData.url);
-                    }
-                } else if (action === 'download') {
-                    if (window.downloadDataURINew) {
-                        await window.downloadDataURINew(imageData.url, imageData.filename);
-                    } else if (window.downloadImage) {
-                        await window.downloadImage(imageData.url, imageData.filename);
-                    }
-                }
-            });
-        }
-
-        // Download all
-        if (downloadAllBtn) {
-            downloadAllBtn.addEventListener('click', async (e) => {
-                e.stopPropagation();
-
-                if (generatedResults.length === 0 || downloadAllBtn.disabled) return;
-
-                const originalHTML = downloadAllBtn.innerHTML;
-                downloadAllBtn.disabled = true;
-
-                try {
-                    for (let i = 0; i < generatedResults.length; i++) {
-                        const img = generatedResults[i];
-                        downloadAllBtn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i><span>Downloading ${i + 1}/${generatedResults.length}...</span>`;
-
-                        try {
-                            if (window.downloadDataURINew) {
-                                await window.downloadDataURINew(img.url, img.filename);
-                            } else if (window.downloadImage) {
-                                await window.downloadImage(img.url, img.filename);
-                            }
-                            await new Promise(resolve => setTimeout(resolve, 500));
-                        } catch (error) {
-                            console.error(`Error downloading image ${i + 1}:`, error);
-                        }
-                    }
-
-                    downloadAllBtn.innerHTML = '<i class="fas fa-check mr-2"></i><span>Selesai!</span>';
-                    setTimeout(() => {
-                        downloadAllBtn.disabled = false;
-                        downloadAllBtn.innerHTML = originalHTML;
-                    }, 2000);
-                } catch (error) {
-                    console.error('Download all error:', error);
-                    downloadAllBtn.innerHTML = '<i class="fas fa-times mr-2"></i><span>Error</span>';
-                    setTimeout(() => {
-                        downloadAllBtn.disabled = false;
-                        downloadAllBtn.innerHTML = originalHTML;
-                    }, 2000);
-                }
-            });
-        }
-
-        function showError(message) {
-            if (errorText) errorText.textContent = message;
-            if (errorMessage) errorMessage.classList.remove('hidden');
-        }
-
-        function hideError() {
-            if (errorMessage) errorMessage.classList.add('hidden');
-        }
-
-    })();
 
     // ==================== PRODUCT MOCKUP GENERATOR ====================
     (function() {
