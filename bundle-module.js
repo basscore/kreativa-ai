@@ -134,6 +134,37 @@ document.addEventListener('DOMContentLoaded', () => {
         if (target) target.click();
     });
 
+    // --- BERANDA: kartu fitur + pencarian (port dari blok inline lama, Fase 3) ---
+    document.addEventListener('click', function(e) {
+        const card = e.target.closest('.beranda-feature-card[data-tab]');
+        if (!card) return;
+        const target = document.querySelector('button[data-tab="' + card.getAttribute('data-tab') + '"]');
+        if (target) target.click();
+    });
+
+    (function() {
+        const input = document.getElementById('beranda-search');
+        if (!input) return;
+        const noResult = document.getElementById('beranda-no-result');
+        const sections = document.querySelectorAll('.beranda-cat-section');
+        input.addEventListener('input', function() {
+            const q = this.value.toLowerCase().trim();
+            let total = 0;
+            sections.forEach(sec => {
+                let tampil = 0;
+                sec.querySelectorAll('.beranda-feature-card').forEach(card => {
+                    const label = card.querySelector('span');
+                    const cocok = label && label.textContent.toLowerCase().includes(q);
+                    card.classList.toggle('hidden-card', !cocok);
+                    if (cocok) tampil++;
+                });
+                sec.style.display = tampil > 0 ? '' : 'none';
+                total += tampil;
+            });
+            if (noResult) noResult.style.display = total === 0 ? 'block' : 'none';
+        });
+    })();
+
     // --- FAVORITES LOGIC (saran Dims Bagsi) ---
     // [v33+] Berbayar lewat Lynk.id "fitur favorit tab affgo" (lifetime).
     // Gate ada di toggleFavorite() — kalau window.favoritFeatureActive false →
