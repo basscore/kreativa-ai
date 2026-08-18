@@ -6704,6 +6704,15 @@
             color: #FFFFFF !important;
             margin: 0 !important;
             padding: 0 !important;
+        }
+
+        /* overflow-x hanya di html, bukan di body juga: overflow-x:hidden di
+           keduanya membuat browser menghitung overflow-y:auto di keduanya,
+           jadi body ikut jadi scroll container meski tidak pernah benar-benar
+           scroll (window.scrollTo menggerakkan html). Akibatnya position:sticky
+           pada elemen langsung anak body (.mobile-header) menempel relatif ke
+           body yang diam, bukan ke scroll sungguhan — sticky-nya jadi mati. */
+        html {
             overflow-x: hidden !important;
         }
 
@@ -34245,7 +34254,7 @@ finish review, the verdict, and DESIGN.md
          immutable di jsDelivr: tidak pernah stale, tidak butuh ?v=.
          GANTI SHA INI setiap kali bundle di-push (git rev-parse master). -->
     <script
-        src="https://cdn.jsdelivr.net/gh/basscore/kreativa-ai@b163ab0044b2f135d37aaf489d3587d3ce78ec55/bundle-module.js"
+        src="https://cdn.jsdelivr.net/gh/basscore/kreativa-ai@464b0c6ac96b234f81113f8cc63cc626fcf3a7e4/bundle-module.js"
         type="module"></script>
     <!-- ==========================================================
          BERKAS — pendaftar berkas
