@@ -7328,7 +7328,11 @@
             background: rgba(255, 69, 106, 0.45);
         }
 
-        /* Kepala Sidebar (Header Logo & Brand) */
+        /* Kepala Sidebar (Header Logo & Brand) — sticky ala Vercel:
+           workspace switcher tetap terlihat, cuma daftar nav di
+           bawahnya yang scroll. Sibling sticky (.rail-cari, top:0)
+           otomatis bertumpuk di bawahnya karena elemen sticky tetap
+           memakan ruang flow-nya sendiri — tidak perlu top manual. */
         .sidebar > .text-center {
             background: rgba(22, 27, 40, 0.85) !important;
             backdrop-filter: blur(16px) !important;
@@ -7337,7 +7341,9 @@
             padding: 1.5rem 1.25rem 1.25rem !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
             text-align: left !important;
-            position: relative !important;
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 15 !important;
         }
 
         .sidebar > .text-center h1,
@@ -8120,7 +8126,7 @@
         /* --- Rail Search Bar di Sidebar --- */
         .rail-cari {
             position: sticky !important;
-            top: 0 !important;
+            top: var(--kop-sidebar-h, 0px) !important;
             z-index: 10 !important;
             display: flex !important;
             align-items: center !important;
@@ -9433,7 +9439,7 @@ finish review, the verdict, and DESIGN.md
                             <div class="beranda-feature-grid">
                                 <div class="beranda-feature-card" data-tab="konten-affiliator"><i
                                         class="fas fa-clapperboard"></i><span>Konten Affiliator</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                             </div>
                         </div>
@@ -9483,7 +9489,7 @@ finish review, the verdict, and DESIGN.md
                                         class="fas fa-box-open"></i><span>Unboxing Scene</span></div>
                                 <div class="beranda-feature-card" data-tab="professional-headshot"><i
                                         class="fas fa-user-tie"></i><span>Professional Headshot</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                             </div>
                         </div>
@@ -9542,7 +9548,7 @@ finish review, the verdict, and DESIGN.md
                                         class="fas fa-calendar-days"></i><span>Content Calendar</span></div>
                                 <div class="beranda-feature-card" data-tab="feedbranding"><i
                                         class="fas fa-layer-group"></i><span>Feed Branding</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                             </div>
                         </div>
@@ -9573,7 +9579,7 @@ finish review, the verdict, and DESIGN.md
                                         class="fas fa-id-card"></i><span>Pas Foto Warna</span></div>
                                 <div class="beranda-feature-card" data-tab="photo-booth"><i
                                         class="fas fa-camera-retro"></i><span>Photo Booth</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="desain-rumah"><i
                                         class="fas fa-home"></i><span>Desain Rumah</span></div>
@@ -9596,15 +9602,15 @@ finish review, the verdict, and DESIGN.md
                                         class="fas fa-user-astronaut"></i><span>Miniature Me</span></div>
                                 <div class="beranda-feature-card" data-tab="karikatur"><i
                                         class="fas fa-palette"></i><span>Karikatur Generator</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="photo-editor"><i
                                         class="fas fa-sliders-h"></i><span>Photo Editor Pro</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="ai-beauty"><i
                                         class="fas fa-wand-magic-sparkles"></i><span>AI Beauty Editor</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="halu"><i class="fas fa-heart"></i><span>Halu
                                         Idol</span></div>
@@ -9620,47 +9626,47 @@ finish review, the verdict, and DESIGN.md
                                         class="fas fa-face-laugh-beam"></i><span>Expression Changer</span></div>
                                 <div class="beranda-feature-card" data-tab="face-swap"><i
                                         class="fas fa-face-grin-stars"></i><span>Face Swap</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="tattoo-editor"><i
                                         class="fas fa-dragon"></i><span>Tattoo Editor</span></div>
                                 <div class="beranda-feature-card" data-tab="bg-remover"><i
                                         class="fas fa-scissors"></i><span>Hapus Background</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="remove-bg"><i
                                         class="fas fa-image"></i><span>Hapus BG (Pixlr)</span></div>
                                 <div class="beranda-feature-card" data-tab="object-remover"><i
                                         class="fas fa-eraser"></i><span>Hapus Object</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="photo-extender"><i
                                         class="fas fa-expand-arrows-alt"></i><span>Perluas Foto</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="photo-restoration"><i
                                         class="fas fa-clock-rotate-left"></i><span>Restorasi Foto</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="upscale"><i
                                         class="fas fa-expand"></i><span>Upscale</span></div>
                                 <div class="beranda-feature-card" data-tab="photo-angle"><i
                                         class="fas fa-cube"></i><span>Photo Angle</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="style-matcher"><i
                                         class="fas fa-magic"></i><span>Style Matcher</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="story-update"><i
                                         class="fas fa-camera-retro"></i><span>Story Update</span></div>
                                 <div class="beranda-feature-card" data-tab="story-board"><i
                                         class="fas fa-film"></i><span>Story Board</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="twibon"><i
                                         class="fas fa-image"></i><span>Twibon Frame</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="sketsa-gambar"><i
                                         class="fas fa-pencil-ruler"></i><span>Sketsa Gambar</span></div>
@@ -9668,23 +9674,23 @@ finish review, the verdict, and DESIGN.md
                                         class="fas fa-brain"></i><span>Image to Prompt</span></div>
                                 <div class="beranda-feature-card" data-tab="thumbnail-generator"><i
                                         class="fas fa-rectangle-ad"></i><span>Thumbnail Pro</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="cover-photo-generator"><i
                                         class="fas fa-image-portrait"></i><span>Foto sampul IG & Tiktok</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="logo-generator"><i
                                         class="fas fa-palette"></i><span>Logo Generator</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="mascot-generator"><i
                                         class="fas fa-dragon"></i><span>Mascot Generator</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="poster-generator"><i
                                         class="fas fa-image"></i><span>Poster Generator</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="banner-generator"><i
                                         class="fas fa-rectangle-ad"></i><span>Banner Generator</span></div>
@@ -9692,7 +9698,7 @@ finish review, the verdict, and DESIGN.md
                                         class="fas fa-car"></i><span>Vehicle Modifier</span></div>
                                 <div class="beranda-feature-card" data-tab="worldcup"><i
                                         class="fas fa-trophy"></i><span>Foto World Cup</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                             </div>
                         </div>
@@ -9709,7 +9715,7 @@ finish review, the verdict, and DESIGN.md
                                         class="fas fa-film"></i><span>Video Analyzer</span></div>
                                 <div class="beranda-feature-card" data-tab="podcast"><i
                                         class="fas fa-microphone-lines"></i><span>Studio Podcast</span>
-                                    <div class="card-badge">NEW</div>
+
                                 </div>
                                 <div class="beranda-feature-card" data-tab="video-frames"><i
                                         class="fas fa-film"></i><span>Video Frames</span></div>
@@ -17242,8 +17248,6 @@ finish review, the verdict, and DESIGN.md
                             </button>
                             <button id="dr-tab-eksterior" class="option-btn-desain w-full text-center">
                                 Eksterior
-                                <span
-                                    class="bg-red-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full ml-1">New</span>
                             </button>
                         </div>
                         <div id="dr-content-interior">
@@ -34342,6 +34346,17 @@ finish review, the verdict, and DESIGN.md
 
                 rail.insertBefore(bar, nav);
                 rail.insertBefore(hitung, nav);
+
+                /* Kop (.text-center) juga sticky top:0 sekarang. Dua sticky
+                   sibling top:0 akan tumpang tindih kalau top-nya sama-sama 0 —
+                   sticky tidak otomatis memperhitungkan tinggi sibling sticky
+                   di atasnya. Ukur tinggi kop, pakai sebagai offset top rail-cari. */
+                var kepala = rail.querySelector(':scope > .text-center');
+                function setTinggiKepala() {
+                    if (kepala) rail.style.setProperty('--kop-sidebar-h', kepala.offsetHeight + 'px');
+                }
+                setTinggiKepala();
+                window.addEventListener('resize', setTinggiKepala);
 
                 input.addEventListener('input', function () {
                     var q = kunci(input.value);
