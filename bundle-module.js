@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // [v33+] Berbayar lewat Lynk.id "fitur favorit tab affgo" (lifetime).
     // Gate ada di toggleFavorite() — kalau window.favoritFeatureActive false →
         (function() {
-        const FAV_KEY = 'affiliatego_favorites';
+        const FAV_KEY = 'kreativa_favorites';
         const sidebar = document.querySelector('.sidebar');
         const favCategory = document.getElementById('favorites-category');
         const favContainer = document.getElementById('favorites-container');
@@ -271,8 +271,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 cloudSyncPending = true;
                 return;
             }
-            const email = localStorage.getItem('affiliatego_email');
-            const token = localStorage.getItem('affiliatego_token');
+            const email = localStorage.getItem('kreativa_email');
+            const token = localStorage.getItem('kreativa_token');
             if (!email || !token) return; // belum login → skip
             if (typeof SCRIPT_URL !== 'string' || typeof APP_SECRET !== 'string') return;
 
@@ -937,7 +937,7 @@ document.addEventListener('DOMContentLoaded', () => {
             var lvb = document.getElementById('login-version-badge');
             if (lvb) lvb.textContent = 'V' + UPDATE_VERSION;
         })();
-        const STORAGE_KEY = 'affiliatego_update_seen';
+        const STORAGE_KEY = 'kreativa_update_seen';
         const btn = document.getElementById('update-info-btn');
         if (!btn) return;
 
@@ -959,7 +959,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         titleKey: 'modal.fix-v48-title-affiliate',
                         titleText: 'Program Affiliate — Cuan Rp50.000/Penjualan',
                         bodyKey: 'modal.fix-v48-body-affiliate',
-                        bodyText: 'Sekarang Anda bisa jadi affiliate Affiliate GO dan dapat komisi Rp50.000 untuk setiap penjualan aplikasi lewat link Anda. Buka menu Ads untuk lihat detail + tonton tutorial cara jadi affiliate.'
+                        bodyText: 'Sekarang Anda bisa jadi affiliate Kreativa AI dan dapat komisi Rp50.000 untuk setiap penjualan aplikasi lewat link Anda. Buka menu Ads untuk lihat detail + tonton tutorial cara jadi affiliate.'
                     },
                     {
                         titleKey: 'modal.fix-v48-title-dark',
@@ -1390,7 +1390,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         titleKey: 'modal.fix-v31-title-telegram',
                         titleText: 'Tombol Telegram di Pojok Layar',
                         bodyKey: 'modal.fix-v31-body-telegram',
-                        bodyText: 'Tombol bundar Telegram sekarang ada di pojok kanan bawah aplikasi. Sekali klik langsung join grup Telegram Affiliate Go &#8212; tempat update fitur, tips, dan tanya jawab dengan komunitas.'
+                        bodyText: 'Tombol bundar Telegram sekarang ada di pojok kanan bawah aplikasi. Sekali klik langsung join grup Telegram Kreativa AI &#8212; tempat update fitur, tips, dan tanya jawab dengan komunitas.'
                     }
                 ]
             },
@@ -1456,7 +1456,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Footer
             html += '<div class="text-center pt-2 text-xs text-gray-400">' +
-            'Affiliate Go Foto Studio by Arul CG &#8212; Terima kasih sudah menggunakan!' +
+            'Kreativa AI Foto Studio by Arul CG &#8212; Terima kasih sudah menggunakan!' +
             '</div>' +
             '</div>';
 
@@ -1486,7 +1486,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let chatHistory = [];
 
         // System prompt sebagai first message
-        const systemPrompt = `Kamu adalah AI Assistant yang ramah dan helpful untuk "Affiliate Go Foto studio" by Arul CG.
+        const systemPrompt = `Kamu adalah AI Assistant yang ramah dan helpful untuk "Kreativa AI Foto studio" by Arul CG.
 
 Kamu adalah chatbot tanya jawab umum yang siap membantu user dengan berbagai pertanyaan dan topik. Kamu bisa:
 
@@ -1523,7 +1523,7 @@ Jawab pertanyaan user dengan helpful dan informatif!`;
                 });
                 contents.push({
                     role: 'model',
-                    parts: [{ text: 'Baik, saya siap membantu Anda dengan aplikasi Affiliate Go Foto Studio!' }]
+                    parts: [{ text: 'Baik, saya siap membantu Anda dengan aplikasi Kreativa AI Foto Studio!' }]
                 });
             }
 
@@ -2086,7 +2086,7 @@ Jawab pertanyaan user dengan helpful dan informatif!`;
         }
     })();
 
-    // --- FOTO PRODUK (AFFILIATE GO) LOGIC ---
+    // --- FOTO PRODUK (Kreativa AI) LOGIC ---
     (function() {
         // --- B-Roll (Foto Produk) Logic ---
         const brollImageInput = document.getElementById('broll-image-input');
@@ -2463,7 +2463,7 @@ Jawab pertanyaan user dengan helpful dan informatif!`;
                 // Add to generated images array for download all functionality
                 generatedBrollImages.push({
                     url: imageUrl,
-                    filename: `affiliatego_${id}_${safeTitle}.png`
+                    filename: `kreativa_${id}_${safeTitle}.png`
                 });
 
                 // Store generation parameters for regeneration
@@ -2476,7 +2476,7 @@ Jawab pertanyaan user dengan helpful dan informatif!`;
                     ratio: selectedBrollRatio
                 };
 
-                outputContainer.innerHTML = `<div class="relative w-full h-full group"><img src="${imageUrl}" class="w-full h-full object-cover rounded-md" alt="${title}"><div class="absolute bottom-2 right-2 flex flex-wrap gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"><button data-action="broll-preview" data-image-url="${imageUrl}" class="action-btn bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600" title="Preview"><i class="fas fa-search-plus"></i></button><button data-action="broll-edit" data-index="${id - 1}" data-prompt="${prompt.replace(/"/g, '&quot;')}" class="action-btn bg-purple-500 text-white p-2 rounded-full hover:bg-purple-600" title="Edit Prompt"><i class="fas fa-edit"></i></button><button data-action="broll-regenerate" data-index="${id - 1}" class="action-btn bg-green-500 text-white p-2 rounded-full hover:bg-green-600" title="Regenerate"><i class="fas fa-sync-alt"></i></button><button data-action="broll-video" data-image-url="${imageUrl}" data-title="${title.replace(/"/g, '&quot;')}" class="action-btn bg-fuchsia-500 text-white p-2 rounded-full hover:bg-fuchsia-600" title="Buat Prompt Video"><i class="fas fa-film"></i></button><button data-action="broll-caption" data-image-url="${imageUrl}" data-title="${title.replace(/"/g, '&quot;')}" class="action-btn bg-rose-500 text-white p-2 rounded-full hover:bg-rose-600" title="Buat Caption"><i class="fas fa-pencil-alt"></i></button><button data-action="broll-download" data-image-url="${imageUrl}" data-filename="affiliatego_${id}_${safeTitle}.png" class="action-btn bg-cyan-600 text-white p-2 rounded-full hover:bg-cyan-700" title="Unduh"><i class="fas fa-download"></i></button></div></div>`;
+                outputContainer.innerHTML = `<div class="relative w-full h-full group"><img src="${imageUrl}" class="w-full h-full object-cover rounded-md" alt="${title}"><div class="absolute bottom-2 right-2 flex flex-wrap gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"><button data-action="broll-preview" data-image-url="${imageUrl}" class="action-btn bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600" title="Preview"><i class="fas fa-search-plus"></i></button><button data-action="broll-edit" data-index="${id - 1}" data-prompt="${prompt.replace(/"/g, '&quot;')}" class="action-btn bg-purple-500 text-white p-2 rounded-full hover:bg-purple-600" title="Edit Prompt"><i class="fas fa-edit"></i></button><button data-action="broll-regenerate" data-index="${id - 1}" class="action-btn bg-green-500 text-white p-2 rounded-full hover:bg-green-600" title="Regenerate"><i class="fas fa-sync-alt"></i></button><button data-action="broll-video" data-image-url="${imageUrl}" data-title="${title.replace(/"/g, '&quot;')}" class="action-btn bg-fuchsia-500 text-white p-2 rounded-full hover:bg-fuchsia-600" title="Buat Prompt Video"><i class="fas fa-film"></i></button><button data-action="broll-caption" data-image-url="${imageUrl}" data-title="${title.replace(/"/g, '&quot;')}" class="action-btn bg-rose-500 text-white p-2 rounded-full hover:bg-rose-600" title="Buat Caption"><i class="fas fa-pencil-alt"></i></button><button data-action="broll-download" data-image-url="${imageUrl}" data-filename="kreativa_${id}_${safeTitle}.png" class="action-btn bg-cyan-600 text-white p-2 rounded-full hover:bg-cyan-700" title="Unduh"><i class="fas fa-download"></i></button></div></div>`;
             } catch (error) {
                 console.error(`Error generating broll ${id}:`, error);
                 if (card) card.innerHTML = '';
@@ -3008,7 +3008,7 @@ Output ONLY the video prompt, nothing else.`;
                             generatedBrollImages[index].url = imageUrl;
                         }
 
-                        outputContainer.innerHTML = `<div class="relative w-full h-full group"><img src="${imageUrl}" class="w-full h-full object-cover rounded-md" alt="${params.title}"><div class="absolute bottom-2 right-2 flex flex-wrap gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"><button data-action="broll-preview" data-image-url="${imageUrl}" class="action-btn bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600" title="Preview"><i class="fas fa-search-plus"></i></button><button data-action="broll-edit" data-index="${index}" data-prompt="${safePrompt}" class="action-btn bg-purple-500 text-white p-2 rounded-full hover:bg-purple-600" title="Edit Prompt"><i class="fas fa-edit"></i></button><button data-action="broll-regenerate" data-index="${index}" class="action-btn bg-green-500 text-white p-2 rounded-full hover:bg-green-600" title="Regenerate"><i class="fas fa-sync-alt"></i></button><button data-action="broll-video" data-image-url="${imageUrl}" data-title="${params.title.replace(/"/g, '&quot;')}" class="action-btn bg-fuchsia-500 text-white p-2 rounded-full hover:bg-fuchsia-600" title="Buat Prompt Video"><i class="fas fa-film"></i></button><button data-action="broll-caption" data-image-url="${imageUrl}" data-title="${params.title.replace(/"/g, '&quot;')}" class="action-btn bg-rose-500 text-white p-2 rounded-full hover:bg-rose-600" title="Buat Caption"><i class="fas fa-pencil-alt"></i></button><button data-action="broll-download" data-image-url="${imageUrl}" data-filename="affiliatego_${index + 1}_${safeTitle}.png" class="action-btn bg-cyan-600 text-white p-2 rounded-full hover:bg-cyan-700" title="Unduh"><i class="fas fa-download"></i></button></div></div>`;
+                        outputContainer.innerHTML = `<div class="relative w-full h-full group"><img src="${imageUrl}" class="w-full h-full object-cover rounded-md" alt="${params.title}"><div class="absolute bottom-2 right-2 flex flex-wrap gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"><button data-action="broll-preview" data-image-url="${imageUrl}" class="action-btn bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600" title="Preview"><i class="fas fa-search-plus"></i></button><button data-action="broll-edit" data-index="${index}" data-prompt="${safePrompt}" class="action-btn bg-purple-500 text-white p-2 rounded-full hover:bg-purple-600" title="Edit Prompt"><i class="fas fa-edit"></i></button><button data-action="broll-regenerate" data-index="${index}" class="action-btn bg-green-500 text-white p-2 rounded-full hover:bg-green-600" title="Regenerate"><i class="fas fa-sync-alt"></i></button><button data-action="broll-video" data-image-url="${imageUrl}" data-title="${params.title.replace(/"/g, '&quot;')}" class="action-btn bg-fuchsia-500 text-white p-2 rounded-full hover:bg-fuchsia-600" title="Buat Prompt Video"><i class="fas fa-film"></i></button><button data-action="broll-caption" data-image-url="${imageUrl}" data-title="${params.title.replace(/"/g, '&quot;')}" class="action-btn bg-rose-500 text-white p-2 rounded-full hover:bg-rose-600" title="Buat Caption"><i class="fas fa-pencil-alt"></i></button><button data-action="broll-download" data-image-url="${imageUrl}" data-filename="kreativa_${index + 1}_${safeTitle}.png" class="action-btn bg-cyan-600 text-white p-2 rounded-full hover:bg-cyan-700" title="Unduh"><i class="fas fa-download"></i></button></div></div>`;
                     } else {
                         throw new Error('Failed to generate image');
                     }
@@ -3392,7 +3392,7 @@ Output ONLY the video prompt, nothing else.`;
                 // Add to generated images array for download all functionality
                 generatedHrgImages.push({
                     url: imageUrl,
-                    filename: `affiliatego_${id}_${safeTitle}.png`
+                    filename: `kreativa_${id}_${safeTitle}.png`
                 });
 
                 // Store generation parameters for regeneration
@@ -3405,7 +3405,7 @@ Output ONLY the video prompt, nothing else.`;
                     ratio: selectedHrgRatio
                 };
 
-                outputContainer.innerHTML = `<div class="relative w-full h-full group"><img src="${imageUrl}" class="w-full h-full object-cover rounded-md" alt="${title}"><div class="absolute bottom-2 right-2 flex flex-wrap gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"><button data-action="hrg-preview" data-image-url="${imageUrl}" class="action-btn bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600" title="Preview"><i class="fas fa-search-plus"></i></button><button data-action="hrg-edit" data-index="${id - 1}" data-prompt="${prompt.replace(/"/g, '&quot;')}" class="action-btn bg-purple-500 text-white p-2 rounded-full hover:bg-purple-600" title="Edit Prompt"><i class="fas fa-edit"></i></button><button data-action="hrg-regenerate" data-index="${id - 1}" class="action-btn bg-green-500 text-white p-2 rounded-full hover:bg-green-600" title="Regenerate"><i class="fas fa-sync-alt"></i></button><button data-action="hrg-video" data-image-url="${imageUrl}" data-title="${title.replace(/"/g, '&quot;')}" class="action-btn bg-fuchsia-500 text-white p-2 rounded-full hover:bg-fuchsia-600" title="Buat Prompt Video"><i class="fas fa-film"></i></button><button data-action="hrg-caption" data-image-url="${imageUrl}" data-title="${title.replace(/"/g, '&quot;')}" class="action-btn bg-rose-500 text-white p-2 rounded-full hover:bg-rose-600" title="Buat Caption"><i class="fas fa-pencil-alt"></i></button><button data-action="hrg-download" data-image-url="${imageUrl}" data-filename="affiliatego_${id}_${safeTitle}.png" class="action-btn bg-cyan-600 text-white p-2 rounded-full hover:bg-cyan-700" title="Unduh"><i class="fas fa-download"></i></button></div></div>`;
+                outputContainer.innerHTML = `<div class="relative w-full h-full group"><img src="${imageUrl}" class="w-full h-full object-cover rounded-md" alt="${title}"><div class="absolute bottom-2 right-2 flex flex-wrap gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"><button data-action="hrg-preview" data-image-url="${imageUrl}" class="action-btn bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600" title="Preview"><i class="fas fa-search-plus"></i></button><button data-action="hrg-edit" data-index="${id - 1}" data-prompt="${prompt.replace(/"/g, '&quot;')}" class="action-btn bg-purple-500 text-white p-2 rounded-full hover:bg-purple-600" title="Edit Prompt"><i class="fas fa-edit"></i></button><button data-action="hrg-regenerate" data-index="${id - 1}" class="action-btn bg-green-500 text-white p-2 rounded-full hover:bg-green-600" title="Regenerate"><i class="fas fa-sync-alt"></i></button><button data-action="hrg-video" data-image-url="${imageUrl}" data-title="${title.replace(/"/g, '&quot;')}" class="action-btn bg-fuchsia-500 text-white p-2 rounded-full hover:bg-fuchsia-600" title="Buat Prompt Video"><i class="fas fa-film"></i></button><button data-action="hrg-caption" data-image-url="${imageUrl}" data-title="${title.replace(/"/g, '&quot;')}" class="action-btn bg-rose-500 text-white p-2 rounded-full hover:bg-rose-600" title="Buat Caption"><i class="fas fa-pencil-alt"></i></button><button data-action="hrg-download" data-image-url="${imageUrl}" data-filename="kreativa_${id}_${safeTitle}.png" class="action-btn bg-cyan-600 text-white p-2 rounded-full hover:bg-cyan-700" title="Unduh"><i class="fas fa-download"></i></button></div></div>`;
             } catch (error) {
                 console.error(`Error generating hrg ${id}:`, error);
                 if (card) card.innerHTML = '';
@@ -3937,7 +3937,7 @@ Output ONLY the video prompt, nothing else.`;
                             generatedHrgImages[index].url = imageUrl;
                         }
 
-                        outputContainer.innerHTML = `<div class="relative w-full h-full group"><img src="${imageUrl}" class="w-full h-full object-cover rounded-md" alt="${params.title}"><div class="absolute bottom-2 right-2 flex flex-wrap gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"><button data-action="hrg-preview" data-image-url="${imageUrl}" class="action-btn bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600" title="Preview"><i class="fas fa-search-plus"></i></button><button data-action="hrg-edit" data-index="${index}" data-prompt="${safePrompt}" class="action-btn bg-purple-500 text-white p-2 rounded-full hover:bg-purple-600" title="Edit Prompt"><i class="fas fa-edit"></i></button><button data-action="hrg-regenerate" data-index="${index}" class="action-btn bg-green-500 text-white p-2 rounded-full hover:bg-green-600" title="Regenerate"><i class="fas fa-sync-alt"></i></button><button data-action="hrg-video" data-image-url="${imageUrl}" data-title="${params.title.replace(/"/g, '&quot;')}" class="action-btn bg-fuchsia-500 text-white p-2 rounded-full hover:bg-fuchsia-600" title="Buat Prompt Video"><i class="fas fa-film"></i></button><button data-action="hrg-caption" data-image-url="${imageUrl}" data-title="${params.title.replace(/"/g, '&quot;')}" class="action-btn bg-rose-500 text-white p-2 rounded-full hover:bg-rose-600" title="Buat Caption"><i class="fas fa-pencil-alt"></i></button><button data-action="hrg-download" data-image-url="${imageUrl}" data-filename="affiliatego_${index + 1}_${safeTitle}.png" class="action-btn bg-cyan-600 text-white p-2 rounded-full hover:bg-cyan-700" title="Unduh"><i class="fas fa-download"></i></button></div></div>`;
+                        outputContainer.innerHTML = `<div class="relative w-full h-full group"><img src="${imageUrl}" class="w-full h-full object-cover rounded-md" alt="${params.title}"><div class="absolute bottom-2 right-2 flex flex-wrap gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"><button data-action="hrg-preview" data-image-url="${imageUrl}" class="action-btn bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600" title="Preview"><i class="fas fa-search-plus"></i></button><button data-action="hrg-edit" data-index="${index}" data-prompt="${safePrompt}" class="action-btn bg-purple-500 text-white p-2 rounded-full hover:bg-purple-600" title="Edit Prompt"><i class="fas fa-edit"></i></button><button data-action="hrg-regenerate" data-index="${index}" class="action-btn bg-green-500 text-white p-2 rounded-full hover:bg-green-600" title="Regenerate"><i class="fas fa-sync-alt"></i></button><button data-action="hrg-video" data-image-url="${imageUrl}" data-title="${params.title.replace(/"/g, '&quot;')}" class="action-btn bg-fuchsia-500 text-white p-2 rounded-full hover:bg-fuchsia-600" title="Buat Prompt Video"><i class="fas fa-film"></i></button><button data-action="hrg-caption" data-image-url="${imageUrl}" data-title="${params.title.replace(/"/g, '&quot;')}" class="action-btn bg-rose-500 text-white p-2 rounded-full hover:bg-rose-600" title="Buat Caption"><i class="fas fa-pencil-alt"></i></button><button data-action="hrg-download" data-image-url="${imageUrl}" data-filename="kreativa_${index + 1}_${safeTitle}.png" class="action-btn bg-cyan-600 text-white p-2 rounded-full hover:bg-cyan-700" title="Unduh"><i class="fas fa-download"></i></button></div></div>`;
                     } else {
                         throw new Error('Failed to generate image');
                     }
@@ -17039,14 +17039,30 @@ PENTING:
             });
         }
 
+        function getAuthCredentials() {
+            let email = localStorage.getItem('affiliatego_email');
+            let token = localStorage.getItem('affiliatego_token');
+            if (email && token) return { email: email, token: token };
+            
+            try {
+                const primaKreativaStr = localStorage.getItem('primaKreativa');
+                if (primaKreativaStr) {
+                    const data = JSON.parse(primaKreativaStr);
+                    if (data.email && data.sessionToken) {
+                        return { email: data.email, token: data.sessionToken };
+                    }
+                }
+            } catch(e) {}
+            return { email: null, token: null };
+        }
+
         async function consumeQuota() {
-            const email = localStorage.getItem('affiliatego_email');
-            const token = localStorage.getItem('affiliatego_token');
-            if (!email || !token) return { ok: false, reason: 'not_logged_in' };
+            const auth = getAuthCredentials();
+            if (!auth.email || !auth.token) return { ok: false, reason: 'not_logged_in' };
             try {
                 const url = SCRIPT_URL + '?action=use_upscale'
-                    + '&email=' + encodeURIComponent(email)
-                    + '&token=' + encodeURIComponent(token)
+                    + '&email=' + encodeURIComponent(auth.email)
+                    + '&token=' + encodeURIComponent(auth.token)
                     + '&app_secret=' + encodeURIComponent(APP_SECRET)
                     + '&product=' + encodeURIComponent(PRODUCT_ID);
                 const res = await fetch(url);
@@ -17061,13 +17077,12 @@ PENTING:
         }
 
         async function refundQuota() {
-            const email = localStorage.getItem('affiliatego_email');
-            const token = localStorage.getItem('affiliatego_token');
-            if (!email || !token) return;
+            const auth = getAuthCredentials();
+            if (!auth.email || !auth.token) return;
             try {
                 const url = SCRIPT_URL + '?action=refund_upscale'
-                    + '&email=' + encodeURIComponent(email)
-                    + '&token=' + encodeURIComponent(token)
+                    + '&email=' + encodeURIComponent(auth.email)
+                    + '&token=' + encodeURIComponent(auth.token)
                     + '&app_secret=' + encodeURIComponent(APP_SECRET)
                     + '&product=' + encodeURIComponent(PRODUCT_ID);
                 await fetch(url);
