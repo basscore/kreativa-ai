@@ -271,8 +271,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 cloudSyncPending = true;
                 return;
             }
-            const email = localStorage.getItem('kreativa_email');
-            const token = localStorage.getItem('kreativa_token');
+            const auth = window.getKaiAuth ? window.getKaiAuth() : { email: localStorage.getItem('kreativa_email'), token: localStorage.getItem('kreativa_token') };
+            const email = auth.email;
+            const token = auth.token;
             if (!email || !token) return; // belum login → skip
             if (typeof SCRIPT_URL !== 'string' || typeof APP_SECRET !== 'string') return;
 
@@ -17040,8 +17041,9 @@ PENTING:
         }
 
         function getAuthCredentials() {
-            let email = localStorage.getItem('affiliatego_email');
-            let token = localStorage.getItem('affiliatego_token');
+            if (window.getKaiAuth) return window.getKaiAuth();
+            let email = localStorage.getItem('affiliatego_email') || localStorage.getItem('kreativa_email');
+            let token = localStorage.getItem('affiliatego_token') || localStorage.getItem('kreativa_token');
             if (email && token) return { email: email, token: token };
             
             try {

@@ -30,38 +30,10 @@
             id: {
                 'lang.id': 'Indonesia', 'lang.en': 'English', 'lang.ms': 'Melayu',
                                                 // ===== AdBlock Detection Overlay =====
-                'adblock.title': 'AdBlock Terdeteksi',
-                'adblock.desc': 'Aplikasi ini gratis berkat iklan. Matikan AdBlock dulu untuk lanjut menggunakan aplikasi, atau dapatkan akses tanpa iklan permanen dengan Bebas Iklan.',
-                'adblock.howto-label': 'Cara matikan:',
-                'adblock.howto-text': 'Klik ikon AdBlock di toolbar browser → pilih "Disable on this site" / "Pause on this site" → refresh halaman.',
-                'adblock.recheck': 'Saya Sudah Matikan — Cek Ulang',
-                'adblock.buy': 'Beli Bebas Iklan Rp 14.000/bln',
 
                 'nav.beranda': 'Beranda',
-                'nav.ruangsaku': 'Ads',
                 'nav.upscale': 'Upscale',
                 // Ruang Saku info page (rs.*)
-                'rs.badge': 'Teman AI keuanganmu',
-                'rs.hero-title': 'Ngobrol soal uang, sesantai curhat ke teman.',
-                'rs.hero-desc': 'Kenalan sama Rindu — teman AI yang bantu catat pengeluaran, pantau tabungan, sampai ingetin hutang. Tinggal chat aja, kayak ngobrol biasa.',
-                'rs.hero-cta': 'Buka di RuangSaku.com',
-                'rs.hero-cta-hint': 'Untuk pengalaman terbaik di HP, buka langsung di browser',
-                'rs.features-title': 'Satu teman, semua urusan uang',
-                'rs.feat1-title': 'Catat Pengeluaran',
-                'rs.feat1-desc': '"Beli kopi 25rb" — Rindu langsung tahu kategorinya dan catat ke dompet yang benar.',
-                'rs.feat2-title': 'Pantau Tabungan',
-                'rs.feat2-desc': '"Nabung 500rb buat umroh" — Rindu pantau progress dan kasih semangat tiap milestone.',
-                'rs.feat3-title': 'Kelola Hutang',
-                'rs.feat3-desc': '"Budi hutang 200rb" — Rindu yang ingatkan, siapa hutang berapa dan kapan deadline-nya.',
-                'rs.feat4-title': 'Dashboard Pintar',
-                'rs.feat4-desc': 'Saldo dompet, tren pengeluaran, budget — semua update sendiri tanpa input manual.',
-                'rs.feat5-title': 'Reminder Otomatis',
-                'rs.feat5-desc': 'Pagi kasih sisa budget, malam recap pengeluaran. Tagihan? Diingatkan 3 hari sebelumnya.',
-                'rs.feat-free': 'Gratis selamanya',
-                'rs.feat-free-desc': 'Pro tersedia untuk yang butuh fitur lanjutan',
-                'rs.final-cta-title': 'Mulai dalam 2 menit',
-                'rs.final-cta-desc': 'Daftar gratis, kenalan sama Rindu, langsung mulai ngobrol soal uang.',
-                'rs.final-cta-btn': 'Coba Gratis di RuangSaku.com',
                 // Upscale tab (up.*) — paid feature, ESRGAN 2K/4K
                 'up.h1': 'Upscale Foto AI',
                 'up.subtitle': 'Mau cetak foto hasil editan kamu tanpa burik? Gunakan Upscale — naikkan resolusi foto jadi 2K atau 4K dengan AI. Tajam, jelas, siap cetak atau posting di sosmed.',
@@ -299,77 +271,13 @@
                 'hrg.price-hint': 'Isi harga di tiap foto produk yang diunggah.',
                 'hrg.step4-bg': '4. Unggah Background',
                 'hrg.step5-ratio': '5. Rasio Aspek',
-                'ads.badge': 'Produk digital dari developer AffiliateGo',
-                'ads.hero-title': 'Level up skill & kontenmu',
-                'ads.hero-desc': 'Dua produk andalan untuk bantu kamu menghasilkan dari AI — dibuat oleh developer yang sama dengan aplikasi ini.',
-                'ads.aff-badge': 'PROGRAM AFFILIATE',
-                'ads.aff-title': 'Dapat Rp50.000 per Penjualan Aplikasi Ini!',
-                'ads.aff-desc': 'Jadi affiliate Affiliate GO dan hasilkan komisi Rp50.000 untuk setiap penjualan aplikasi lewat link kamu. Tonton tutorial cara jadi affiliate di bawah ini.',
-                'ads.aff-cta': 'Tonton Tutorial Jadi Affiliate',
-                'ads.course-badge': 'HARGA FOUNDING MEMBER TERBATAS',
-                'ads.course-title': 'eCourse Vibe Coding & Monetisasi',
-                'ads.course-desc': 'Bongkar rahasia Rp 1 juta/minggu dari AI: bikin aplikasi Google Apps Script pakai AI, lalu jual. Nggak perlu bisa coding, nggak perlu modal.',
-                'ads.course-f1': '6 modul video dari nol sampai punya produk — akses selamanya',
-                'ads.course-f2': 'Template prompt Claude + magic prompt + CLAUDE.md siap pakai',
-                'ads.course-f3': 'Panduan monetisasi & jualan app di Lynk.id',
-                'ads.course-f4': 'Grup support WhatsApp + update gratis selamanya',
-                'ads.course-cta': 'Ambil eCourse Sekarang',
-                'ads.kilat-badge': 'HARGA LAUNCHING',
-                'ads.kilat-title': 'KILATVIDEO — AI Auto Content Creator',
-                'ads.kilat-desc': 'Ubah video random di HP jadi konten viral otomatis. AI yang pilih, edit, kasih caption & musik, lalu auto-upload ke sosmed.',
-                'ads.kilat-f1': 'AI auto-edit — tanpa skill editing sama sekali',
-                'ads.kilat-f2': 'Caption sesuai niche: 4 preset + 20 slot template custom',
-                'ads.kilat-f3': 'Auto schedule upload ke sosmed — bangun tidur konten tayang',
-                'ads.kilat-f4': 'Lifetime + update selamanya + bonus versi Telegram saat rilis',
-                'ads.kilat-cta': 'Ambil KILATVIDEO',
-                'ads.yt24-badge': 'LIFETIME — SEKALI BAYAR',
-                'ads.yt24-title': 'YT24 — YouTube Live 24 Jam',
-                'ads.yt24-desc': 'Bikin channel YouTube live 24 jam nonstop — cocok untuk musik lofi, murotal, suara hujan, ASMR. Multi-stream 10+ channel sekaligus.',
-                'ads.yt24-f1': 'Multi-channel: 10+ YouTube Live sekaligus dari 1 software',
-                'ads.yt24-f2': 'Dual format — horizontal (Live) & vertikal (Shorts)',
-                'ads.yt24-f3': 'RDP/VPS friendly — live 24 jam tanpa laptop nyala',
-                'ads.yt24-f4': 'Lifetime + update selamanya + grup support',
-                'ads.yt24-cta': 'Ambil YT24',
-                'ads.vocalive-badge': 'AI SELLER LIVE 24 JAM',
-                'ads.vocalive-title': 'Vocalive AI — AI Live Jualan',
-                'ads.vocalive-desc': 'AI seller yang balas komentar penonton TikTok Live pakai suara natural & jualan otomatis 24 jam — tanpa gaji host bulanan.',
-                'ads.vocalive-f1': 'Balas komentar real-time dengan suara manusia natural',
-                'ads.vocalive-f2': 'AI paham database produkmu — jawab pembeli akurat',
-                'ads.vocalive-f3': 'Cukup 1 Gemini API Key — tanpa OBS/software tambahan',
-                'ads.vocalive-f4': 'TikTok aktif sekarang — Shopee & platform lain menyusul',
-                'ads.vocalive-cta': 'Ambil Vocalive AI',
-                'ads.pk-badge': 'PK SIMULATOR 24 JAM',
-                'ads.pk-title': 'TikTok Live PK Simulator',
-                'ads.pk-desc': 'Live TikTok otomatis tanpa perlu bicara — visual bubble memukau & simulasi PK yang memancing penonton kirim gift 24 jam.',
-                'ads.pk-f1': 'Visual bubble bikin penonton betah & ketagihan kirim gift',
-                'ads.pk-f2': 'Sistem PK & skor otomatis Tim A vs Tim B',
-                'ads.pk-f3': 'Ringan & anti-lag — jalan di laptop biasa',
-                'ads.pk-f4': 'Set & forget — live via PC atau HP shoot ke monitor',
-                'ads.pk-cta': 'Ambil PK Simulator',
-                'ads.tikdance-badge': 'AI JOGET AUTO-GIFT 24 JAM',
-                'ads.tikdance-title': 'TikDance AI — AI Joget TikTok',
-                'ads.tikdance-desc': 'Karakter AI otomatis berjoget tiap kali penonton kirim gift — live TikTok 24 jam nonstop tanpa tampil di depan kamera.',
-                'ads.tikdance-f1': 'AI menari otomatis saat gift masuk — reaksi di bawah 1 detik',
-                'ads.tikdance-f2': 'Karakter bisa dikustom — anime, robot, hewan lucu',
-                'ads.tikdance-f3': 'Jalan 24/7 di background — hemat gaji host jutaan/bulan',
-                'ads.tikdance-f4': 'Live via PC atau HP shoot ke monitor',
-                'ads.tikdance-cta': 'Ambil TikDance AI',
-                'ads.storyboard-badge': 'GPT STORYBOARD UGC',
-                'ads.storyboard-title': 'AI Pembuat Storyboard UGC',
-                'ads.storyboard-desc': 'GPT khusus yang bikin storyboard video UGC affiliate dari 1 produk — tanpa rekam muka, tanpa skill edit. Cocok TikTok Shop, Shopee, Tokopedia.',
-                'ads.storyboard-f1': 'Input produk → storyboard 6-8 scene siap jadi video',
-                'ads.storyboard-f2': 'Framework UGC konversi tinggi: hook, problem, solusi, CTA',
-                'ads.storyboard-f3': 'Bonus tutorial image-to-video (Kling, Runway, CapCut AI)',
-                'ads.storyboard-f4': 'Lifetime — buat konten unlimited semua produk',
-                'ads.storyboard-cta': 'Ambil GPT Storyboard',
-                'ads.disclaimer': 'Cek detail & harga terbaru langsung di halaman produk. Angka penghasilan pada materi adalah simulasi hitungan, bukan janji hasil.',
                 'headers.miniature': 'Miniature Me', 'headers.karikatur': 'Karikatur Generator',
                 'headers.photo-editor': 'Photo Editor Pro', 'headers.ai-beauty': 'AI Beauty Editor',
                 'headers.new-born': 'Editor Foto Bayi Ajaib', 'headers.story-update': 'Story Update Generator',
                 'favorites.title': 'Favorit',
                 'favorites.sheet-title': 'Tab Favorit',
                 'favorites.empty-mobile': 'Belum ada tab favorit. Tap bintang kecil di pojok tombol bawah untuk menandai favorit.',
-                'login.title': 'Affiliate GO', 'login.subtitle': 'Foto Studio by Arul CG',
+                'login.title': 'Kreativa AI', 'login.subtitle': 'Foto Studio by Arul CG',
                 'login.email-placeholder': '\u2709 Email pembelian kamu...',
                 'login.btn': '\u26A1 MASUK SEKARANG', 'login.verifying': 'Sedang memverifikasi...',
                 'login.secure': '\uD83D\uDD12 Akses Terenkripsi & Aman',
@@ -377,7 +285,7 @@
                 // Modal Update Terbaru — keys badge + body untuk versi current.
                 'modal.fix-v48-badge': 'Update v48',
                 'modal.fix-v48-title-affiliate': 'Program Affiliate — Cuan Rp50.000/Penjualan',
-                'modal.fix-v48-body-affiliate': 'Sekarang Anda bisa jadi affiliate Affiliate GO dan dapat komisi Rp50.000 untuk setiap penjualan aplikasi lewat link Anda. Buka menu Ads untuk lihat detail + tonton tutorial cara jadi affiliate.',
+                'modal.fix-v48-body-affiliate': 'Sekarang Anda bisa jadi affiliate Kreativa AI dan dapat komisi Rp50.000 untuk setiap penjualan aplikasi lewat link Anda. Buka menu Ads untuk lihat detail + tonton tutorial cara jadi affiliate.',
                 'modal.fix-v48-title-dark': 'Mode Gelap Manual & Warna Lebih Nyaman',
                 'modal.fix-v48-body-dark': 'Mode gelap kini hanya aktif kalau Anda menyalakannya sendiri lewat tombol bulan/matahari — tidak lagi otomatis mengikuti setting HP/komputer. Warna yang tadinya bertabrakan di mode gelap (panel terang, teks sulit dibaca) sudah dirapikan di semua fitur, desktop maupun HP.',
                 'modal.fix-v47-badge': 'Update v47',
@@ -464,16 +372,16 @@
                 'modal.fix-v31-title-ruangsaku': 'Tab Ruang Saku: Tampilan Baru',
                 'modal.fix-v31-body-ruangsaku': 'Tab Ruang Saku sekarang punya halaman penjelasan singkat fitur Rindu (AI keuangan) + tombol langsung ke RuangSaku.com. Lebih nyaman dipakai di HP — tinggal klik dan terbuka di tab browser.',
                 'modal.fix-v31-title-telegram': 'Tombol Telegram di Pojok Layar',
-                'modal.fix-v31-body-telegram': 'Tombol bundar Telegram sekarang ada di pojok kanan bawah aplikasi. Sekali klik langsung join grup Telegram Affiliate Go — tempat update fitur, tips, dan tanya jawab dengan komunitas.',
+                'modal.fix-v31-body-telegram': 'Tombol bundar Telegram sekarang ada di pojok kanan bawah aplikasi. Sekali klik langsung join grup Telegram Kreativa AI — tempat update fitur, tips, dan tanya jawab dengan komunitas.',
                 'modal.title-v27': '\u26a1 Update Terbaru \u2014 Versi 48',
                 'ui.logout': 'Logout',
-                'beranda.title': 'Selamat Datang di Affiliate Go Foto Studio',
+                'beranda.title': 'Selamat Datang di Kreativa AI Foto Studio',
                 'beranda.subtitle': 'Asisten AI Anda untuk menjelajahi 79++ fitur photo & video generation',
                 'beranda.hint': 'Tanya apa saja tentang fitur aplikasi ini! by Arul CG',
-                'beranda.bot-greeting': ' Halo! Saya AI Assistant untuk <strong>Affiliate Go Foto Studio</strong> by Arul CG.<br><br>Saya siap membantu Anda dengan berbagai pertanyaan. Tanya saya tentang apa saja!<br><br> Obrolan umum \u2022  Ide kreatif \u2022  Pengetahuan \u2022  Tips konten<br><br>Silakan ketik pertanyaan Anda di bawah!',
+                'beranda.bot-greeting': ' Halo! Saya AI Assistant untuk <strong>Kreativa AI Foto Studio</strong> by Arul CG.<br><br>Saya siap membantu Anda dengan berbagai pertanyaan. Tanya saya tentang apa saja!<br><br> Obrolan umum \u2022  Ide kreatif \u2022  Pengetahuan \u2022  Tips konten<br><br>Silakan ketik pertanyaan Anda di bawah!',
                 'beranda.input-placeholder': "Ketik pertanyaan Anda di sini... (Contoh: 'Apa kabar?', 'Jelaskan tentang AI', dll)",
                 'beranda.send-btn': 'Kirim',
-                'beranda.video-tutorials': 'Video Tutorial Affiliate Go:',
+                'beranda.video-tutorials': 'Video Tutorial Kreativa AI:',
                 'beranda.community': 'Bergabung dengan Komunitas:',
                 'beranda.support': 'Support & Media Sosial:',
                 // Create Model (bm.*)
@@ -820,15 +728,6 @@
                 'fr.tip2': '<i class="fas fa-check mr-2"></i>Upload foto reviewer supaya karakter konsisten di semua scene seperti video content creator asli',
                 'fr.tip3': '<i class="fas fa-check mr-2"></i>Pakai preset tema (Warung Lokal, Street Food Malam, dll) supaya setting review terasa autentik',
                 // Product Ads / Iklan Produk (ads.*)
-                'ads.h1': 'Generator Story Iklan',
-                'ads.subtitle': 'Solusi AI untuk konten promosi brand Anda.',
-                'ads.step1': 'Unggah Gambar Produk',
-                'ads.desc-tip': '\uD83D\uDCA1 Tip: Deskripsi detail menghasilkan iklan yang lebih menarik',
-                'ads.step5': 'Pilih Suara Narator',
-                'ads.narrator-tip': '\uD83C\uDFAC Pilih narator sesuai target audiens iklan',
-                'ads.step6': 'Pilih Rasio Aspek',
-                'ads.generate-btn': 'Buat Scene Iklan',
-                'ads.count-label': 'Jumlah Generate',
                 // Professional Headshot (hs.*)
                 'hs.h1': 'Professional Headshot Studio',
                 'hs.subtitle': 'Buat foto headshot profesional untuk LinkedIn, CV, profil bisnis, dan berbagai kebutuhan profesional dengan AI canggih!',
@@ -2703,38 +2602,10 @@
                 'lang.id': 'Indonesian', 'lang.en': 'English', 'lang.ms': 'Malay',
                                 // ===== Login ad-free popup (once per device) =====
                 // ===== AdBlock Detection Overlay =====
-                'adblock.title': 'AdBlock Detected',
-                'adblock.desc': 'This app is free thanks to ads. Please disable AdBlock to continue, or get permanent ad-free access with Bebas Iklan.',
-                'adblock.howto-label': 'How to disable:',
-                'adblock.howto-text': 'Click the AdBlock icon in your browser toolbar → choose "Disable on this site" / "Pause on this site" → refresh the page.',
-                'adblock.recheck': "I've Disabled It — Re-check",
-                'adblock.buy': 'Buy Ad-Free Rp 14,000/month',
 
                 'nav.beranda': 'Home',
-                'nav.ruangsaku': 'Ads',
                 'nav.upscale': 'Upscale',
                 // Ruang Saku info page (rs.*)
-                'rs.badge': 'Your AI finance buddy',
-                'rs.hero-title': 'Talk about money as easily as venting to a friend.',
-                'rs.hero-desc': 'Meet Rindu — an AI friend that helps you log expenses, track savings, and remember debts. Just chat, like a regular conversation.',
-                'rs.hero-cta': 'Open RuangSaku.com',
-                'rs.hero-cta-hint': 'For the best mobile experience, open directly in your browser',
-                'rs.features-title': 'One friend, all your money matters',
-                'rs.feat1-title': 'Log Expenses',
-                'rs.feat1-desc': '"Coffee 25k" — Rindu instantly detects the category and logs it to the right wallet.',
-                'rs.feat2-title': 'Track Savings',
-                'rs.feat2-desc': '"Saving 500k for umrah" — Rindu monitors progress and celebrates every milestone.',
-                'rs.feat3-title': 'Manage Debts',
-                'rs.feat3-desc': '"Budi owes 200k" — Rindu remembers who owes what and reminds you of deadlines.',
-                'rs.feat4-title': 'Smart Dashboard',
-                'rs.feat4-desc': 'Wallet balances, spending trends, budgets — all updated automatically, no manual input.',
-                'rs.feat5-title': 'Automatic Reminders',
-                'rs.feat5-desc': 'Morning budget brief, nightly expense recap. Bills? Reminded 3 days ahead.',
-                'rs.feat-free': 'Free forever',
-                'rs.feat-free-desc': 'Pro available for those who need advanced features',
-                'rs.final-cta-title': 'Start in 2 minutes',
-                'rs.final-cta-desc': 'Sign up free, meet Rindu, start chatting about money right away.',
-                'rs.final-cta-btn': 'Try Free at RuangSaku.com',
                 // Upscale tab (up.*) — paid feature, ESRGAN 2K/4K
                 'up.h1': 'AI Photo Upscale',
                 'up.subtitle': 'Want to print your edited photos without grain? Use Upscale — boost your photo resolution to 2K or 4K with AI. Sharp, clear, ready to print or post on social media.',
@@ -2972,77 +2843,13 @@
                 'hrg.price-hint': 'Enter a price on each uploaded product photo.',
                 'hrg.step4-bg': '4. Upload Background',
                 'hrg.step5-ratio': '5. Aspect Ratio',
-                'ads.badge': 'Digital products from the AffiliateGo developer',
-                'ads.hero-title': 'Level up your skills & content',
-                'ads.hero-desc': 'Two flagship products to help you earn with AI — built by the same developer as this app.',
-                'ads.aff-badge': 'AFFILIATE PROGRAM',
-                'ads.aff-title': 'Earn Rp50,000 per App Sale!',
-                'ads.aff-desc': 'Become an Affiliate GO affiliate and earn a Rp50,000 commission for every app sale through your link. Watch the tutorial on how to become an affiliate below.',
-                'ads.aff-cta': 'Watch the Affiliate Tutorial',
-                'ads.course-badge': 'LIMITED FOUNDING MEMBER PRICE',
-                'ads.course-title': 'Vibe Coding & Monetization eCourse',
-                'ads.course-desc': 'Learn the secret to Rp 1M/week with AI: build Google Apps Script apps with AI, then sell them. No coding skills, no capital needed.',
-                'ads.course-f1': '6 video modules from zero to your first product — lifetime access',
-                'ads.course-f2': 'Ready-to-use Claude prompt templates + magic prompts + CLAUDE.md',
-                'ads.course-f3': 'Monetization guide & how to sell apps on Lynk.id',
-                'ads.course-f4': 'WhatsApp support group + free updates forever',
-                'ads.course-cta': 'Get the eCourse Now',
-                'ads.kilat-badge': 'LAUNCH PRICE',
-                'ads.kilat-title': 'KILATVIDEO — AI Auto Content Creator',
-                'ads.kilat-desc': 'Turn random videos on your phone into viral content automatically. AI picks, edits, captions, adds music, then auto-uploads to social media.',
-                'ads.kilat-f1': 'AI auto-edit — no editing skills needed at all',
-                'ads.kilat-f2': 'Niche-based captions: 4 presets + 20 custom template slots',
-                'ads.kilat-f3': 'Auto-schedule uploads to social media — wake up, content is live',
-                'ads.kilat-f4': 'Lifetime + free updates + Telegram version bonus at release',
-                'ads.kilat-cta': 'Get KILATVIDEO',
-                'ads.yt24-badge': 'LIFETIME — ONE-TIME PAYMENT',
-                'ads.yt24-title': 'YT24 — 24/7 YouTube Live',
-                'ads.yt24-desc': 'Run a YouTube channel live 24/7 nonstop — perfect for lofi music, murotal, rain sounds, ASMR. Multi-stream 10+ channels at once.',
-                'ads.yt24-f1': 'Multi-channel: 10+ YouTube Live streams at once from one app',
-                'ads.yt24-f2': 'Dual format — horizontal (Live) & vertical (Shorts)',
-                'ads.yt24-f3': 'RDP/VPS friendly — live 24/7 without your laptop on',
-                'ads.yt24-f4': 'Lifetime + free updates + support group',
-                'ads.yt24-cta': 'Get YT24',
-                'ads.vocalive-badge': 'AI SELLER LIVE 24/7',
-                'ads.vocalive-title': 'Vocalive AI — AI Live Selling',
-                'ads.vocalive-desc': 'An AI seller that replies to TikTok Live comments in a natural voice & sells automatically 24/7 — no monthly host salary.',
-                'ads.vocalive-f1': 'Real-time comment replies in a natural human voice',
-                'ads.vocalive-f2': 'AI learns your product database — answers buyers accurately',
-                'ads.vocalive-f3': 'Just one Gemini API Key — no OBS/extra software',
-                'ads.vocalive-f4': 'TikTok live now — Shopee & other platforms coming soon',
-                'ads.vocalive-cta': 'Get Vocalive AI',
-                'ads.pk-badge': 'PK SIMULATOR 24/7',
-                'ads.pk-title': 'TikTok Live PK Simulator',
-                'ads.pk-desc': 'Automated TikTok Live with no talking needed — stunning bubble visuals & PK simulation that gets viewers sending gifts 24/7.',
-                'ads.pk-f1': 'Bubble visuals keep viewers hooked & sending gifts',
-                'ads.pk-f2': 'Automatic PK & scoring system, Team A vs Team B',
-                'ads.pk-f3': 'Lightweight & lag-free — runs on a regular laptop',
-                'ads.pk-f4': 'Set & forget — go live via PC or phone aimed at the monitor',
-                'ads.pk-cta': 'Get PK Simulator',
-                'ads.tikdance-badge': 'AI DANCE AUTO-GIFT 24/7',
-                'ads.tikdance-title': 'TikDance AI — AI TikTok Dancer',
-                'ads.tikdance-desc': 'An AI character dances automatically whenever a viewer sends a gift — 24/7 TikTok Live without appearing on camera.',
-                'ads.tikdance-f1': 'AI dances automatically when a gift arrives — under 1 second',
-                'ads.tikdance-f2': 'Fully customizable characters — anime, robot, cute animals',
-                'ads.tikdance-f3': 'Runs 24/7 in the background — saves millions in host salary',
-                'ads.tikdance-f4': 'Go live via PC or phone aimed at the monitor',
-                'ads.tikdance-cta': 'Get TikDance AI',
-                'ads.storyboard-badge': 'GPT UGC STORYBOARD',
-                'ads.storyboard-title': 'AI UGC Storyboard Maker',
-                'ads.storyboard-desc': 'A custom GPT that builds affiliate UGC video storyboards from one product — no face on camera, no editing skills. Great for TikTok Shop, Shopee, Tokopedia.',
-                'ads.storyboard-f1': 'Input a product → 6-8 scene storyboard ready to become a video',
-                'ads.storyboard-f2': 'High-converting UGC framework: hook, problem, solution, CTA',
-                'ads.storyboard-f3': 'Bonus image-to-video tutorial (Kling, Runway, CapCut AI)',
-                'ads.storyboard-f4': 'Lifetime — create unlimited content for any product',
-                'ads.storyboard-cta': 'Get GPT Storyboard',
-                'ads.disclaimer': 'Check full details & latest pricing on the product page. Income figures in the material are calculation simulations, not a promise of results.',
                 'headers.miniature': 'Miniature Me', 'headers.karikatur': 'Caricature Generator',
                 'headers.photo-editor': 'Photo Editor Pro', 'headers.ai-beauty': 'AI Beauty Editor',
                 'headers.new-born': 'Magic Baby Photo Editor', 'headers.story-update': 'Story Update Generator',
                 'favorites.title': 'Favorites',
                 'favorites.sheet-title': 'Favorite Tabs',
                 'favorites.empty-mobile': 'No favorite tabs yet. Tap the small star on the corner of any bottom button to mark it as favorite.',
-                'login.title': 'Affiliate GO', 'login.subtitle': 'Photo Studio by Arul CG',
+                'login.title': 'Kreativa AI', 'login.subtitle': 'Photo Studio by Arul CG',
                 'login.email-placeholder': '\u2709 Your purchase email...',
                 'login.btn': '\u26A1 LOGIN NOW', 'login.verifying': 'Verifying...',
                 'login.secure': '\uD83D\uDD12 Encrypted & Secure Access',
@@ -3050,7 +2857,7 @@
                 // Modal Update Terbaru — keys badge + body untuk versi current.
                 'modal.fix-v48-badge': 'Update v48',
                 'modal.fix-v48-title-affiliate': 'Affiliate Program — Earn Rp50,000/Sale',
-                'modal.fix-v48-body-affiliate': 'You can now become an Affiliate GO affiliate and earn a Rp50,000 commission for every app sale through your link. Open the Ads menu for details + watch the tutorial on how to become an affiliate.',
+                'modal.fix-v48-body-affiliate': 'You can now become an Kreativa AI affiliate and earn a Rp50,000 commission for every app sale through your link. Open the Ads menu for details + watch the tutorial on how to become an affiliate.',
                 'modal.fix-v48-title-dark': 'Manual Dark Mode & Better Colors',
                 'modal.fix-v48-body-dark': 'Dark mode now only turns on when you enable it yourself via the moon/sun button — it no longer follows your phone or computer setting automatically. Colors that used to clash in dark mode (bright panels, hard-to-read text) have been cleaned up across all features, on desktop and mobile.',
                 'modal.fix-v47-badge': 'Update v47',
@@ -3137,16 +2944,16 @@
                 'modal.fix-v31-title-ruangsaku': 'New Ruang Saku Tab Design',
                 'modal.fix-v31-body-ruangsaku': 'Ruang Saku tab now has a brief intro page for Rindu (AI finance buddy) + direct button to RuangSaku.com. Smoother mobile experience — one click and it opens in a browser tab.',
                 'modal.fix-v31-title-telegram': 'Telegram Button at Screen Corner',
-                'modal.fix-v31-body-telegram': 'Round Telegram button is now at the bottom-right corner of the app. One click jumps directly to the Affiliate Go Telegram group — for feature updates, tips, and Q&A with the community.',
+                'modal.fix-v31-body-telegram': 'Round Telegram button is now at the bottom-right corner of the app. One click jumps directly to the Kreativa AI Telegram group — for feature updates, tips, and Q&A with the community.',
                 'modal.title-v27': '\u26a1 Latest Update \u2014 Version 48',
                 'ui.logout': 'Logout',
-                'beranda.title': 'Welcome to Affiliate Go Foto Studio',
+                'beranda.title': 'Welcome to Kreativa AI Foto Studio',
                 'beranda.subtitle': 'Your AI Assistant to explore 79++ photo & video generation features',
                 'beranda.hint': 'Ask anything about this app! by Arul CG',
-                'beranda.bot-greeting': ' Hi! I am the AI Assistant for <strong>Affiliate Go Foto Studio</strong> by Arul CG.<br><br>I am ready to help you with various questions. Ask me anything!<br><br> General chat \u2022  Creative ideas \u2022  Knowledge \u2022  Content tips<br><br>Type your question below!',
+                'beranda.bot-greeting': ' Hi! I am the AI Assistant for <strong>Kreativa AI Foto Studio</strong> by Arul CG.<br><br>I am ready to help you with various questions. Ask me anything!<br><br> General chat \u2022  Creative ideas \u2022  Knowledge \u2022  Content tips<br><br>Type your question below!',
                 'beranda.input-placeholder': "Type your question here... (e.g. 'How are you?', 'Explain AI', etc)",
                 'beranda.send-btn': 'Send',
-                'beranda.video-tutorials': 'Affiliate Go Video Tutorials:',
+                'beranda.video-tutorials': 'Kreativa AI Video Tutorials:',
                 'beranda.community': 'Join the Community:',
                 'beranda.support': 'Support & Social Media:',
                 // Create Model (bm.*)
@@ -3493,15 +3300,6 @@
                 'fr.tip2': '<i class="fas fa-check mr-2"></i>Upload a reviewer photo so the character stays consistent across scenes like a real content creator video',
                 'fr.tip3': '<i class="fas fa-check mr-2"></i>Use theme presets (Local Warung, Night Street Food, etc) so the review setting feels authentic',
                 // Product Ads / Iklan Produk (ads.*)
-                'ads.h1': 'Ad Story Generator',
-                'ads.subtitle': 'AI solution for your brand promotion content.',
-                'ads.step1': 'Upload Product Image',
-                'ads.desc-tip': '\uD83D\uDCA1 Tip: Detailed description produces more engaging ads',
-                'ads.step5': 'Choose Narrator Voice',
-                'ads.narrator-tip': '\uD83C\uDFAC Choose narrator based on ad target audience',
-                'ads.step6': 'Choose Aspect Ratio',
-                'ads.generate-btn': 'Create Ad Scenes',
-                'ads.count-label': 'Number of Generations',
                 // Professional Headshot (hs.*)
                 'hs.h1': 'Professional Headshot Studio',
                 'hs.subtitle': 'Create professional headshots for LinkedIn, CV, business profile, and various professional needs with advanced AI!',
@@ -5407,20 +5205,16 @@
                 'fr.empty-hint': 'Muat naik foto makanan + deskripsi kemudian klik Buat Scene',
                 'fs.subtitle': 'Tukar foto makanan anda jadi foto profesional kelas food photographer — untuk menu, Instagram, TikTok, dan promosi',
                 'feedbranding.color-hint': 'Warna jadi latar utama semua pos. Pilih yang sesuai dengan produk anda.',
-                'beranda.title': 'Selamat Datang ke Affiliate Go Foto Studio',
+                'beranda.title': 'Selamat Datang ke Kreativa AI Foto Studio',
                 'beranda.subtitle': 'Asisten AI Anda untuk meneroka 79++ ciri photo & video generation',
                 'beranda.hint': 'Tanya apa sahaja tentang ciri aplikasi ini! by Arul CG',
-                'beranda.bot-greeting': ' Helo! Saya Pembantu AI untuk <strong>Affiliate Go Foto Studio</strong> by Arul CG.<br><br>Saya sedia membantu Anda dengan pelbagai soalan. Tanya saya tentang apa sahaja!<br><br> Perbualan umum \u2022  Idea kreatif \u2022  Pengetahuan \u2022  Tips kandungan<br><br>Sila taip soalan Anda di bawah!',
+                'beranda.bot-greeting': ' Helo! Saya Pembantu AI untuk <strong>Kreativa AI Foto Studio</strong> by Arul CG.<br><br>Saya sedia membantu Anda dengan pelbagai soalan. Tanya saya tentang apa sahaja!<br><br> Perbualan umum \u2022  Idea kreatif \u2022  Pengetahuan \u2022  Tips kandungan<br><br>Sila taip soalan Anda di bawah!',
                 'beranda.input-placeholder': "Taip soalan Anda di sini... (Contoh: 'Apa khabar?', 'Jelaskan tentang AI', dll)",
                 'beranda.send-btn': 'Hantar',
                 'beranda.community': 'Sertai Komuniti:',
                 'lang.id': 'Indonesia',
                 'lang.en': 'English',
                 'lang.ms': 'Melayu',
-                'adblock.title': 'AdBlock Dikesan',
-                'adblock.desc': 'Aplikasi ini percuma kerana iklan. Matikan AdBlock dahulu untuk terus menggunakan aplikasi, atau dapatkan akses tanpa iklan kekal dengan Bebas Iklan.',
-                'adblock.howto-text': 'Klik ikon AdBlock di toolbar pelayar → pilih "Disable on this site" / "Pause on this site" → segar semula halaman.',
-                'adblock.recheck': 'Saya Sudah Matikan — Semak Semula',
                 'nav.buat-model': 'Buat Model',
                 'nav.bg-remover': 'Tukar Latar Belakang',
                 'nav.photo-extender': 'Luaskan Foto',
@@ -5433,25 +5227,6 @@
                 'nav.bikin-carousel': 'Buat Carousel',
                 'nm.profesi-anak': 'Profesion',
                 'nm.photo-extender': 'Luaskan',
-                'rs.badge': 'Rakan AI kewangan anda',
-                'rs.hero-title': 'Berbual tentang duit, santai macam meluah pada kawan.',
-                'rs.hero-desc': 'Kenali Rindu — rakan AI yang bantu catat perbelanjaan, pantau simpanan, sampai ingatkan hutang. Tinggal chat saja, macam berbual biasa.',
-                'rs.hero-cta-hint': 'Untuk pengalaman terbaik di telefon, buka terus di pelayar',
-                'rs.features-title': 'Satu kawan, semua urusan duit',
-                'rs.feat1-title': 'Catat Perbelanjaan',
-                'rs.feat1-desc': '"Beli kopi 25rb" — Rindu terus tahu kategorinya dan catat ke dompet yang betul.',
-                'rs.feat2-title': 'Pantau Simpanan',
-                'rs.feat2-desc': '"Menyimpan 500rb untuk umrah" — Rindu pantau progres dan beri semangat tiap pencapaian.',
-                'rs.feat3-title': 'Urus Hutang',
-                'rs.feat3-desc': '"Budi hutang 200rb" — Rindu yang ingatkan, siapa hutang berapa dan bila tarikh akhirnya.',
-                'rs.feat4-desc': 'Baki dompet, trend perbelanjaan, bajet — semua kemas kini sendiri tanpa input manual.',
-                'rs.feat5-title': 'Peringatan Automatik',
-                'rs.feat5-desc': 'Pagi beri baki bajet, malam recap perbelanjaan. Bil? Diingatkan 3 hari sebelumnya.',
-                'rs.feat-free': 'Percuma selamanya',
-                'rs.feat-free-desc': 'Pro tersedia untuk yang perlu ciri lanjutan',
-                'rs.final-cta-title': 'Mula dalam 2 minit',
-                'rs.final-cta-desc': 'Daftar percuma, kenali Rindu, terus mula berbual tentang duit.',
-                'rs.final-cta-btn': 'Cuba Percuma di RuangSaku.com',
                 'up.subtitle': 'Mahu cetak foto hasil suntingan anda tanpa kabur? Guna Upscale — naikkan resolusi foto jadi 2K atau 4K dengan AI. Tajam, jelas, sedia cetak atau posting di media sosial.',
                 'up.upload-title': 'Muat Naik Foto',
                 'nav.beranda': 'Laman Utama',
@@ -5874,12 +5649,7 @@
                 'fr.step4': 'Tema Visual (Pilihan)',
                 'fr.step4-hint': 'Atur tema atau mood visual untuk ulasan (kosongkan jika lalai)',
                 'fr.results-hint': 'Klik scene untuk pratonton, edit, regenerate, atau muat turun',
-                'ads.step1': 'Muat Naik Gambar Produk',
-                'ads.step6': 'Pilih Nisbah Aspek',
                 // Banner Program Affiliate (ads.aff-*) — differences-only, sisanya fallback ID
-                'ads.aff-title': 'Dapat Rp50,000 setiap Jualan Aplikasi Ini!',
-                'ads.aff-desc': 'Jadi affiliat Affiliate GO dan dapatkan komisen Rp50,000 untuk setiap jualan aplikasi melalui pautan anda. Tonton tutorial cara jadi affiliat di bawah ini.',
-                'ads.aff-cta': 'Tonton Tutorial Jadi Affiliat',
                 'hs.subtitle': 'Buat foto headshot profesional untuk LinkedIn, CV, profil perniagaan, dan pelbagai keperluan profesional dengan AI canggih!',
                 'hs.step1': 'Muat Naik Foto Anda',
                 'hs.custom-label': '\u2728 Tema/Profesion Tersuai:',
@@ -6621,7 +6391,7 @@
             ["Login Kembali Normal","Login Back to Normal"],
             ["Hasil Foto Rapi di HP","Photos Display Neatly on Mobile"],
             ["Tandai Tab Favorit dengan Bintang","Mark Favorite Tabs with a Star"],
-            ["Affiliate Go Pro Dihapus","Affiliate Go Pro Removed"],
+            ["Kreativa AI Pro Dihapus","Kreativa AI Pro Removed"],
             ["Bikin Carousel","Create Carousel"],
             ["Foto Ulang Tahun","Birthday Photo"],
             ["Foto Keluarga","Family Photo"],
@@ -7168,7 +6938,7 @@
 
         window.isAdFree = false;
         // [v33+] Favorit Tab feature gate. Default OFF — di-set true oleh login/cek
-        // response kalau user sudah bayar (kolom M = "AKTIF" di sheet Affiliate GO Users).
+        // response kalau user sudah bayar (kolom M = "AKTIF" di sheet Kreativa AI Users).
         window.favoritFeatureActive = false;
         let __lastAdTime = 0;
         let __adInProgress = false;
@@ -7270,10 +7040,29 @@
             });
         }
 
+        window.getKaiAuth = function() {
+            let email = localStorage.getItem('kreativa_email') || localStorage.getItem('affiliatego_email');
+            let token = localStorage.getItem('kreativa_token') || localStorage.getItem('affiliatego_token');
+            let name = localStorage.getItem('kreativa_name') || localStorage.getItem('affiliatego_name');
+            if (email && token) return { email, token, name };
+            
+            try {
+                const pk = localStorage.getItem('primaKreativa');
+                if (pk) {
+                    const data = JSON.parse(pk);
+                    if (data.email && data.sessionToken) {
+                        return { email: data.email, token: data.sessionToken, name: data.user?.name || "User" };
+                    }
+                }
+            } catch(e) {}
+            return { email: null, token: null, name: null };
+        };
+
         // Update badge status di pojok kanan atas berdasarkan window.isAdFree
         function updateAdFreeBadge() {
             let badge = document.getElementById("ad-free-status-badge");
-            const loggedIn = !!localStorage.getItem("affiliatego_email");
+            const auth = window.getKaiAuth();
+            const loggedIn = !!auth.email;
 
             if (!loggedIn) {
                 if (badge) badge.style.display = "none";
@@ -7994,9 +7783,9 @@ Brand: "${brand}"${slogan ? `, tagline "${slogan}"` : ''}.`;
 
                     if (data.status === "SUKSES") {
                         // Simpan kredensial di localStorage
-                        localStorage.setItem("affiliatego_email", email);
-                        localStorage.setItem("affiliatego_token", newToken);
-                        localStorage.setItem("affiliatego_name", data.nama || "User");
+                        localStorage.setItem("kreativa_email", email);
+                        localStorage.setItem("kreativa_token", newToken);
+                        localStorage.setItem("kreativa_name", data.nama || "User");
 
                         // Status Bebas Iklan dari server
                         window.isAdFree = !!data.ad_free;
@@ -8015,7 +7804,7 @@ Brand: "${brand}"${slogan ? `, tagline "${slogan}"` : ''}.`;
                         // Buka aplikasi
                         bukaAplikasi(data.nama || "User");
                     } else {
-                        error.innerText = "❌ " + (data.message || "Email tidak terdaftar. Pastikan sudah membeli Affiliate GO.");
+                        error.innerText = "❌ " + (data.message || "Email tidak terdaftar. Pastikan sudah membeli Kreativa AI.");
                     }
                 })
                 .catch(err => {
@@ -8056,8 +7845,9 @@ Brand: "${brand}"${slogan ? `, tagline "${slogan}"` : ''}.`;
 
         // Fungsi 3: Jaga Sesi (Security Check)
         function jagaSesi() {
-            const email = localStorage.getItem("affiliatego_email");
-            const token = localStorage.getItem("affiliatego_token");
+            const auth = window.getKaiAuth();
+            const email = auth.email;
+            const token = auth.token;
 
             if (!email || !token) return;
 
@@ -8088,9 +7878,10 @@ Brand: "${brand}"${slogan ? `, tagline "${slogan}"` : ''}.`;
 
         // Fungsi 4: Auto Login (saat page load/refresh)
         window.addEventListener('load', function() {
-            const email = localStorage.getItem("affiliatego_email");
-            const token = localStorage.getItem("affiliatego_token");
-            const nama = localStorage.getItem("affiliatego_name");
+            const auth = window.getKaiAuth();
+            const email = auth.email;
+            const token = auth.token;
+            const nama = auth.name;
 
             if (email && token && nama) {
                 // Tampilkan loading
@@ -8127,9 +7918,9 @@ Brand: "${brand}"${slogan ? `, tagline "${slogan}"` : ''}.`;
         // Fungsi 5: Logout
         function logout() {
             // Clear localStorage
-            localStorage.removeItem("affiliatego_email");
-            localStorage.removeItem("affiliatego_token");
-            localStorage.removeItem("affiliatego_name");
+            localStorage.removeItem("kreativa_email");
+            localStorage.removeItem("kreativa_token");
+            localStorage.removeItem("kreativa_name");
 
             // Reload page (akan kembali ke login screen)
             location.reload();
