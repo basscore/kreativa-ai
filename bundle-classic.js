@@ -7046,12 +7046,16 @@
             let name = localStorage.getItem('kreativa_name') || localStorage.getItem('affiliatego_name');
             if (email && token) return { email, token, name };
             
+            // Kuncinya 'primaKreativaUser' — itu yang ditulis skrip login (blok
+            // terobfuskasi di HTML). 'primaKreativa' tanpa sufiks tidak pernah
+            // ditulis siapa pun, jadi cabang ini dulu selalu meleset dan
+            // getKaiAuth() balik null walau user sudah login.
             try {
-                const pk = localStorage.getItem('primaKreativa');
+                const pk = localStorage.getItem('primaKreativaUser');
                 if (pk) {
                     const data = JSON.parse(pk);
                     if (data.email && data.sessionToken) {
-                        return { email: data.email, token: data.sessionToken, name: data.user?.name || "User" };
+                        return { email: data.email, token: data.sessionToken, name: data.nama || "User" };
                     }
                 }
             } catch(e) {}
@@ -7735,206 +7739,17 @@ Brand: "${brand}"${slogan ? `, tagline "${slogan}"` : ''}.`;
 
 
 
-        // ==================== UTILITY FUNCTIONS ====================
-
-        // Generate Token Unik untuk Device
-        function generateToken() {
-            return Math.random().toString(36).substr(2, 9) + Date.now().toString(36) + Math.random().toString(36).substr(2, 9);
-        }
-
-        // ==================== LOGIN FUNCTIONS ====================
-
-        // Fungsi 1: Proses Login
-        function prosesLogin() {
-            const email = document.getElementById('emailInput').value.trim();
-            const loading = document.getElementById('loadingMsg');
-            const error = document.getElementById('errorMsg');
-            const loginBtn = document.querySelector('.login-btn');
-
-            // Validasi email
-            if (!email) {
-                error.innerText = "⚠️ Email wajib diisi!";
-                return;
-            }
-
-            // Validasi format email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                error.innerText = "⚠️ Format email tidak valid!";
-                return;
-            }
-
-            // Show loading
-            loading.style.display = "block";
-            error.innerText = "";
-            loginBtn.disabled = true;
-            loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> MEMVERIFIKASI...';
-
-            // Generate Token Baru
-            const newToken = generateToken();
-
-            // Panggil Google Apps Script (Action: login)
-            fetch(SCRIPT_URL + "?action=login&email=" + encodeURIComponent(email) + "&token=" + encodeURIComponent(newToken) + "&app_secret=" + encodeURIComponent(APP_SECRET) + "&product=" + encodeURIComponent(PRODUCT_ID))
-                .then(res => res.json())
-                .then(data => {
-                    loading.style.display = "none";
-                    loginBtn.disabled = false;
-                    loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> MASUK APLIKASI';
-
-                    if (data.status === "SUKSES") {
-                        // Simpan kredensial di localStorage
-                        localStorage.setItem("kreativa_email", email);
-                        localStorage.setItem("kreativa_token", newToken);
-                        localStorage.setItem("kreativa_name", data.nama || "User");
-
-                        // Status Bebas Iklan dari server
-                        window.isAdFree = !!data.ad_free;
-                        if (typeof updateAdFreeBadge === "function") updateAdFreeBadge();
-
-                        // [v33+] Favorit Tab paid feature — flag dari server adalah source of truth.
-                        // Kalau aktif, override localStorage favorit dengan data cloud + render ulang.
-                        // Kalau tidak aktif, biarkan localStorage (user lama mungkin sudah punya
-                        // favorit lokal — tetap kelihatan tapi click bintang akan munculkan paywall
-                        // sebelum bisa toggle/sync).
-                        window.favoritFeatureActive = !!data.favorit_feature_active;
-                        if (window.favoritFeatureActive && Array.isArray(data.favorites) && typeof window._affApplyFavoritesFromServer === "function") {
-                            window._affApplyFavoritesFromServer(data.favorites);
-                        }
-
-                        // Buka aplikasi
-                        bukaAplikasi(data.nama || "User");
-                    } else {
-                        error.innerText = "❌ " + (data.message || "Email tidak terdaftar. Pastikan sudah membeli Kreativa AI.");
-                    }
-                })
-                .catch(err => {
-                    loading.style.display = "none";
-                    loginBtn.disabled = false;
-                    loginBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> MASUK APLIKASI';
-                    // SyntaxError = server merespons tapi bukan JSON (GAS overload
-                    // mengembalikan halaman HTML error) — bukan masalah internet user.
-                    if (err instanceof SyntaxError) {
-                        error.innerText = "❌ Server sedang sibuk. Tunggu sebentar lalu coba lagi.";
-                    } else {
-                        error.innerText = "❌ Gagal koneksi ke server. Periksa koneksi internet Anda.";
-                    }
-                    console.error("Login error:", err);
-                });
-        }
-
-        // Fungsi 2: Buka Aplikasi (Unlock Main App)
-        function bukaAplikasi(nama) {
-            // Hide login overlay
-            document.getElementById('login-overlay').style.display = 'none';
-
-            // Show main app
-            const mainApp = document.getElementById('main-app');
-            mainApp.classList.add('unlocked');
-
-            // Show user info badge
-            const userBadge = document.getElementById('userInfoBadge');
-            userBadge.classList.add('active');
-            document.getElementById('userNameDisplay').innerText = nama;
-
-            // Start session monitoring (check every 60 seconds).
-            // JANGAN turunkan ke 10s lagi — polling agresif x jumlah user bikin
-            // 30 simultaneous executions GAS penuh → login user lain gagal
-            // ("Gagal koneksi ke server", insiden 2026-08-05).
-            setInterval(jagaSesi, 60000);
-        }
-
-        // Fungsi 3: Jaga Sesi (Security Check)
-        function jagaSesi() {
-            const auth = window.getKaiAuth();
-            const email = auth.email;
-            const token = auth.token;
-
-            if (!email || !token) return;
-
-            // Panggil Google Apps Script (Action: cek)
-            fetch(SCRIPT_URL + "?action=cek&email=" + encodeURIComponent(email) + "&token=" + encodeURIComponent(token) + "&app_secret=" + encodeURIComponent(APP_SECRET) + "&product=" + encodeURIComponent(PRODUCT_ID))
-                .then(res => res.json())
-                .then(data => {
-                    if (data.status === "INVALID") {
-                        // Token tidak cocok - akun login di tempat lain
-                        alert("⚠️ SESI BERAKHIR!\n\nAkun Anda sedang digunakan di perangkat lain.\nAnda akan dikembalikan ke halaman login.");
-                        logout();
-                    } else if (data.status === "VALID") {
-                        // Refresh status Bebas Iklan tiap 60 detik (mengikuti polling sesi)
-                        const wasAdFree = window.isAdFree;
-                        window.isAdFree = !!data.ad_free;
-                        if (wasAdFree !== window.isAdFree && typeof updateAdFreeBadge === "function") {
-                            updateAdFreeBadge();
-                        }
-                        // [v33+] Refresh status fitur Favorit Tab — supaya saat user baru bayar
-                                                window.favoritFeatureActive = !!data.favorit_feature_active;
-                    }
-                })
-                .catch(err => {
-                    // Skip jika error koneksi (agar tidak ganggu user)
-                    console.log("Session check skipped due to connection issue");
-                });
-        }
-
-        // Fungsi 4: Auto Login (saat page load/refresh)
-        window.addEventListener('load', function() {
-            const auth = window.getKaiAuth();
-            const email = auth.email;
-            const token = auth.token;
-            const nama = auth.name;
-
-            if (email && token && nama) {
-                // Tampilkan loading
-                document.getElementById('loadingMsg').style.display = "block";
-
-                // Verifikasi token ke server
-                fetch(SCRIPT_URL + "?action=cek&email=" + encodeURIComponent(email) + "&token=" + encodeURIComponent(token) + "&app_secret=" + encodeURIComponent(APP_SECRET) + "&product=" + encodeURIComponent(PRODUCT_ID))
-                    .then(res => res.json())
-                    .then(data => {
-                        document.getElementById('loadingMsg').style.display = "none";
-
-                        if (data.status === "VALID") {
-                            // Status Bebas Iklan dari server saat auto-login
-                            window.isAdFree = !!data.ad_free;
-                            if (typeof updateAdFreeBadge === "function") updateAdFreeBadge();
-
-                            // Token masih valid, langsung buka aplikasi
-                            bukaAplikasi(nama);
-                        } else {
-                            // Token tidak valid, hapus localStorage
-                            localStorage.clear();
-                            document.getElementById('errorMsg').innerText = "⚠️ Sesi telah berakhir. Silakan login kembali.";
-                        }
-                    })
-                    .catch(err => {
-                        document.getElementById('loadingMsg').style.display = "none";
-                        // Jika error koneksi, tetap coba buka (offline mode)
-                        console.log("Auto-login verification failed, opening anyway");
-                        bukaAplikasi(nama);
-                    });
-            }
-        });
-
-        // Fungsi 5: Logout
-        function logout() {
-            // Clear localStorage
-            localStorage.removeItem("kreativa_email");
-            localStorage.removeItem("kreativa_token");
-            localStorage.removeItem("kreativa_name");
-
-            // Reload page (akan kembali ke login screen)
-            location.reload();
-        }
-
-        // Fungsi 6: Enter key support untuk login
-        document.addEventListener('DOMContentLoaded', function() {
-            const emailInput = document.getElementById('emailInput');
-            if (emailInput) {
-                emailInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        prosesLogin();
-                    }
-                });
-            }
-        });
-    
+        // ==================== LOGIN LEGACY (AffiliateGo) — DIHAPUS ====================
+        // Blok login lama (prosesLogin/bukaAplikasi/jagaSesi/auto-login/logout)
+        // dicabut: seluruh DOM yang dipakainya (#loadingMsg, #errorMsg, #emailInput,
+        // #login-overlay, #main-app, #userInfoBadge, #userNameDisplay) sudah tidak
+        // ada di HTML, dan ia memverifikasi sesi ke SCRIPT_URL (deployment GAS
+        // AffiliateGo) — bukan APPS_SCRIPT_URL yang dipakai login Kreativa AI.
+        // Deployment itu balas "Email tidak terdaftar" untuk user Kreativa, jadi
+        // cabang else-nya menjalankan localStorage.clear() dan MENGHAPUS sesi
+        // primaKreativa beberapa detik setelah halaman load. Akibatnya getKaiAuth()
+        // balik null dan tiap fitur berkuota (Upscale, sinkron favorit) gagal
+        // dengan "Silakan login terlebih dahulu."
+        // Regresi masuk di 464b0c6, saat blok ini dialihkan ke getKaiAuth() sehingga
+        // ikut membaca primaKreativa; sebelumnya ia membaca affiliatego_* yang tidak
+        // pernah ada di Kreativa, jadi selalu early-return dan tidak berefek.

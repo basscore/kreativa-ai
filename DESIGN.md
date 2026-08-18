@@ -28,6 +28,15 @@ di-hardcode di ~10 daftar terpisah) sudah dihapus. Kalau Anda merasa perlu
 menulis `#content-alat-saya .sesuatu { ... }` untuk memperbaiki tampilan
 umum — hampir pasti yang salah adalah salah satu dari tiga lapisan di atas.
 
+**Bukan berarti semua blok bernama `custom-creative-*` itu sisa lama.**
+`custom-creative-login`, `custom-creative-beranda`, dan `custom-creative-sidebar`
+(di antara blok Komponen dan Tema Panel) itu styling asli dan masih dipakai —
+`#login-screen`, `#content-beranda` (lihat §3, ia memang di luar jangkauan
+Tema Panel), dan sidebar tidak punya gaya di tempat lain. Sudah diverifikasi
+2026-08-18: seluruh nilai warnanya konsisten dengan palet gelap saat ini
+(`#0B0E17`, gradien brand `#FF456A→#8A2BE2`, dst.) — jangan dihapus, biarpun
+namanya mirip pola yang dilarang di atas.
+
 ---
 
 ## 2. Palet: kenapa tangga netral dibalik
@@ -171,10 +180,17 @@ syarat agar ia dapat gradien brand.
 saat tema disetel dan biasanya berakhir tak terbaca di kanvas gelap. Pakai kelas
 palet.
 
-**Jangan tulis gradien inline dengan warna kertas.** Gradien seperti
-`linear-gradient(135deg, #F4F2EA, #F4F2EA)` — dua ujung warna yang sama — adalah
-sisa perataan tema lama, bukan gradien. Untuk aksen brand pakai
-`#FF3366 → #B829E6`.
+**Jangan tulis gradien inline dengan dua ujung warna yang sama.** Baik itu
+warna kertas (`linear-gradient(135deg, #F4F2EA, #F4F2EA)`) maupun warna apa
+pun lainnya (ditemukan juga dengan `#16a34a`, `#34393F`, `#eab308`,
+`#37393D`) — itu bukan gradien, itu sisa proses perataan tema lama yang belum
+sempat dipulihkan. 34 titik seperti ini disapu 2026-08-18 (diganti warna solid
+polos, tampilan akhirnya identik karena kedua ujungnya memang sama). Untuk
+aksen brand asli pakai `#FF3366 → #B829E6`. Deteksi ulang:
+```bash
+grep -noP 'linear-gradient\([^,]+,\s*(#[0-9a-fA-F]{6})[^,]*,\s*\1' kreativa-ai-v2-injected.html
+```
+harus kosong.
 
 **Jangan pakai konvensi gelap di markup.** `text-slate-200`, `bg-gray-800`,
 `border-gray-700` akan terbalik arah oleh palet. Pasangannya: `text-slate-700`,

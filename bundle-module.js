@@ -17040,29 +17040,25 @@ PENTING:
             });
         }
 
+        // Satu-satunya sumber kebenaran auth: window.getKaiAuth (bundle-classic.js,
+        // selalu dimuat sebelum bundle ini). Salinan lokalnya dicabut — salinan itu
+        // yang dulu ikut salah baca kunci 'primaKreativa' dan bikin Upscale mengira
+        // user belum login.
         function getAuthCredentials() {
-            if (window.getKaiAuth) return window.getKaiAuth();
-            let email = localStorage.getItem('affiliatego_email') || localStorage.getItem('kreativa_email');
-            let token = localStorage.getItem('affiliatego_token') || localStorage.getItem('kreativa_token');
-            if (email && token) return { email: email, token: token };
-            
-            try {
-                const primaKreativaStr = localStorage.getItem('primaKreativa');
-                if (primaKreativaStr) {
-                    const data = JSON.parse(primaKreativaStr);
-                    if (data.email && data.sessionToken) {
-                        return { email: data.email, token: data.sessionToken };
-                    }
-                }
-            } catch(e) {}
-            return { email: null, token: null };
+            return window.getKaiAuth ? window.getKaiAuth() : { email: null, token: null };
         }
+
+        // Kuota upscale divalidasi di GAS Kreativa (APPS_SCRIPT_URL) — di sanalah
+        // login menyimpan sessionToken. SCRIPT_URL itu deployment AffiliateGo lama;
+        // token dari dua deployment tidak pernah cocok, jadi use_upscale di sana
+        // selalu balas "Sesi tidak valid".
+        const QUOTA_URL = (typeof APPS_SCRIPT_URL === 'string' && APPS_SCRIPT_URL) || SCRIPT_URL;
 
         async function consumeQuota() {
             const auth = getAuthCredentials();
             if (!auth.email || !auth.token) return { ok: false, reason: 'not_logged_in' };
             try {
-                const url = SCRIPT_URL + '?action=use_upscale'
+                const url = QUOTA_URL + '?action=use_upscale'
                     + '&email=' + encodeURIComponent(auth.email)
                     + '&token=' + encodeURIComponent(auth.token)
                     + '&app_secret=' + encodeURIComponent(APP_SECRET)
@@ -17082,7 +17078,7 @@ PENTING:
             const auth = getAuthCredentials();
             if (!auth.email || !auth.token) return;
             try {
-                const url = SCRIPT_URL + '?action=refund_upscale'
+                const url = QUOTA_URL + '?action=refund_upscale'
                     + '&email=' + encodeURIComponent(auth.email)
                     + '&token=' + encodeURIComponent(auth.token)
                     + '&app_secret=' + encodeURIComponent(APP_SECRET)
