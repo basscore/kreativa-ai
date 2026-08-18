@@ -7722,7 +7722,7 @@
 
         /* Lencana NEW di Sidebar */
         .new-badge {
-            background: linear-gradient(135deg, #FF3366, #8A2BE2) !important;
+            background: #FF3366 !important;
             color: #FFFFFF !important;
             -webkit-text-fill-color: #FFFFFF !important;
             border-radius: 9999px !important;
@@ -7731,9 +7731,10 @@
             letter-spacing: 0.4px !important;
             padding: 1px 6px !important;
             border: none !important;
-            box-shadow: 0 2px 6px rgba(255, 51, 102, 0.35) !important;
+            box-shadow: none !important;
             margin-left: auto !important;
             flex: none !important;
+            animation: none !important;
         }
 
         /* Sidebar Footer (User info & Logout) */
@@ -7833,6 +7834,9 @@
         }
 
         .mobile-hamburger {
+            position: relative !important;
+            transform: none !important;
+            left: 0 !important;
             background: rgba(22, 27, 40, 0.8) !important;
             border: 1px solid rgba(255, 255, 255, 0.12) !important;
             color: #FFFFFF !important;
@@ -8050,7 +8054,8 @@
             .mobile-header {
                 display: flex !important;
                 align-items: center !important;
-                justify-content: space-between !important;
+                justify-content: flex-start !important;
+                gap: 1rem !important;
                 position: sticky !important;
                 top: 0 !important;
                 z-index: 999 !important;
@@ -8244,6 +8249,15 @@
             border-bottom: 1px solid rgba(255, 255, 255, .06);
             border-radius: 1.1rem;
             box-shadow: 0 14px 30px -12px rgba(0, 0, 0, .55);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+
+        @media (max-width: 768px) {
+            [id^="content-"][data-map]>.kop {
+                top: 60px;
+            }
         }
 
         [id^="content-"][data-map]>.kop .kop-kategori {
@@ -34622,6 +34636,7 @@ finish review, the verdict, and DESIGN.md
                 if (e) {
                     if (e.preventDefault) e.preventDefault();
                     if (e.stopPropagation) e.stopPropagation();
+                    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
                 }
                 var sidebar = document.querySelector('.sidebar');
                 var toggleBtn = document.getElementById('toggle-sidebar-btn');
